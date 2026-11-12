@@ -4,9 +4,9 @@
 
 **Segui un percorso. Registra il tuo giro.** GPXdev è un'app gratuita per Android per navigare offline seguendo tracce GPX **in moto, in bici e a piedi**. Importa la traccia e la mappa prima di partire, poi segui il percorso con il GPS del telefono. Puoi iniziare senza creare un account.
 
-**[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.37.0.apk)**
+**[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.38.0.apk)**
 
-Versione **1.37.0** · APK · Android 10 o successivo
+Versione **1.38.0** · APK · Android 10 o successivo
 
 ![GPXdev in orizzontale: la mappa e i dati del giro nel tema Cyber](https://gianmaria.dev/assets/img/gpxdev/gpxdev-orizzontale.webp)
 
