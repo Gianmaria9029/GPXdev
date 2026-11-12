@@ -51,3 +51,15 @@ Trovi l'APK di sviluppo in `app/build/outputs/apk/debug/app-debug.apk`.
 | <img src="https://gianmaria.dev/assets/img/gpxdev/gpxdev-dashboard-cyber.webp" alt="Dashboard di GPXdev in verticale, tema Cyber" width="280"> | <img src="https://gianmaria.dev/assets/img/gpxdev/gpxdev-navigazione.webp" alt="Navigazione GPX in verticale, tema Cyber" width="280"> |
 
 La schermata della dashboard mostra la versione 1.35.1.
+
+## Funzione Cockpit
+
+**Registra il giro, ma guarda solo i dati!** Apri **Cockpit** dalla Home, dai un nome al giro e tocca **Avvia Cockpit**. GPXdev registra il percorso con il GPS mentre tu vedi velocità, distanza, tempo e quota in riquadri grandi, senza la mappa sullo schermo.
+
+Quando arrivi, tocca **Termina** per vedere il riepilogo. Se vuoi tenere il giro, salvalo nell’archivio e potrai esportarlo come file GPX.
+
+| Cockpit Cyber | Cockpit Soft |
+| :---: | :---: |
+| <img src="docs/images/cockpit-cyber-portrait.png" alt="Mockup del Cockpit in verticale, tema Cyber" width="280"> | <img src="docs/images/cockpit-soft-portrait.png" alt="Mockup del Cockpit in verticale, tema Soft" width="280"> |
+
+Mockup con dati di esempio.
