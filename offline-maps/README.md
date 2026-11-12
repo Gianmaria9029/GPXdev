@@ -43,6 +43,6 @@ Get-FileHash -LiteralPath $target -Algorithm SHA256
 4. Registrare un nuovo `.SOURCE.txt` con i risultati, la dimensione e il comando usato. Prima dell'importazione controllare anche tile campione a zoom di dettaglio, includendo terraferma, Sicilia e Sardegna: `verify` verifica la struttura, non tutti i contenuti delle tile.
 5. Copiare e importare la nuova mappa sul telefono. L'aggiornamento richiede l'intero nuovo archivio; l'app non applica aggiornamenti incrementali.
 
-Il contorno riproducibile è `sample-data/italy.geojson`, già derivato da [Geofabrik Italia](https://download.geofabrik.de/europe/italy.poly). I file `.pmtiles` sono esclusi da Git.
+Il contorno riproducibile è `sample-data/italy.geojson`, già derivato da [Geofabrik Italia](https://download.geofabrik.de/europe/italy.poly). Gli archivi PMTiles dell'Italia sono esclusi da Git. La mappa di Firenze in `sample-data/` serve ai test automatici.
 
 Fonti: [download Protomaps](https://docs.protomaps.com/basemaps/downloads), [comandi PMTiles](https://docs.protomaps.com/pmtiles/cli). Dati © contributori OpenStreetMap, [ODbL 1.0](https://www.openstreetmap.org/copyright).

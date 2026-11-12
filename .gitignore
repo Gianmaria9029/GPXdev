@@ -11,3 +11,13 @@ offline-maps/*.pmtiles
 *.iml
 *.jks
 *.keystore
+
+# Materiale di lavoro locale
+/*-test-telefono.txt
+/*-test-moto.txt
+/V1-*.txt
+/1.9.0-logica-arrivo.md
+/CODEX.md
+/CONTESTO_CODEX_GPXDEV_WEB_*.md
+/reference grafica/
+/apk/short-track.gpx
