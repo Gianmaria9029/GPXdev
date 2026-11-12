@@ -357,6 +357,13 @@ class HomeNavigationScreenTest : NavigationTestSupport() {
     @Test fun homeAndDetailsRenderInBothOrientationsAndThemes() {
         for (theme in AppTheme.entries) for (landscape in listOf(false, true)) {
             page(theme, if (landscape) 840 else 400, if (landscape) 400 else 800) { page, model, _ ->
+                val logo = page.nodes().single {
+                    it.config.getOrNull(SemanticsProperties.ContentDescription)?.contains("GPXdev by gdev") == true
+                }.boundsInRoot
+                val settings = page.text("Impostazioni").boundsInRoot
+                assertTrue("Logo must be to the left of settings", logo.right <= settings.left)
+                assertEquals("Logo and settings must share a row", logo.center.y, settings.center.y, 1f)
+                assertTrue("The introduction must be below the logo", page.text("Dashboard").boundsInRoot.top >= logo.bottom)
                 for (label in listOf("Segui una traccia", "Registra un giro", "Cockpit", "Esplora mappa")) {
                     val bounds = page.text(label).boundsInRoot
                     assertTrue("Home action must be fully visible: $label $bounds", bounds.top >= 0 && bounds.bottom <= page.view.height)

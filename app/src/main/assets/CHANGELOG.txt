@@ -6,6 +6,10 @@ Le date di rilascio non sono indicate perché non sono documentate per tutte
 le versioni. Per M0 e M1 il numero di versione iniziale non è ricostruibile
 con certezza dai messaggi e dagli APK disponibili.
 
+1.38.0 - Logo e intestazione della Home
+- Logo GPXdev in alto a sinistra, sulla stessa riga di Impostazioni, in verticale e in orizzontale.
+- Sfondo trasparente per i loghi Soft e Cyber nella Home e all'avvio.
+
 1.37.0 - Archivio piu' pratico
 - Ricerca per nome della traccia e file originale, senza distinzione di maiuscole o accenti.
 - Ordinamento persistente per aggiunta recente, nome e distanza crescente o decrescente.

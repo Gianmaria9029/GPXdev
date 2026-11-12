@@ -12,8 +12,8 @@ android {
         applicationId = "com.gpxnavigator"
         minSdk = 29
         targetSdk = 36
-        versionCode = 66
-        versionName = "1.37.0"
+        versionCode = 67
+        versionName = "1.38.0"
     }
 
     buildFeatures {

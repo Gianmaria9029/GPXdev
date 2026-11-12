@@ -50,10 +50,6 @@ internal fun DashboardContent(state: ImportGpxUiState, awaitingPermission: Boole
         (state.session.isRunning || state.session.status == SessionStatus.INTERRUPTED)
     val introduction: @Composable () -> Unit = {
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Image(painterResource(if (LocalAppTheme.current == AppTheme.SOFT)
-                R.drawable.gpxdev_logo_soft else R.drawable.gpxdev_logo_cyber),
-                stringResource(R.string.dashboard_logo_description), contentScale = ContentScale.Crop,
-                modifier = Modifier.width(180.dp).height(64.dp))
             Text(stringResource(R.string.home_welcome), style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold, modifier = Modifier.semantics { heading() })
             Text(stringResource(R.string.home_intro), style = MaterialTheme.typography.bodyLarge,
@@ -77,15 +73,8 @@ internal fun DashboardContent(state: ImportGpxUiState, awaitingPermission: Boole
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val twoPanes = dashboardLayout(maxWidth.value, maxHeight.value, LocalDensity.current.fontScale).twoPanes
         LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(20.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp)) {
-            if (!twoPanes) item {
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                    TextButton(onClick = actions.onSettings, modifier = Modifier.heightIn(min = 48.dp)) {
-                        Icon(painterResource(R.drawable.ic_settings), null, Modifier.size(22.dp))
-                        Text(stringResource(R.string.settings_title), Modifier.padding(start = 8.dp))
-                    }
-                }
-            }
+            verticalArrangement = Arrangement.spacedBy(if (twoPanes) 12.dp else 20.dp)) {
+            item { DashboardHeader(actions.onSettings) }
             if (!twoPanes && (state.session.isRunning || state.session.status == SessionStatus.INTERRUPTED)) item {
                 ActiveSessionCard(state, ready, actions)
             }
@@ -93,13 +82,9 @@ internal fun DashboardContent(state: ImportGpxUiState, awaitingPermission: Boole
                 item { CatalogFeedback(state) }
             if (twoPanes) item {
                 Row(horizontalArrangement = Arrangement.spacedBy(32.dp)) {
-                    Column(Modifier.weight(0.85f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Box(Modifier.weight(0.85f)) {
                         if (state.session.isRunning || state.session.status == SessionStatus.INTERRUPTED)
                             ActiveSessionCard(state, ready, actions) else introduction()
-                        TextButton(onClick = actions.onSettings, modifier = Modifier.heightIn(min = 48.dp)) {
-                            Icon(painterResource(R.drawable.ic_settings), null, Modifier.size(22.dp))
-                            Text(stringResource(R.string.settings_title), Modifier.padding(start = 8.dp))
-                        }
                     }
                     Box(Modifier.weight(1.15f)) { choices(true) }
                 }
@@ -108,6 +93,23 @@ internal fun DashboardContent(state: ImportGpxUiState, awaitingPermission: Boole
                 item { choices(false) }
             }
             item { footer() }
+        }
+    }
+}
+
+@Composable
+private fun DashboardHeader(onSettings: () -> Unit) {
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        Box(Modifier.weight(1f)) {
+            Image(painterResource(if (LocalAppTheme.current == AppTheme.SOFT)
+                R.drawable.gpxdev_logo_soft else R.drawable.gpxdev_logo_cyber),
+                stringResource(R.string.dashboard_logo_description), contentScale = ContentScale.Fit,
+                alignment = Alignment.CenterStart, modifier = Modifier.width(148.dp).height(48.dp))
+        }
+        TextButton(onClick = onSettings, modifier = Modifier.heightIn(min = 48.dp)) {
+            Icon(painterResource(R.drawable.ic_settings), null, Modifier.size(22.dp))
+            Text(stringResource(R.string.settings_title), Modifier.padding(start = 8.dp))
         }
     }
 }

@@ -74,7 +74,7 @@ fun NavigatorApp(openNavigationRequest: Int = 0, themeViewModel: ThemeViewModel 
                         contentDescription = stringResource(R.string.dashboard_logo_description),
                         contentScale = ContentScale.Fit,
                         modifier = Modifier.align(Alignment.Center).padding(32.dp)
-                            .sizeIn(maxWidth = 320.dp, maxHeight = 160.dp),
+                            .sizeIn(maxWidth = 260.dp, maxHeight = 88.dp),
                     )
                 } else {
                     val recordingViewModel: RecordingViewModel = viewModel()
