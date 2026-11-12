@@ -1,6 +1,6 @@
 # GPXdev - Navigazione GPX offline
 
-**Segui un percorso. Registra il tuo giro.** GPXdev è un'app gratuita per Android pensata per usare tracce GPX e mappe offline. Carica i file prima di partire e usa il GPS del telefono durante il giro, anche senza Internet. Puoi iniziare subito, senza creare un account.
+**Segui un percorso. Registra il tuo giro.** GPXdev è un'app gratuita per Android per navigare offline seguendo tracce GPX **in moto, in bici e a piedi**. Importa la traccia e la mappa prima di partire, poi segui il percorso con il GPS del telefono. Puoi iniziare senza creare un account.
 
 **[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.37.0.apk)**
 
@@ -41,3 +41,11 @@ Trovi l'APK di sviluppo in `app/build/outputs/apk/debug/app-debug.apk`.
 [Architettura](ARCHITECTURE.md) · [Preparazione delle mappe](offline-maps/README.md) · [Changelog](app/src/main/assets/CHANGELOG.txt) · [Licenza MIT](LICENSE)
 
 </details>
+
+## Schermate in verticale
+
+| Dashboard | Navigazione |
+| :---: | :---: |
+| <img src="https://gianmaria.dev/assets/img/gpxdev/gpxdev-dashboard-cyber.webp" alt="Dashboard di GPXdev in verticale, tema Cyber" width="280"> | <img src="https://gianmaria.dev/assets/img/gpxdev/gpxdev-navigazione.webp" alt="Navigazione GPX in verticale, tema Cyber" width="280"> |
+
+La schermata della dashboard mostra la versione 1.35.1.
