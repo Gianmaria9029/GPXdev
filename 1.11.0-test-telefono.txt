@@ -1,0 +1,50 @@
+GPX NAVIGATOR 1.11.0 - TRACCIA E SECONDA MANOVRA
+
+Installa app-1.11.0.apk come aggiornamento della 1.10.0.
+Mappe, GPX, tema, orientamento e zoom scelti restano disponibili.
+
+1. FRECCE E MARCATORI SULLA MAPPA
+- Apri un GPX in Esplora mappa: cerca partenza verde e arrivo a scacchi.
+- In un anello con estremi coincidenti o entro circa 15 metri compare un solo simbolo combinato.
+- Avvicina la mappa: piccole frecce bianche con bordo scuro devono seguire il verso originale del GPX.
+- Ruota tra Nord e Marcia: le frecce devono restare orientate lungo la traccia.
+- Allontana: le frecce si diradano visivamente e sotto zoom 10 non vengono mostrate.
+- La posizione GPS deve restare sopra traccia e marcatori.
+- Verifica che i nomi stradali restino leggibili; le frecce possono essere omesse dove lo spazio manca.
+
+2. AVANZAMENTO ATTENUATO
+- Avvia la navigazione: il GPX davanti mantiene il colore del tema, quello alle spalle diventa grigio.
+- Il colore rappresenta la posizione lungo il GPX, anche iniziando a meta' traccia.
+- Il tratto superato resta visibile; non viene cancellato.
+- Tornando indietro nel GPX, il confine tra le due parti deve arretrare con la posizione confermata.
+- Spegni il GPS o allontanati dalla traccia: il confine resta nell'ultima posizione affidabile.
+- Riattiva il GPS/rientra: dopo il riconoscimento il colore riprende ad aggiornarsi.
+- Ruota il telefono con GPS assente: l'ultimo avanzamento confermato deve rimanere disponibile.
+- Termina e passa a Esplora mappa: l'intero GPX torna nel colore normale.
+- Carica un'altra traccia: non deve ereditare il confine grigio della precedente.
+- Nei tratti sovrapposti la parte ancora da seguire ha priorita' visiva.
+
+3. SECONDA SVOLTA
+- Usa un GPX con due svolte nello stesso segmento distanti al massimo 100 metri.
+- Quando la prima viene mostrata, deve apparire la piccola freccia con Poi dopo X m.
+- Esempio: prima destra fra 120 metri, poi sinistra dopo 80 metri.
+- Gli 80 metri sono fra le due svolte: la seconda si trova quindi a circa 200 metri dalla posizione iniziale.
+- Prima del superamento della prima svolta, il valore Poi dopo resta la distanza fra le manovre.
+- Supera la prima: la seconda deve diventare principale, con distanza dalla posizione corrente.
+- Con tre svolte vicine, l'anteprima scorre alla terza.
+- Con svolte distanti oltre 100 metri l'anteprima non compare.
+- Con la sola freccia Prosegui, GPS incerto, fuori traccia o verso opposto non compare la seconda manovra.
+- L'anteprima non deve collegare manovre appartenenti a segmenti GPX diversi.
+
+4. LAYOUT E PRESTAZIONI
+- In orizzontale l'anteprima e' una riga nella scheda manovra del pannello laterale.
+- In verticale il quadrato principale conserva le dimensioni e ha una fascia secondaria sotto.
+- Verifica temi Standard e Cyber, caratteri grandi e leggibilita' delle due frecce.
+- Controlla che zoom, Centra, Follow e Termina restino accessibili.
+- Con una traccia lunga, avanzamento e mappa devono restare fluidi.
+- Verifica ancora zoom mantenuto, ETA e navigazione a schermo spento della 1.10.0.
+
+La geometria viene preparata una volta e suddivisa in porzioni di massimo 128 tratti.
+Durante il movimento vengono modificati un filtro grafico e la sola porzione corrente.
+I test automatici coprono geometria, soglie, segmenti separati, anelli, congelamento e promozione della manovra.
+Le immagini native sulla mappa e la leggibilita' effettiva vanno verificate sul telefono.

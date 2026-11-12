@@ -1,0 +1,500 @@
+GPXdev - CHANGELOG
+
+Cronologia ricostruita dalle funzionalità sviluppate nella conversazione e
+dalle versioni APK del progetto. Le versioni sono ordinate dalla più recente.
+Le date di rilascio non sono indicate perché non sono documentate per tutte
+le versioni. Per M0 e M1 il numero di versione iniziale non è ricostruibile
+con certezza dai messaggi e dagli APK disponibili.
+
+1.37.0 - Archivio piu' pratico
+- Ricerca per nome della traccia e file originale, senza distinzione di maiuscole o accenti.
+- Ordinamento persistente per aggiunta recente, nome e distanza crescente o decrescente.
+- Preferiti con stella e filtro dedicato, conservati nel database.
+- Rinomina dal dettaglio: nuovo nome nell'app e proposto per l'esportazione, contenuto GPX originale conservato.
+- Ricerca, filtro e posizione dell'elenco mantenuti tornando dal dettaglio; rinomina protetta durante la navigazione.
+- Migrazione del database da schema 5 a 6 conservando tracce e registrazioni.
+
+1.36.0 - Anticipo delle curve adattato alla velocita'
+- Le curve compaiono con circa 12 secondi di anticipo sulla velocita' GPS filtrata, fra 80 e 350 metri.
+- Senza velocita' attendibile viene mantenuto l'anticipo di 200 metri.
+- Una curva gia' mostrata resta visibile rallentando; la barra mantiene la distanza di riferimento iniziale.
+- Nessuna impostazione aggiuntiva; conservati riconoscimento delle curve, seconda indicazione e stati GPS.
+
+1.35.1 - Leggibilita dei menu Soft e Cyber
+- Schede distinte dal fondo pagina e icone attenuate per le azioni non disponibili.
+- Selezione del tema Cyber evidenziata in lime con testo antracite.
+- Pulsanti pastello Soft con bordo scuro sottile e footer con colori secondari.
+- Testo nero sui pulsanti fucsia Cyber.
+
+1.35.0 - Palette mappa chiara e scura
+- Menu Visuale con scelta persistente Mappa chiara / Mappa scura e selezione turchese in Soft, lime in Cyber.
+- Nuove palette cartografiche con strade principali ambra, secondarie neutre e sentieri tratteggiati.
+- Maggiore contrasto per etichette e traccia GPX, con colori dedicati al tratto percorso.
+- Cambio palette sulla mappa aperta mantenendo posizione e zoom.
+- Palette chiara con acqua e vegetazione piu distinguibili, tratto percorso attenuato e trasporti grigio freddo con tratti lunghi.
+- Palette scura con maggiore risalto alla traccia futura e GPS azzurro, aggiornato anche sulla freccia.
+
+1.32.2 - Schermo acceso in tutta l'app
+- Lo schermo resta acceso automaticamente mentre GPXdev e' visibile, anche nella Home, nelle impostazioni e nel riepilogo.
+- Rimossa l'opzione Mantieni lo schermo acceso. La gestione e' indipendente dallo stato del giro e dalla vecchia preferenza salvata.
+- Quando l'app passa in background torna a valere lo spegnimento automatico Android.
+
+1.32.1 - Chiusura automatica del messaggio di salvataggio
+- Il messaggio Giro salvato si chiude automaticamente dopo 5 secondi dalla comparsa.
+
+1.32.0 - Cockpit autonomo e riepilogo del giro
+- Cockpit e' un'attivita' autonoma con preparazione dedicata, registrazione automatica e identita' conservata dopo interruzioni.
+- Rimossi i collegamenti fra mappa e Cockpit. Home e notifica riaprono l'attivita' corretta; una sola attivita' alla volta.
+- Strumentazione senza scorrimento: Cockpit, GPS e REC in alto, dieci dati nella griglia e Home/Termina in basso.
+- Termina apre Riepilogo Cockpit con i dati registrati: Vmax, media in movimento, distanza, durata, quote iniziale/finale e min/max, differenza di quota, inizio/fine con data e punti GPX.
+- Riepilogo fermo e recuperabile dopo la chiusura dell'app, con Salva giro e Scarta giro. Senza punti GPS il salvataggio e' disabilitato.
+- I giri Cockpit salvati restano nell'archivio comune con indicazione della provenienza.
+- Migrazione automatica del database da schema 4 a 5: tracce, bozze e campioni esistenti conservati.
+- Conservate le animazioni della mappa 1.31.0, i temi e le impostazioni dello schermo; nessun nuovo permesso o dipendenza.
+
+1.31.0 - Movimento fluido sulla mappa
+- Cursore e camera animati con lo stesso ritmo dello schermo, con rotazione graduale e transizioni adattate agli aggiornamenti GPS.
+- Richiesta della posizione ogni secondo durante l'uso del GPS; nessuna posizione prevista o campione artificiale nella registrazione.
+- Inseguimento piu' continuo quando velocita' e precisione confermano il movimento; stabilizzazione conservata durante le soste.
+- Animazione della camera sospesa durante i gesti; zoom, Follow e modalita' Nord/Marcia conservati.
+- Interruzioni GPS e ritorno alla mappa gestiti senza riprodurre spostamenti arretrati; Cockpit continua a usare i dati reali della sessione.
+
+1.30.0 - Cockpit
+- Nuova funzione Cockpit nella Home, con preparazione del nome e avvio automatico della registrazione GPX premendo Avvia Cockpit.
+- Griglia fissa senza scorrimento: due colonne in verticale e cinque in orizzontale, nei temi Soft e Cyber.
+- Dieci dati: velocita' attuale, massima, media in movimento, distanza, tempo giro, quota attuale, minima, massima, differenza dalla partenza e ora di partenza.
+- Statistiche aggiornate progressivamente sugli stessi campioni usati nel GPX e recuperate alla ripresa della registrazione.
+- Passaggio fra mappa, Cockpit e Home senza interrompere il giro o creare una nuova registrazione; nessuna mappa richiesta per usare Cockpit.
+- GPS assente: velocita' e quota attuale non disponibili, dati accumulati conservati e tempo ancora in aggiornamento.
+- Termina usa la conferma di salvataggio o scarto gia' disponibile; nessuna misura dell'angolo di piega.
+- Conservati logo di avvio, impostazioni schermo e barra Android nascosta durante l'attivita'.
+
+1.29.2 - Piu' spazio anche in portrait
+- Barra superiore da 48 dp con titolo e GPS sulla stessa riga anche in verticale.
+- Icona della casa al posto del testo Home in tutte le schermate di navigazione.
+- Barra di stato Android nascosta in navigazione anche in verticale, richiamabile dal bordo superiore e ripristinata alla Home.
+- Stato GPS spostato dalla mappa alla barra superiore in portrait, mantenendo accessibili i dettagli GPS.
+
+1.29.1 - Piu' spazio alla mappa in landscape
+- Titolo del giro e stato GPS sulla stessa riga anche durante la registrazione.
+- Barra di stato Android nascosta nella schermata di navigazione in orizzontale, richiamabile con uno scorrimento dal bordo superiore.
+- Barra di stato ripristinata tornando alla Home o all'orientamento verticale.
+
+1.29.0 - Logo all'avvio
+- Logo GPXdev centrato per circa due secondi prima della schermata principale.
+- Variante del logo coerente con il tema Soft o Cyber selezionato.
+- La rotazione del telefono non fa ripartire l'attesa; nessuna nuova attesa tornando dal background.
+
+1.28.0 - Strumentazione della registrazione libera
+- In landscape la registrazione libera usa i riquadri della navigazione: velocita', Vmax, tempo giro, distanza percorsa e quota.
+- Tempo giro aggiornato anche senza posizioni GPS; mantenuto dall'inizio della registrazione dopo una ripresa.
+- Riepilogo dati della registrazione uniformato alla navigazione anche in verticale.
+- Nessun indicatore di svolta o fuori traccia durante la registrazione libera.
+
+1.27.0 - Impostazioni di mappa e schermo
+- Dashboard con il sottotitolo Scegli una funzione e nuovo titolo Registra il tuo giro.
+- Mappe offline nelle Impostazioni: nome, dimensione e importazione/sostituzione PMTiles.
+- Opzione per mantenere lo schermo acceso durante navigazione e registrazione con app visibile.
+- Orientamento dello schermo automatico, sempre verticale o sempre orizzontale, salvato fra gli avvii.
+- Ricaricata la mappa selezionata tornando dalle Impostazioni alla cartografia.
+
+1.26.1 - Esplora mappa senza tracce residue
+- Dopo Termina, rimossi il vecchio GPX e i relativi dati dalla mappa.
+- Esplora mappa non ricarica piu' automaticamente la traccia selezionata nell'archivio.
+- Le tracce restano disponibili in Le mie tracce e la navigazione attiva rimane visibile tornando alla mappa.
+
+1.26.0 - Home e dettaglio delle tracce
+- Nuova Home con Segui una traccia, Registra un giro ed Esplora mappa.
+- Attivita' in corso e ripresa delle sessioni interrotte in evidenza nella Home.
+- Archivio dedicato e schermata di dettaglio con anteprima offline, distanza, quote, dislivelli, estremi, orari e dati del file.
+- Spunta Registra anche il mio percorso prima di avviare la navigazione.
+- Esportazione ed eliminazione nel menu della traccia; tema Soft/Cyber nelle Impostazioni.
+- Anteprima schematica disponibile anche senza mappa, senza collegare segmenti separati.
+
+1.25.1 - Registrazione, stati GPS e arrivo
+- Esclusi i punti GPS precedenti all'avvio o alla ripresa della registrazione, anche nelle statistiche del GPX.
+- Aggancio e fuori traccia usano la stessa soglia: 40 metri con GPS buono, adattata all'accuratezza.
+- Una posizione fuori traccia non viene piu' indicata come attesa di un GPS preciso.
+- Arrivo riconosciuto anche quando il GPX termina con uno o piu' segmenti vuoti.
+
+1.25.0 - Correzioni di stabilita'
+- Ripresa corretta delle registrazioni libere interrotte.
+- Riapertura corretta dei giri grandi salvati in archivio.
+- Vmax della registrazione libera limitata alla sessione corrente.
+- Eliminate le sessioni fantasma dopo salvataggio o scarto del giro.
+- Corretto il progresso delle tracce che attraversano l'antimeridiano.
+- Corretta la panoramica delle tracce a cavallo di +/-180 gradi.
+
+1.24.2 - Conferma prima di terminare la navigazione
+- Termina dalla mappa senza registrazione chiede conferma prima di inviare l'arresto.
+- Si' termina la navigazione e torna alla Dashboard; No mantiene la navigazione attiva sulla mappa.
+- Anche chiudere il popup con Indietro o toccando fuori annulla la richiesta.
+- Con registrazione resta il flusso esistente di salvataggio o scarto del giro.
+
+1.24.1 - Colori della preparazione del giro
+- Pulsante Inizia registrazione rosa in Soft e rosa fluo in Cyber.
+- Bordo del riquadro del nome giallo in Soft e rosa fluo in Cyber.
+- Funzioni e disposizione della pagina conservate.
+
+1.24.0 - Preparazione della registrazione libera
+- Registrazione libera apre una pagina con nome della traccia e riepilogo dei dati prima di iniziare il giro.
+- Riquadri leggibili per percorso, velocita', altitudine e orari, nei temi Soft e Cyber.
+- Pulsante Inizia registrazione e ritorno alla Dashboard; nessuna registrazione avviata aprendo la preparazione.
+- Nome suggerito modificabile, conservato nella bozza e usato in archivio, nel GPX e nell'esportazione.
+- Layout adattivo per verticale, landscape, tastiera e caratteri grandi.
+- Avvio navigazione con Registra GPX invariato; nomi automatici disponibili lasciando vuoto il campo.
+- Migrazione automatica del database da schema 3 a 4, conservando i dati esistenti.
+
+1.23.0 - Dati e statistiche nei giri GPX registrati
+- Velocita' GPS istantanea nei punti della traccia, quando disponibile.
+- Riepilogo GPX con Vmax e relativo punto/orario, distanza totale e inizio/fine effettivi della registrazione.
+- Quote minima e massima, differenza di quota arrivo-partenza quando entrambe disponibili.
+- Media in movimento ponderata sul tempo su velocita' GPS valide da 3,6 km/h, escludendo soste e interruzioni.
+- Campioni di sosta conservati per i calcoli senza aggiungere oscillazioni al tracciato.
+- Estensioni GPXdev in GPX 1.1: traccia reimportabile e navigabile, GPX gia' archiviati conservati.
+- Migrazione del database da schema 2 a 3 senza azzerare archivio o bozze; i dati assenti delle vecchie registrazioni non sono inventati.
+- Nessuna nuova dipendenza, permesso o connessione di rete.
+
+1.22.6 - Pulizia delle vecchie copie interne delle mappe
+- Dopo l'attivazione di una mappa valida viene eliminata la copia privata precedente quando non e' piu' usata dal renderer.
+- Recuperato lo spazio delle copie obsolete gia' presenti, aprendo la mappa selezionata.
+- Importazioni e pulizia serializzate; una mappa non valida conserva quella precedente.
+- Un'eliminazione temporaneamente non riuscita viene ritentata senza interrompere la mappa valida.
+- Conservate tutte le cinque correzioni della 1.22.5.
+
+1.22.5 - Affidabilita' navigazione, mappe ed esportazione
+- Comando Termina della notifica protetto da un componente interno non esportato.
+- Arrivo confermato entro 10 metri dal punto finale, con accuratezza GPS entro 10 metri e posizione recente.
+- Controllo della directory PMTiles e dei riferimenti prima di attivare una mappa.
+- Esporta GPX disponibile su ogni traccia dell'archivio; selezione della traccia conservata durante la ricreazione dell'app.
+- Limiti GPX: 20 MiB, 100.000 punti, 1.000 segmenti, 512 caratteri per campo e profondita' XML massima 64.
+- Copia e parsing interrompibili, con pulizia delle importazioni incomplete.
+
+1.22.4 - Pulsanti landscape piu' leggibili
+- Pulsanti della Dashboard landscape alti fino a 64 dp, con testi fino a 18 sp e spazi piu' ampi quando l'altezza disponibile lo consente.
+- Le tre righe dei comandi si adattano allo spazio reale, mantenendosi visibili insieme nelle normali dimensioni landscape.
+- Registra GPX centrato e proporzionato al pulsante di avvio; Termina usa la stessa riga larga della registrazione libera.
+- Usa traccia ed Elimina da almeno 56 dp in landscape, con testi piu' grandi.
+- Stesso dimensionamento per Soft e Cyber; archivio scorrevole separatamente.
+
+1.22.3 - Nuova icona launcher chiara
+- Nuova icona dall'immagine approvata: bussola scura, freccia rosa pastello, GPXdev e firma by gdev su fondo chiaro.
+- Livelli adattivi nelle cinque densita' Android, con margini che conservano simbolo, nome e firma nelle forme del launcher.
+- Sfondo dell'icona coerente con l'immagine originale.
+
+1.22.2 - Loghi Soft e Cyber e archivio compatto
+- Integrati i due loghi GPXdev by gdev forniti nel brand kit, con cinque densità Android.
+- Logo scelto dal tema dell'app: Soft su chiaro e Cyber su scuro, anche cambiando tema senza riavviare.
+- Intestazione landscape compatta con logo, titolo Dashboard e comandi del tema.
+- Inquadrati solo i margini vuoti dei loghi, conservando bussola, nome e firma originali.
+- Registrazione libera ora ha fondo pieno azzurro in Soft e lime in Cyber, con testo nero.
+- Schede Le mie tracce più compatte in verticale e orizzontale: nome una sola volta, distanza e punti.
+- Rimosse la data di importazione e la ripetizione del nome file dalle schede; dati originali conservati nell'archivio.
+- Usa traccia ed Elimina affiancati nelle schede landscape con spazio adeguato, con aree di tocco di almeno 48 dp.
+- Nessuna nuova dipendenza, permesso o modifica al database.
+
+1.22.1 - Dashboard landscape compatta
+- Registra GPX attivo azzurro in Soft e lime in Cyber, con spunta e testo nero, distinto da Avvia navigazione.
+- Registrazione libera con bordo nello stesso colore dedicato alla registrazione.
+- Comandi landscape su tre righe compatte: avvio e registrazione, giro libero o Termina, importazione ed esplorazione.
+- Intestazione e riepilogo della traccia compatti; nei normali schermi landscape il pannello comandi non richiede scorrimento.
+- Archivio GPX scorrevole separatamente; errori, ripresa e operazioni raccolti nello stesso pannello.
+- Ripiego scorrevole per finestre molto ridotte o caratteri grandi, per mantenere accessibili tutti i comandi.
+
+1.22.0 - Registrazione dei giri GPX
+- Pulsante compatto Registra GPX: spunta e colore del tema quando attivo, prima di Avvia navigazione.
+- Registrazione libera per partire senza itinerario e senza riquadro delle svolte.
+- Indicatore rosso lampeggiante con pallino e REC nella barra superiore, in verticale e in orizzontale.
+- Tracciato reale blu distinto dal GPX da seguire; coordinate, quota e orario GPS conservati.
+- Una sola sorgente GPS per navigazione e registrazione, anche a schermo spento.
+- Termina ferma il giro e chiede Vuoi salvare il giro?: Sì lo aggiunge a Le mie tracce, No lo scarta.
+- Nomi Giro_aaaa-mm-gg_progressivo.gpx; progressivo persistente assegnato solo al salvataggio.
+- Esporta GPX dal messaggio di conferma del salvataggio, con selettore file Android.
+- Punti salvati progressivamente in Room; recupero dopo interruzione e decisione Sì/No conservata.
+- Migrazione automatica del database da schema 1 a 2, mantenendo catalogo e selezione.
+- Filtri per precisione, soste, duplicati e salti GPS; segmenti separati dopo interruzioni.
+- La registrazione richiede il permesso di posizione precisa; nessuna nuova dipendenza o permesso.
+
+1.21.0 - Chiusura prima versione
+- Documentazione aggiornata a GPXdev, temi Soft/Cyber, Dashboard adattiva e navigazione offline.
+- Roadmap V1 consolidata con le estensioni sviluppate e i limiti funzionali attuali.
+- Rimossi testi inutilizzati, cartella risorse vuota e duplicazione del nome nel manifest.
+- Stati interi Compose ottimizzati per le dimensioni della mappa.
+- Descrizione accessibile della seconda svolta con singolare e plurale corretti.
+- Suggerimenti Kotlin applicati ove equivalenti; mantenuto il controllo degli errori di salvataggio.
+- Logging Android intenzionale documentato con esclusioni lint mirate.
+
+1.20.1 - Nuova icona GPXdev
+- Nuova icona launcher dalla proposta bussola GPXdev: freccia rosa fluo su fondo scuro.
+- Icona adattiva Android con supporto ai launcher circolari e risorse per le diverse densita'.
+
+1.20.0 - Dashboard landscape e firma sviluppatore
+- Dashboard orizzontale a due pannelli: comandi a sinistra e archivio tracce a destra, con scorrimento indipendente.
+- Testi grandi, azioni affiancate ai dati e metadati apribili da Info traccia nelle schede landscape.
+- Layout adattivo a colonna singola quando finestra o caratteri ingranditi richiedono piu' spazio.
+- Elimina giallo #FCFF8B in Soft e lime #B6E536 in Cyber, con testo scuro e conferma invariata.
+- Footer con App developed by gianmaria.dev: apre https://gianmaria.dev nel browser esterno Android.
+- La versione nel footer continua ad aprire il changelog; stessi comandi e funzioni in entrambi i temi.
+
+1.19.0 - GPXdev e Dashboard
+- Nuovo nome GPXdev nell'app, sotto l'icona del launcher e nelle notifiche.
+- Home con GPXdev in alto, titolo Dashboard e sottotitolo Importa una traccia GPX e navigala offline - GPS only.
+- Termina azzurro con testo e icona neri nella Home Soft.
+- Usa traccia ed Elimina diventano pulsanti con bordi e area di tocco di almeno 48 dp in entrambi i temi.
+- Soft: Usa traccia giallo ed Elimina rosa pastello; Cyber: Usa traccia lime ed Elimina rosa fluo.
+- I pulsanti si dispongono su piu' righe quando lo spazio o i caratteri ingranditi lo richiedono.
+
+1.18.0 - Soft pastello e controlli condivisi
+- Light si chiama ora Soft; la preferenza salvata resta compatibile con Standard e Light.
+- Palette Soft: #FDFCFF, #000000, #FCFF8B, #F2ACE0 e #9AE1E5.
+- Riquadri quasi bianchi con numeri neri, svolte e Follow gialli, azioni e selezioni rosa, Visuale turchese.
+- Testi scuri anche sulle svolte e sulla seconda manovra, con bordi definiti e avvisi nei colori funzionali.
+- Pulsante Visuale con menu Nord/Senso di marcia in entrambi i temi e orientamenti.
+- Rimossi i pulsanti zoom meno/piu' solo in landscape, sia in Soft sia in Cyber.
+- Zoom tramite pizzico disponibile in entrambi gli orientamenti; meno/piu' restano in verticale.
+- Stesso layout e funzioni per Soft e Cyber: cambiano solo i colori.
+
+1.17.0 - Tema Light e riquadri condivisi
+- Il tema Standard si chiama ora Light; la preferenza gia' salvata resta compatibile.
+- Anche Light usa la sidebar landscape a riquadri: velocita' grande e Vmax, Arrivo, km percorsi e rimanenti.
+- GPS nella barra superiore accanto al nome traccia in entrambi i temi in landscape.
+- Riquadri Light con fondi chiari, cifre blu scuro e bordi leggibili.
+- Layout condiviso tra Light e Cyber, con colori coerenti con il tema scelto.
+
+1.16.0 - Riquadri Cyber in landscape
+- Sidebar a riquadri: velocita' grande e Vmax, arrivo, due quadrati per km percorsi e rimanenti.
+- Cifre monospaziate adattate allo spazio disponibile, distanze in km con un decimale.
+- Velocita' massima della sessione mantenuta anche in background e durante le rotazioni; azzerata a ogni nuova navigazione.
+- Vmax aggiornata solo con dati GPS recenti, accurati e con velocita' valida.
+- Stato GPS spostato accanto al nome traccia nella barra superiore Cyber in landscape.
+- Toccare il GPS apre le informazioni complete, inclusi quota, totale e tempo rimanente.
+- Tema Standard, verticale, mappa e riquadro svolte mantenuti.
+
+1.15.0 - Un solo comando Follow
+- Rimosso il mirino di centratura: sulla mappa restano zoom meno/piu' e una sola freccia Follow.
+- Freccia uniforme in verticale e landscape, con stato attivo evidenziato dal colore del tema.
+- Riattivare Follow riporta la mappa sulla posizione e mantiene lo zoom scelto.
+- Trascinare la mappa disattiva Follow; il pizzico continua a modificare lo zoom senza disattivarlo.
+- Controlli da 48 dp e descrizioni accessibili conservati nei due temi.
+
+1.14.0 - Strumentazione Cyber e menu Visuale
+- Termina lime con testo e simbolo scuri in Cyber, nella Home e nella navigazione.
+- Sidebar Cyber con velocita' ridotta a 40 sp, cifre monospaziate e dati allineati.
+- Sotto la velocita': rimanente, tempo e arrivo, percorsa, totale e quota, con scorrimento quando serve.
+- Dati su una o due colonne secondo larghezza disponibile e dimensione dei caratteri.
+- Pulsante Visuale nel tema Cyber, con menu Nord/Senso di marcia e spunta sulla scelta attiva.
+- Mappa, riquadro svolte, Home e presentazione Standard mantenuti.
+
+1.13.0 - Cyber rosa fluo e barra di navigazione essenziale
+- Rimosso il comando Dettagli dalla barra in verticale e in landscape; informazioni accessibili dal dato GPS e dagli avvisi.
+- Cyber piu' scuro: sfondo #121218, pannelli #1C1C24 e riquadro svolte #050509.
+- Rosa unico #F2055C per pulsanti principali, traccia, frecce, bordi e barra di avvicinamento.
+- Scheda selezionata rosa scuro #2D0B1B, bordo fluo e testi bianchi.
+- Pulsanti Cyber con testo nero e distanze delle svolte bianche per mantenere la leggibilita'.
+- Tema Standard e colori funzionali degli avvisi mantenuti.
+
+1.12.0 - Gerarchia e contrasto della navigazione landscape
+- Colonna destra con GPS, velocita' grande e distanza rimanente.
+- Riquadro svolta quadrato in basso a sinistra, con distanza grande e barra di avvicinamento.
+- Comandi zoom, Centra e Follow in alto a destra della mappa.
+- Seconda manovra ravvicinata mantenuta sotto il riquadro principale.
+
+1.11.0 - Traccia leggibile e seconda manovra
+- Piccole frecce lungo il GPX indicano il verso originale della traccia, con spaziatura visiva e comparsa dal livello di zoom 10.
+- Marcatori di partenza e arrivo; per estremi entro 15 metri viene usato un simbolo combinato.
+- In navigazione il tratto alle spalle diventa grigio; quello ancora da seguire mantiene il colore del tema.
+- Il colore segue anche l'arretramento confermato e si congela con GPS incerto o fuori traccia.
+- Preparazione dei dati una volta per GPX; a ogni avanzamento si aggiorna una piccola porzione, anche su tracce lunghe.
+- Seconda manovra quando la prima e' gia' mostrata e le due svolte nello stesso segmento distano al massimo 100 metri.
+- Poi dopo indica la distanza tra le svolte; dopo il superamento della prima la seconda diventa principale.
+- Anteprima nella scheda laterale in orizzontale e in una fascia sotto il quadrato in verticale.
+- Segmenti GPX separati rispettati, nessun nuovo pulsante sulla mappa.
+
+1.10.0 - Navigazione ottimizzata in landscape
+- Barra superiore unica e compatta in orizzontale, con Home, orientamento, Dettagli e Termina.
+- Pannello laterale adattabile da 160 a 180 dp, anche sui telefoni sotto 600 dp di larghezza utile.
+- Manovra rettangolare, GPS, distanza rimanente, velocita' e arrivo raccolti nel pannello laterale.
+- Totale, percorsa e quota disponibili in Altri dati; pannello scorrevole con caratteri ingranditi.
+- Zoom, Centra e Follow su una sola riga con pulsanti da 48 dp; attribuzione spostata in alto sulla mappa.
+- Camera adattata alle dimensioni e agli ingombri effettivi, con posizione fuori dall'area dei comandi.
+- La rotazione preserva lo zoom manuale; la panoramica automatica ricalcola l'inquadratura della traccia.
+- Layout verticale e temi Standard/Cyber mantenuti, con svolte rosa fluo in Cyber.
+
+1.9.0 - Tempo residuo e arrivo stimato
+- Aggiunta una riga compatta con tempo residuo e orario di arrivo nel pannello delle metriche.
+- Prima stima dopo almeno 30 secondi utili e 100 metri di avanzamento confermato sul GPX.
+- Media degli ultimi 3 minuti, con piu' peso ai dati recenti; misure aggregate in intervalli di almeno 5 secondi.
+- Soste confermate dopo circa 10 secondi: In pausa, senza conteggiare la sosta nell'andatura.
+- GPS insufficiente, fuori traccia, riconoscimento ambiguo e verso opposto sospendono la previsione.
+- Perdita del segnale e riagganci non introducono salti artificiali nel calcolo dell'andatura.
+- La stima continua durante la navigazione a schermo spento e riparte da zero con una nuova sessione.
+- Nei Dettagli e' disponibile l'andatura usata per la stima; l'arrivo oltre mezzanotte indica il cambio giorno.
+- I vuoti significativi fra segmenti GPX sospendono l'arrivo finche' restano davanti al tratto corrente.
+
+1.8.0 - Zoom manuale mantenuto e comandi compatti
+- Il pizzico modifica e salva lo zoom senza disattivare Follow.
+- La scala scelta viene mantenuta durante movimento, centratura e cambio Nord/Marcia.
+- Lo zoom viene ripristinato riaprendo la navigazione, entro i limiti della mappa caricata.
+- Nuova barra compatta con meno, piu' e Centra in basso a destra, vicino a Follow.
+- Trascinamento, rotazione e inclinazione manuali senza zoom passano all'esplorazione libera.
+- Centra riattiva Follow e mantiene lo zoom scelto.
+- Termina diventa un piccolo pulsante rosso con simbolo di arresto nella barra di stato e nella Home.
+- Disposizione dei controlli su una riga nelle mappe orizzontali con spazio sufficiente.
+
+1.7.0 - Riconoscimento del percorso e orientamento mappa
+- Il progresso considera continuita', tempo, accuratezza GPS e direzione di movimento.
+- Gli incroci e i tratti sovrapposti ambigui sospendono le indicazioni con Riconoscimento traccia.
+- Dopo perdita del segnale o cambio di tratto incoerente servono tre posizioni nuove e coerenti.
+- L'arretramento reale aggiorna le distanze e mostra Verso opposto al GPX; riprendendo nel verso originale le svolte tornano disponibili.
+- Nuovo selettore Nord/Marcia nella barra superiore, con scelta salvata sul dispositivo.
+- Senso di marcia ruota gradualmente la mappa e lascia piu' spazio davanti alla posizione.
+- Da fermo o con direzione non attendibile viene mantenuto l'ultimo orientamento affidabile.
+- Il movimento manuale sospende Follow; selezionare una modalita' o riattivare Follow riprende la navigazione della mappa.
+- Compatibile con i temi Standard e Cyber, completamente offline e senza funzioni vocali.
+
+1.6.0 - Temi Standard e Cyber
+- Selettore Aspetto nella Home, con scelta salvata localmente e ripristinata all'avvio.
+- Standard: interfaccia chiara con blu profondi, testi più contrastati e selezione azzurra.
+- Cartografia vettoriale più leggibile, traccia rossa scura con contorno bianco e posizione blu profondo.
+- Cyber: superfici antracite e grigie, azioni lampone, controlli lime e svolte rosa fluo.
+- In Cyber la mappa resta chiara; le mappe raster conservano i colori originali in entrambi i temi.
+- Avvisi, dialoghi, schede e barre di sistema seguono il tema scelto.
+
+1.5.0 - Indicazioni visive lungo il GPX
+- Box quadrato stile rally con freccia grande e distanza lungo la traccia.
+- Sette frecce: dritto, leggera sinistra/destra, svolta sinistra/destra, tornante sinistra/destra.
+- Semplificazione geometrica di 5 metri e raggruppamento delle curve vicine nello stesso verso.
+- Soglie: dritto fino a 25 gradi, leggera oltre 25 e sotto 60, svolta da 60, tornante da 150.
+- La svolta compare entro 200 metri e resta visibile fino al superamento della curva.
+- Il box compare durante una navigazione attiva; GPS impreciso e fuori traccia sospendono le frecce.
+- Segmenti GPX separati restano separati; indicazioni nel verso originale del GPX.
+- Elaborazione completamente offline, senza voce, suoni o vibrazioni.
+
+1.4.0 - Navigazione anche a schermo spento
+- Avvia navigazione apre la traccia selezionata e avvia una sessione GPS persistente.
+- Notifica con nome del GPX, stato GPS, distanza rimanente o avviso fuori traccia.
+- Azioni Apri e Termina nella notifica; Termina disponibile anche nell'app.
+- Esplora mappa usa il GPS solo mentre la schermata mappa e' visibile.
+- GPS, metriche e controllo fuori traccia condividono una sola sorgente di posizione.
+- Durante una sessione puoi importare GPX, mantenendo selezionata e protetta la traccia attiva.
+- Dopo un'interruzione o riavvio, la home propone Riprendi senza riavvio automatico.
+- Nessuna registrazione del percorso e nessun avviso sonoro o vibrazione.
+
+1.3.0 - Archivio di più tracce GPX
+- Aggiunto Le mie tracce nella home, con nome, distanza, punti e data di importazione.
+- Ogni nuovo import conserva le tracce precedenti e seleziona quella appena aggiunta.
+- Aggiunta la selezione del GPX da navigare e l'eliminazione con conferma.
+- Memorizzati catalogo e selezione in un database locale Room; i GPX restano file privati.
+- Migrata automaticamente la traccia conservata dalle versioni precedenti.
+- Eliminare la traccia selezionata svuota la selezione e mantiene le altre tracce e la mappa.
+
+1.2.1 - Changelog nell'app
+- La versione in basso a destra nella home apre questa cronologia.
+- Changelog scorrevole e consultabile completamente offline.
+- Raccolte le principali aggiunte e correzioni dal bootstrap alla versione attuale.
+
+1.2.0 - Avviso fuori traccia
+- Aggiunto un avviso visivo sulla mappa con la distanza stimata dal GPX.
+- L'uscita viene confermata dopo almeno tre posizioni GPS distinte e almeno
+  cinque secondi, con soglia minima di 40 metri e tolleranza legata all'accuratezza.
+- Il rientro usa una soglia più bassa per evitare continui cambi di stato.
+- Segnale poco preciso, posizioni vecchie, GPS disattivato e cambio GPX
+  azzerano l'avviso e richiedono una nuova conferma.
+- La distanza viene misurata sui segmenti reali del GPX, senza collegare i vuoti.
+
+1.1.0 - Etichette offline e nuova schermata di navigazione
+- Aggiunti nomi di strade e località per mappe vettoriali Protomaps e OpenMapTiles.
+- Caratteri Noto Sans inclusi nell'APK per leggere le etichette senza Internet.
+- Migliorato il contrasto della mappa e la visibilità della posizione con un alone blu.
+- Aggiunta una freccia quando il GPS fornisce una direzione di movimento;
+  da fermo o senza direzione disponibile viene mostrato un punto.
+- Più spazio alla mappa, metriche compatte e comandi Centra e Follow sempre accessibili.
+- Disposizione delle metriche adattata a verticale e orizzontale.
+- Coordinate, accuratezza, scelta e ricarica della mappa raccolte in Dettagli.
+
+1.0.0 - M11, build finale V1
+- Preparato l'APK debug finale della prima versione.
+- Consolidate importazione GPX, mappa offline, GPS, Follow e metriche.
+- Eseguita una ricompilazione completa con test, lint e verifica della firma.
+
+0.11.0 - M10, robustezza
+- Migliorata la gestione di GPS spento e riacceso, permessi e ritorno dal background.
+- Aggiunto l'accesso alle impostazioni per ripristinare posizione e permessi.
+- Conservati area e zoom della mappa dopo la rotazione.
+- Resi accessibili mappa e comandi anche in orizzontale e con contenuti scorrevoli.
+- Spostata fuori dal thread dell'interfaccia la preparazione grafica delle tracce lunghe.
+- I GPX non validi non sostituiscono la traccia precedentemente importata.
+- Gestiti segmenti con un solo punto o con punti ripetuti.
+- Aggiunte prove con GPX vuoti, non validi e da 50.000 punti.
+
+0.10.0 - M9, metriche della traccia
+- Mostrate distanza totale, percorsa e rimanente lungo il GPX.
+- Mostrate velocità e quota quando fornite dal GPS.
+- Calcolato l'avanzamento proiettando la posizione sul segmento GPX più vicino.
+- Percorsa e rimanente non vengono mostrate quando la posizione è lontana
+  dalla traccia o non è sufficientemente precisa.
+- Le distanze non includono collegamenti artificiali fra segmenti separati.
+
+0.9.1 - Correzione della centratura e versione nella home
+- Corretto l'aggiornamento della camera quando si preme Centra posizione.
+- Collegati direttamente alla mappa i cambiamenti di posizione e dello stato Follow.
+- Aggiunto il numero di versione in basso a destra nella schermata principale.
+
+0.9.0 - M8, Follow mode
+- Aggiunti Centra posizione e attivazione/disattivazione del Follow.
+- La camera segue automaticamente la posizione del dispositivo.
+- Lo spostamento manuale della mappa disattiva il Follow.
+- Limitati i movimenti dovuti alle piccole oscillazioni GPS.
+- Evitate lunghe animazioni quando la centratura richiede uno spostamento molto ampio.
+
+0.8.0 - M7, posizione GPS
+- Integrata la posizione reale tramite FusedLocationProviderClient.
+- Gestiti i permessi di posizione precisa e approssimativa.
+- Mostrate coordinate, accuratezza, velocità e direzione quando disponibili.
+- Aggiunto il punto della posizione sulla mappa.
+- Aggiornamenti GPS attivi mentre la schermata di navigazione è visibile.
+
+0.7.0 - M6, traccia sulla mappa
+- Disegnata la traccia GPX come linea sulla mappa.
+- Adattata automaticamente l'inquadratura per visualizzare la traccia intera.
+- Mantenuti separati i segmenti GPX.
+- Gestita la visualizzazione dei segmenti con un solo punto.
+
+0.6.0 - M5, lettura del GPX
+- Convertito il contenuto GPX nei modelli Track, TrackSegment e TrackPoint.
+- Supportati più trk e trkseg, punti trkpt, quota e data/ora opzionali.
+- Gestiti GPX vuoti, XML non valido e coordinate non ammesse.
+- Aggiunti test automatici del parser.
+
+0.5.0 - M4, importazione GPX
+- Selezione di un file GPX tramite il file picker Android.
+- Lettura corretta degli URI e copia del file nella memoria privata dell'app.
+- Mostrati nome, dimensione e conferma di ricezione del file.
+
+0.4.0 - M3, mappe offline PMTiles
+- Selezione e importazione di una mappa PMTiles locale.
+- Caricamento delle tile dal dispositivo senza connessione Internet.
+- Gestiti mappa mancante, archivi non validi e formati non supportati.
+- Supportate mappe raster e mappe vettoriali compatibili Protomaps/OpenMapTiles.
+- Prima verifica sul telefono con una mappa PMTiles di Firenze ingrandibile.
+
+0.3.1 - M2, integrazione MapLibre e correzione avvio
+- Integrato MapLibre nella schermata di navigazione.
+- Corretto il crash all'apertura della navigazione riscontrato durante i primi test.
+
+SVILUPPO INIZIALE - Numero di versione non confermato
+
+M1 - Interfaccia base
+- Create la schermata principale e la schermata di navigazione.
+- Aggiunti i passaggi di navigazione fra le due schermate.
+
+M0 - Bootstrap del progetto
+- Creato il progetto Android con Kotlin, Jetpack Compose e Gradle.
+- Configurata la build da terminale senza dipendere da Android Studio.
+- Impostata la compatibilità con Android 10 e versioni successive.
+
+DATI CARTOGRAFICI
+- Durante lo sviluppo è stata preparata e successivamente importata sul telefono
+  una PMTiles dell'Italia completa, con zoom da 0 a 15.
+- La mappa è un file separato dall'APK: le versioni dell'app e quelle della mappa
+  hanno cicli di aggiornamento indipendenti.

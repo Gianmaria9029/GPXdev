@@ -1,0 +1,68 @@
+GPXdev 1.21.0 - CHIUSURA DELLA PRIMA VERSIONE
+
+INSTALLAZIONE
+Installa app-1.21.0.apk sopra la versione attuale, senza disinstallare.
+VersionCode 37, application ID com.gpxnavigator e stesso certificato della 1.20.1.
+La build e' debug per installazione diretta, come quelle precedenti.
+Catalogo, mappe e preferenze mantengono gli stessi formati; nessuna migrazione del database.
+
+MODIFICHE DI CHIUSURA
+- README aggiornato a GPXdev, funzioni attuali, temi, utilizzo offline, build e installazione.
+- ROADMAP aggiornata con lo stato delle milestone e le estensioni gia' approvate.
+- ARCHITECTURE aggiornata con classi effettive, sessione, servizio GPS, persistenza e separazione della UI.
+- Eliminate cinque stringhe inutilizzate: session_short_starting, session_short_interrupted, session_short_explore, metrics_more e metrics_less.
+- Eliminata la cartella vuota mipmap-anydpi-v26.
+- Rimosso il nome duplicato di MainActivity: il launcher eredita GPXdev dall'applicazione.
+- Tre stati interi delle dimensioni della mappa passano a mutableIntStateOf.
+- Descrizione accessibile della seconda svolta con risorsa plurale metro/metri.
+- Intent del link sviluppatore costruito con l'estensione Kotlin toUri.
+- Avvisi sui log Android e su SharedPreferences documentati con esclusioni lint limitate ai metodi interessati.
+- Controllo del risultato di commit mantenuto per segnalare errori nel salvataggio della mappa.
+- Nessuna nuova dipendenza o permesso Android.
+
+PROVE SUL NUOVO APK
+I test sul telefono della 1.20.1 sono stati confermati dall'utente. Per questo nuovo APK:
+1. Aggiorna senza disinstallare: controlla v1.21.0, nome e icona GPXdev, tracce, mappa e tema salvati.
+2. Apri Soft e Cyber, ruota il telefono e verifica Dashboard e navigazione leggibili.
+3. Seleziona una traccia, avvia e termina la navigazione; controlla i vincoli sulla traccia attiva.
+4. Verifica Follow, Visuale e zoom: + e - solo in verticale; pizzico in entrambi gli orientamenti.
+5. Tocca il credito sviluppatore per aprire il browser esterno e la versione per aprire il changelog interno.
+6. Controlla che le informazioni della seconda svolta siano leggibili anche con TalkBack.
+7. In modalita' aereo, con GPS attivo, verifica mappa locale e aggiornamento delle metriche all'aperto.
+8. Avvia una sessione, spegni lo schermo e torna nell'app: controlla notifica, continuita' GPS e Termina.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 196 test, zero fallimenti, errori o test saltati.
+- lintDebug: PASS, zero errori, un avviso e zero suggerimenti.
+- Unico avviso residuo: MonochromeLauncherIcon, relativo alla variante per icone a tema Android rinviata come intervento grafico separato.
+- Gli avvisi manifest sull'assenza di permessi di rete da rimuovere sono messaggi del merger: le direttive tools:node=remove sono mantenute come protezione dalle dipendenze.
+- Metadati APK: versione 1.21.0, versionCode 37, nome applicazione GPXdev.
+- MainActivity eredita l'etichetta dell'applicazione e l'icona adattiva.
+- Permessi APK controllati: nessun permesso Internet, rete o Wi-Fi introdotto.
+- Firma APK verificata e identica alla 1.20.1.
+- SHA-256 disponibile in app-1.21.0.apk.sha256.
+- Log completo: .tools/1.21.0-build-test.log.
+- Nessun dispositivo ADB collegato: prove fisiche su questo APK ancora da eseguire.
+
+FILE MODIFICATI
+- README.md
+- ROADMAP.md
+- ARCHITECTURE.md
+- app/build.gradle.kts
+- app/src/main/AndroidManifest.xml
+- app/src/main/assets/CHANGELOG.txt
+- app/src/main/res/values/strings.xml
+- app/src/main/java/com/gpxnavigator/ui/navigation/NavigationContent.kt
+- app/src/main/java/com/gpxnavigator/ui/navigation/ManeuverBox.kt
+- app/src/main/java/com/gpxnavigator/ui/importgpx/DashboardFooter.kt
+- app/src/main/java/com/gpxnavigator/location/AndroidLocationProvider.kt
+- app/src/main/java/com/gpxnavigator/data/gpx/LocalGpxRepository.kt
+- app/src/main/java/com/gpxnavigator/data/maps/OfflineMapRepository.kt
+- Rimossa la cartella vuota app/src/main/res/mipmap-anydpi-v26.
+
+ARTEFATTI FINALI
+- app-1.21.0.apk
+- app-1.21.0.apk.sha256
+- V1-1.21.0.txt
+- 1.21.0-test-telefono.txt

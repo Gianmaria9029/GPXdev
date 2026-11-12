@@ -1,0 +1,39 @@
+GPXdev 1.22.1 - DASHBOARD LANDSCAPE
+
+Installa app-1.22.1.apk sopra la versione precedente senza disinstallare.
+
+MODIFICHE
+- Registra GPX attivo: azzurro #9AE1E5 in Soft, lime #B6E536 in Cyber, testo nero e spunta.
+- Avvia navigazione conserva il rosa del tema; Registrazione libera usa il bordo nel colore della registrazione.
+- Dashboard landscape con pannello comandi compatto fisso nei normali schermi orizzontali.
+- Righe comandi: Avvia/Apri e Registra GPX; Registrazione libera oppure Termina; Importa ed Esplora.
+- Nome della traccia su una riga, intestazione compatta, aree di tocco di almeno 48 dp.
+- Elenco GPX separatamente scorrevole; errori, ripresa della sessione e operazioni visibili all'inizio del pannello archivio.
+- Se la finestra o i caratteri grandi non lasciano abbastanza spazio, resta il ripiego scorrevole per non tagliare comandi.
+- Nessuna nuova dipendenza o permesso, nessuna modifica al database.
+
+PROVE
+1. Soft, landscape: tutti i comandi devono essere raggiungibili senza scorrere il pannello sinistro alle dimensioni normali del telefono.
+2. Attiva/disattiva Registra GPX: spunta e colore azzurro, diverso da Avvia navigazione.
+3. Ripeti in Cyber: Registra GPX attivo lime, Avvia navigazione rosa.
+4. Con molti GPX, scorri l'archivio: i pulsanti a sinistra devono restare fermi.
+5. Scegli un GPX con nome lungo: riepilogo compatto senza spostare i comandi; nome completo nella scheda/Info traccia.
+6. Avvia una navigazione o registrazione, torna alla Dashboard: Apri e Termina devono essere accessibili.
+7. Ruota in verticale: verifica gli stessi nuovi colori, spunta e comandi.
+8. Aumenta i caratteri o usa una finestra piccola: se necessario il layout deve consentire scorrimento, senza comandi tagliati.
+9. Controlla archivio, mappa Italia e preferenze conservati dopo l'aggiornamento.
+
+LOG E REPORT
+.tools/1.22.1-build-test.log
+app/build/reports/tests/testDebugUnitTest/
+app/build/reports/lint-results-debug.html
+Le verifiche fisiche sul telefono non sono sostituite dai test automatici.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 215 test, zero fallimenti, errori o test saltati.
+- lintDebug: PASS, zero errori; rimane il precedente avviso sull'icona monocromatica.
+- Versione 1.22.1, versionCode 39, firma compatibile con 1.22.0.
+
+FILE MODIFICATI
+DashboardContent.kt, DashboardLayoutPolicy.kt, RecordingControls.kt, NavigatorTheme.kt, strings.xml, CHANGELOG.txt, app/build.gradle.kts, DashboardLayoutPolicyTest.kt, PaletteContrastTest.kt.

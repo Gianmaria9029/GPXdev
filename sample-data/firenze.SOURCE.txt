@@ -1,0 +1,335 @@
+# Gestionale Pensione per Cani
+
+## 1. Obiettivo
+
+Realizzare una web application gestionale per una pensione per cani.
+
+L'applicazione deve permettere di gestire:
+
+- clienti;
+- cani;
+- box;
+- soggiorni;
+- documenti relativi ai cani;
+- alimentazione;
+- consumi di cibo;
+- spese;
+- pagamenti;
+- report principali.
+
+La priorità è realizzare una prima versione semplice, stabile e facilmente estendibile.
+
+---
+
+## 2. Stack
+
+Backend:
+
+- PHP 8.x
+
+Database:
+
+- MySQL / MariaDB
+
+Frontend:
+
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript vanilla
+
+Grafici:
+
+- Chart.js, solo quando necessario
+
+Non utilizzare framework PHP o JavaScript nella prima versione.
+
+---
+
+## 3. Architettura
+
+Utilizzare una struttura MVC semplice.
+
+### Models
+
+Gestiscono:
+
+- accesso al database;
+- query;
+- creazione, modifica, eliminazione e recupero dati.
+
+### Controllers
+
+Gestiscono:
+
+- richieste dell'utente;
+- validazione;
+- chiamate ai Model;
+- scelta della View da visualizzare.
+
+### Views
+
+Contengono:
+
+- HTML;
+- Bootstrap;
+- componenti grafici;
+- visualizzazione dati.
+
+Evitare logica SQL direttamente nelle View.
+
+---
+
+## 4. Moduli principali
+
+### Clienti
+
+Campi indicativi:
+
+- id
+- nome
+- cognome
+- telefono
+- email
+- indirizzo
+- note
+- created_at
+- updated_at
+
+Un cliente può possedere più cani.
+
+### Cani
+
+Campi indicativi:
+
+- id
+- cliente_id
+- nome
+- razza
+- sesso
+- data_nascita
+- peso
+- microchip
+- note_salute
+- note_comportamento
+- note_alimentazione
+- created_at
+- updated_at
+
+Ogni cane appartiene a un cliente.
+
+### Box
+
+Campi indicativi:
+
+- id
+- codice
+- nome
+- capacità
+- stato
+- note
+
+Stati iniziali:
+
+- libero
+- occupato
+- manutenzione
+
+### Soggiorni
+
+Collegano:
+
+- cane
+- box
+- data ingresso
+- data uscita prevista
+- data uscita effettiva
+- tariffa
+- stato
+- note
+
+### Documenti
+
+Documenti associati principalmente ai cani.
+
+Esempi:
+
+- libretto sanitario;
+- vaccinazioni;
+- certificati;
+- autorizzazioni;
+- altri PDF o immagini.
+
+Memorizzare nel database il percorso del file e non il file stesso.
+
+### Alimentazione
+
+Gestire:
+
+- tipo di alimento;
+- quantità giornaliera prevista;
+- eventuali indicazioni specifiche.
+
+### Consumi
+
+Permettere l'inserimento di rilevazioni settimanali.
+
+Esempio:
+
+- settimana;
+- quantità iniziale;
+- quantità finale;
+- consumo calcolato;
+- eventuali note.
+
+### Spese
+
+Campi indicativi:
+
+- id
+- data
+- categoria
+- descrizione
+- importo
+- fornitore
+- documento allegato
+- note
+
+---
+
+## 5. Relazioni principali
+
+Cliente
+→ possiede uno o più Cani
+
+Cane
+→ appartiene a un Cliente
+
+Cane
+→ può avere più Documenti
+
+Cane
+→ può avere più Soggiorni
+
+Soggiorno
+→ utilizza un Box
+
+Cane
+→ può avere informazioni di Alimentazione
+
+Spese
+→ indipendenti dai cani salvo futura necessità
+
+---
+
+## 6. Dashboard
+
+La dashboard dovrà mostrare almeno:
+
+- cani presenti;
+- box occupati;
+- box disponibili;
+- arrivi previsti;
+- uscite previste;
+- spese del mese;
+- eventuali documenti in scadenza.
+
+Evitare per ora dashboard troppo complesse.
+
+---
+
+## 7. UI
+
+Stile:
+
+- gestionale SaaS moderno;
+- pulito;
+- professionale;
+- alta leggibilità;
+- responsive.
+
+Layout principale:
+
+- sidebar sinistra;
+- header superiore;
+- area contenuti centrale.
+
+Sidebar iniziale:
+
+- Dashboard
+- Clienti
+- Cani
+- Soggiorni
+- Box
+- Documenti
+- Alimentazione
+- Spese
+- Report
+
+Utilizzare Bootstrap 5.
+
+Non introdurre librerie grafiche aggiuntive se non realmente necessarie.
+
+---
+
+## 8. Sicurezza
+
+Requisiti minimi:
+
+- query preparate con PDO;
+- validazione server-side;
+- escaping dell'output HTML;
+- controllo MIME e dimensione degli upload;
+- nomi file generati dal sistema;
+- impedire esecuzione di PHP nella directory uploads;
+- nessuna password o credenziale nel repository.
+
+L'autenticazione utenti verrà implementata successivamente.
+
+---
+
+## 9. Principi di sviluppo
+
+Priorità:
+
+1. semplicità;
+2. leggibilità;
+3. sicurezza;
+4. modularità;
+5. manutenzione.
+
+Evitare:
+
+- overengineering;
+- dipendenze inutili;
+- classi astratte senza necessità;
+- architetture enterprise;
+- codice duplicato;
+- file monolitici;
+- JavaScript complesso quando basta HTML server-side.
+
+La prima versione deve essere principalmente server-rendered.
+
+---
+
+## 10. Ordine di sviluppo
+
+Implementare inizialmente:
+
+1. struttura applicazione;
+2. connessione database;
+3. layout generale;
+4. clienti;
+5. cani;
+6. box;
+7. soggiorni.
+
+Successivamente:
+
+8. documenti;
+9. alimentazione;
+10. consumi;
+11. spese;
+12. dashboard avanzata;
+13. report;
+14. autenticazione e ruoli.

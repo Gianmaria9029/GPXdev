@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPX Navigator synthetic guidance fixture" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Rally - esempio geometrico, non stradale</name>
+    <trkseg>
+      <trkpt lat="43.77000000" lon="11.25000000"/>
+      <trkpt lat="43.77359729" lon="11.25000000"/>
+      <trkpt lat="43.77614095" lon="11.25352248"/>
+      <trkpt lat="43.77973824" lon="11.25352248"/>
+      <trkpt lat="43.77973824" lon="11.25850403"/>
+      <trkpt lat="43.78333552" lon="11.25850403"/>
+      <trkpt lat="43.77995518" lon="11.26020782"/>
+      <trkpt lat="43.78355247" lon="11.26020782"/>
+    </trkseg>
+  </trk>
+</gpx>

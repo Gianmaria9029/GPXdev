@@ -1,0 +1,26 @@
+GPXdev 1.24.1 - COLORI DELLA PREPARAZIONE DEL GIRO
+
+Installa app-1.24.1.apk come aggiornamento. Controlla v1.24.1 nel footer.
+
+TEMA SOFT
+1. Dalla Dashboard apri Registrazione libera.
+2. Il pulsante Inizia registrazione deve essere rosa (#F2ACE0), con testo e icona neri.
+3. Il bordo esterno del primo riquadro, quello del nome della traccia, deve essere giallo (#FCFF8B).
+
+TEMA CYBER
+1. Torna alla Dashboard, scegli Cyber e riapri Registrazione libera.
+2. Il pulsante Inizia registrazione e il bordo esterno del riquadro del nome devono essere rosa fluo (#F2055C).
+3. Testo e icona del pulsante restano neri.
+
+CONTROLLO RAPIDO
+- Ripeti in verticale e landscape.
+- I quattro riquadri informativi conservano i colori precedenti.
+- Modifica il nome, avvia, termina e salva un breve giro: stesso comportamento della 1.24.0.
+- Puoi completare sulla 1.24.1 anche i test funzionali descritti in 1.24.0-test-telefono.txt, usando questa nuova versione.
+
+RISULTATI
+Telefono / Android:
+Colori Soft: OK / KO
+Colori Cyber: OK / KO
+Verticale / landscape: OK / KO
+Avvio e salvataggio: OK / KO

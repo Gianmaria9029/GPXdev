@@ -1,0 +1,57 @@
+GPXdev 1.24.2 - TERMINE DELLA NAVIGAZIONE SENZA REGISTRAZIONE
+
+INSTALLAZIONE
+Installa app-1.24.2.apk sopra la versione attuale, mantenendo i dati dell'app.
+Controlla v1.24.2 nel footer della Dashboard.
+
+TEST PRINCIPALE - NO
+1. Seleziona un GPX, lascia Registra GPX disattivato e premi Avvia navigazione.
+2. Dalla mappa premi Termina.
+3. Deve apparire: Sei sicuro di voler interrompere la navigazione?
+4. Prima della risposta, la navigazione deve rimanere attiva.
+5. Premi No: il popup si chiude, resti sulla mappa e navigazione/GPS rimangono attivi.
+6. Controlla che notifica, avanzamento e comandi della navigazione siano ancora disponibili.
+
+TEST PRINCIPALE - SI'
+1. Nella stessa sessione premi di nuovo Termina.
+2. Premi Si': deve tornare alla Dashboard e terminare la navigazione.
+3. Il comando principale deve tornare Avvia navigazione e la notifica della sessione deve scomparire.
+4. Non deve apparire Vuoi salvare il giro? e non deve essere aggiunto un GPX in archivio.
+5. Avvia nuovamente la traccia: deve partire una nuova navigazione regolare.
+
+CHIUSURA DEL POPUP
+- Riapri il popup e premi Indietro Android: stesso risultato di No, senza arresto.
+- Ripeti toccando fuori dal popup: navigazione ancora attiva.
+- Ruota con il popup aperto: una sola conferma, senza arresti automatici o risposte implicite.
+
+ORIENTAMENTI E TEMI
+- Ripeti Si' e No in verticale e landscape, con Soft e Cyber.
+- In landscape Termina puo' comparire come pulsante compatto con icona: deve aprire la stessa conferma.
+- I colori introdotti nella 1.24.1 devono restare presenti nella preparazione della registrazione libera.
+
+REGRESSIONE - GIRO LIBERO REGISTRATO
+- Avvia Registrazione libera, registra alcuni punti e premi Termina dalla mappa.
+- Deve apparire direttamente Vuoi salvare il giro?, senza la nuova domanda di navigazione.
+- Verifica sia Si'/salva sia No/scarta: ritorno alla Dashboard e stesso comportamento precedente.
+
+REGRESSIONE - GPX CON REGISTRAZIONE
+- Seleziona una traccia, abilita Registra GPX e avvia la navigazione.
+- Registra alcuni punti e premi Termina: stessa richiesta di salvataggio del giro e ritorno alla Dashboard.
+- Verifica una volta anche Termina dalla notifica: il flusso di salvataggio deve continuare a funzionare.
+
+AMBITO
+La nuova conferma riguarda Termina dalla schermata della mappa durante una navigazione senza registrazione.
+Home, Indietro fuori dal popup, comandi della Dashboard e della notifica mantengono il comportamento precedente.
+Se Android rifiuta il comando di arresto, l'app deve rimanere sulla mappa e mostrare l'errore.
+
+RISULTATI SUL TELEFONO
+Modello / Android:
+No mantiene navigazione attiva: OK / KO
+Si' termina e torna alla Dashboard: OK / KO
+Indietro / tocco esterno sul popup: OK / KO
+Rotazione durante la conferma: OK / KO
+Soft / Cyber e orientamenti: OK / KO
+Giro libero registrato: OK / KO
+GPX con registrazione: OK / KO
+Termina dalla notifica con registrazione: OK / KO
+Comportamenti inattesi:

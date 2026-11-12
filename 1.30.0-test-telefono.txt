@@ -1,0 +1,68 @@
+GPXdev 1.30.0 - Cockpit
+
+Installare app-1.30.0.apk sopra la versione attuale senza disinstallare.
+Application ID com.gpxnavigator; versionCode 58.
+
+Funzionamento
+- Home -> Cockpit -> nome del giro -> Avvia Cockpit.
+- Aprire la preparazione non avvia la registrazione. Avvia Cockpit avvia
+  automaticamente il GPX, senza una spunta aggiuntiva e senza richiedere mappe.
+- Dieci riquadri fissi: velocita' attuale, massima, media in movimento,
+  distanza percorsa, tempo giro, quota attuale, minima, massima, differenza
+  dalla partenza e ora di partenza.
+- Due colonne in verticale, cinque in orizzontale, senza scorrimento.
+- Stessa griglia e comandi nei temi Soft e Cyber.
+- La media in movimento segue le regole del GPX: ponderata sul tempo,
+  campioni validi da 3,6 km/h, senza soste o intervalli di segnale mancanti.
+- La differenza di quota e' l'ultima quota registrata meno la quota del
+  primo campione; non e' il dislivello positivo cumulativo. Se manca la
+  quota iniziale, il dato resta assente.
+- I valori non disponibili sono indicati con un trattino.
+- Tempo giro include soste e interruzioni, come nella registrazione libera.
+- L'icona della mappa e Visuale -> Cockpit nella mappa cambiano soltanto
+  la vista. Home e Indietro lasciano attiva la registrazione.
+- Termina ferma il giro e apre la scelta esistente per salvarlo o scartarlo.
+- In una navigazione avviata senza registrazione Cockpit mostra i dati
+  GPS e la Vmax della sessione; le statistiche del giro restano assenti.
+- L'angolo di piega non e' incluso.
+
+Verifiche sul telefono
+1. Aprire Cockpit e tornare alla Home senza avviare: nessuna registrazione.
+2. Avviare Cockpit con un nome riconoscibile, concedendo la posizione
+   precisa. Verificare REC e la notifica, anche senza mappa importata.
+3. In Soft e Cyber, ruotare il telefono: dieci valori visibili insieme,
+   nessuno scorrimento, tempo e distanza conservati.
+4. Controllare i numeri anche con i caratteri Android ingranditi.
+5. Con il telefono fermo, togliere temporaneamente il segnale GPS:
+   velocita' e quota attuale assenti, statistiche conservate, tempo crescente.
+6. Passare alla mappa, alla Home e di nuovo a Cockpit: stesso giro,
+   stessa ora di partenza e nessun azzeramento.
+7. Spegnere lo schermo e riaprire dall'app o dalla notifica: verificare
+   la continuita' del giro e l'impostazione Mantieni lo schermo acceso.
+8. Interrompere il processo durante una registrazione di prova e riaprire:
+   Home -> Cockpit -> Riprendi in Cockpit. Statistiche precedenti conservate.
+9. Termina -> Si': ritrovare il giro in Le mie tracce ed esportarlo in GPX.
+   Ripetere con No e verificare che il giro venga scartato.
+10. Avviare un altro giro: distanza, tempo e statistiche ripartono da zero.
+11. Seguire un GPX con registrazione: passare da mappa a Cockpit e ritorno,
+    verificando che la navigazione continui. Ripetere senza registrazione:
+    le statistiche non raccolte devono restare assenti.
+
+La resa sul supporto della moto, il GPS reale e la gestione energetica del
+telefono richiedono ancora la prova sul dispositivo.
+
+Controlli automatici eseguiti
+- assembleDebug: PASS.
+- test: PASS, 380 test, nessun errore o test saltato.
+- lintDebug: PASS, zero errori. Resta l'avviso preesistente sull'icona
+  monocromatica del launcher, non collegato a Cockpit.
+- Griglia verificata nei due temi a 320x640 e 360x720 dp in verticale,
+  640x320 e 800x360 dp in orizzontale, con scala caratteri 1 e 1,6:
+  dieci riquadri visibili, testi dei riquadri senza tagli e nessuna azione
+  o area di scorrimento.
+- Verificati avvio esplicito, registrazione automatica, riutilizzo del giro
+  attivo, timer senza GPS anche seguendo un GPX, ripresa delle statistiche,
+  campioni di sosta e coerenza dei calcoli in tempo reale con il GPX.
+- Firma APK verificata, identica alla 1.29.2; stessi permessi Android.
+- Log completo: .tools/1.30.0-verification.log.
+- Elenco dei file: output/release-1.30.0/IMPLEMENTAZIONE.md.

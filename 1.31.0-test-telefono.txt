@@ -1,0 +1,56 @@
+GPXdev 1.31.0 - Movimento fluido sulla mappa
+
+Installare app-1.31.0.apk sopra la 1.30.0 senza disinstallare.
+Application ID com.gpxnavigator; versionCode 59.
+
+Novita'
+- Richiesta GPS ogni secondo, usando la sorgente gia' condivisa con Cockpit.
+  La cadenza effettiva resta dipendente dal telefono e dal segnale.
+- Cursore, rotazione e camera aggiornati con un unico callback dei frame
+  dello schermo. Le transizioni usano la cadenza dei rilevamenti e ripartono
+  dalla posizione attualmente visualizzata se arriva un nuovo punto.
+- Nessuna previsione: il cursore si ferma sull'ultimo punto ricevuto.
+  Le posizioni intermedie sono solo grafiche; GPX, statistiche Cockpit,
+  arrivo e fuori traccia continuano a usare i campioni GPS reali.
+- Durante il movimento con velocita' >= 1,2 m/s e accuratezza <= 20 m,
+  la camera segue anche piccoli spostamenti. Durante le soste o con dati
+  insufficienti conserva la protezione dalle oscillazioni GPS.
+- Gesti manuali prioritari; Follow, zoom, Nord/Marcia, temi e spazio per
+  i controlli mantengono il funzionamento precedente.
+- Animazione fermata quando la mappa non e' visibile. Rilevamenti vecchi
+  o duplicati non fanno ripartire la transizione; dopo interruzioni lunghe
+  e grandi correzioni la posizione viene aggiornata direttamente.
+
+Prova pratica
+1. In Esplora mappa, abilitare Follow e verificare che lo zoom scelto
+   resti invariato. Ripetere con i pulsanti e con il gesto a due dita.
+2. Su un rettilineo a velocita' costante, confrontare la continuita' di
+   cursore e scorrimento rispetto alla 1.30.0. Annotare eventuali pause.
+3. Provare Nord e Marcia, curve e rotatorie, includendo un passaggio della
+   direzione attraverso il Nord: nessun giro completo della freccia.
+4. Frenare, sostare e ripartire: controllare arresto del cursore, oscillazioni
+   della mappa e tempestivita' della ripartenza. Valutare il ritardo in curva.
+5. Spostare manualmente la mappa durante un aggiornamento: la camera deve
+   lasciare il controllo al gesto. Riattivare Follow e verificare il ricentro.
+6. Con una registrazione attiva, passare a Cockpit, Home e mappa: stesso
+   giro, timer e statistiche; nessun azzeramento o animazione arretrata.
+7. Ripetere con un GPX, con e senza registrazione, e in registrazione libera.
+   Verificare arrivo, fuori traccia, progresso e salvataggio/esportazione GPX.
+8. Togliere temporaneamente il GPS e ripristinarlo, poi spegnere e riaccendere
+   lo schermo: nessun movimento previsto mentre mancano i rilevamenti e
+   nessuna riproduzione dei vecchi spostamenti al ritorno.
+9. Ruotare fra portrait e landscape nei temi Soft/Cyber: posizione visibile
+   nello spazio libero, controlli accessibili, preferenze e giro conservati.
+
+La fluidita' percepita, il ritardo in curva e i consumi richiedono una prova
+sul dispositivo reale, con lo stesso telefono e condizioni della 1.30.0.
+
+Controlli automatici eseguiti
+- assembleDebug: PASS.
+- test: PASS, 393 test, nessun fallimento, errore o test saltato.
+- lintDebug: PASS, zero errori; solo l'avviso preesistente sull'icona
+  monocromatica del launcher.
+- Firma APK verificata e identica alla 1.30.0; stessi permessi Android.
+
+Dettagli e file modificati: output/release-1.31.0/IMPLEMENTAZIONE.md.
+Log completo: .tools/1.31.0-verification.log.

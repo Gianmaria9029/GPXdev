@@ -1,0 +1,43 @@
+GPX NAVIGATOR 1.5.0 - INDICAZIONI VISIVE GPX
+
+Installa app-1.5.0.apk come aggiornamento della 1.4.0.
+Mappe, archivio GPX e sessione salvata devono restare disponibili.
+
+COMPORTAMENTO
+- Avvia navigazione: sulla mappa appare un box quadrato in alto a sinistra.
+- Freccia grande gialla, descrizione e distanza misurata lungo il GPX.
+- Sette frecce: dritto, leggera sinistra/destra, svolta sinistra/destra, tornante sinistra/destra.
+- Dritto fino a 25 gradi; leggera oltre 25 e sotto 60; svolta da 60 a meno di 150; tornante da 150.
+- La svolta viene mostrata entro 200 metri; prima compare Prosegui con la distanza alla prossima curva.
+- Senza altre curve, Prosegui mostra la distanza alla fine del segmento.
+- La distanza puo' restare a 0 durante la curva; la freccia cambia dopo averla superata di circa 10 metri.
+- Entro gli ultimi 10 metri compare Fine traccia o Fine segmento, senza collegare segmenti separati.
+- In Esplora mappa il box non compare.
+
+PROVE ALL'APERTO
+1. Usa una traccia conosciuta nel verso originale del GPX e avvia la navigazione.
+2. Controlla dritto, svolta leggera e svolta di circa 90 gradi nei due versi.
+3. Se disponibile, verifica un tornante: la freccia deve indicare il ritorno nel verso opposto.
+4. Avvicinati alla svolta: la distanza deve diminuire lungo la traccia.
+5. Supera la curva: dopo il margine di 10 metri deve apparire la prossima indicazione.
+6. Da fermo dopo la curva, piccole oscillazioni GPS non devono riproporre la freccia precedente.
+7. Allontanati dalla traccia: il box deve sospendere le frecce durante la verifica fuori traccia.
+8. Disattiva il GPS o usa posizione approssimativa: Attendi GPS preciso, senza freccia vecchia.
+9. Blocca lo schermo e riapri: l'indicazione deve riferirsi alla posizione corrente.
+10. Ruota il telefono: box, avvisi e comandi devono restare leggibili e accessibili.
+11. Termina e riavvia con un altro GPX: le indicazioni devono essere ricalcolate sulla nuova traccia.
+
+TRACCE DI ESEMPIO
+- sample-data/rally-turns.gpx contiene i sette tipi di freccia, in sequenza.
+- Serve come riferimento geometrico; non corrisponde necessariamente a strade percorribili.
+
+LIMITI
+Le indicazioni derivano dalla geometria del GPX, senza dati su incroci, nomi stradali o precedenze.
+Il filtro elimina irregolarita' fino a circa 5 metri e raggruppa cambi vicini nello stesso verso.
+Verificare sul campo GPX con incroci, tratti sovrapposti e tornanti molto ravvicinati:
+il progresso usa il segmento geometrico piu' vicino, come nella 1.4.0.
+Un GPX con un solo punto o un segmento lungo meno di 10 metri non genera indicazioni.
+Non sono presenti funzioni vocali, suoni, vibrazioni o servizi online.
+
+Build e test automatici verificano geometria e gestione della sessione con GPS simulato.
+La leggibilita' e il comportamento con GPS reale richiedono la prova sul telefono.

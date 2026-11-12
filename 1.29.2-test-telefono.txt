@@ -1,0 +1,53 @@
+GPXdev 1.29.2 - Piu' spazio anche in portrait
+
+Installare app-1.29.2.apk sopra la versione attuale senza disinstallare.
+Application ID com.gpxnavigator; versionCode 57.
+
+Novita'
+- Barra superiore da 48 dp con titolo e GPS sulla stessa riga in entrambi
+  gli orientamenti. I titoli lunghi vengono abbreviati con i puntini.
+- Icona della casa al posto della scritta Home anche in portrait.
+- GPS sempre disponibile nella barra superiore: toccarlo apre i dettagli.
+- Eliminato il GPS sovrapposto alla mappa in portrait.
+- Barra di stato Android nascosta in navigazione in entrambi gli orientamenti;
+  richiamabile temporaneamente con uno scorrimento dal bordo superiore.
+- Barra di stato ripristinata tornando alla Home o lasciando l'app.
+- Pulsanti di navigazione Android e protezioni per notch/cutout mantenuti.
+
+Prova pratica
+1. Avviare una registrazione libera in verticale: verificare la barra
+   superiore compatta con casa, titolo, GPS, REC e Visuale.
+2. Toccare il GPS: aprire e chiudere i dettagli e verificare che il GPS
+   resti visibile nella barra senza essere duplicato sulla mappa.
+3. Scorrere dal bordo superiore: la barra Android deve comparire
+   temporaneamente e poi nascondersi nuovamente.
+4. Ruotare fra verticale e orizzontale: barra compatta e stato Android
+   nascosto in entrambi; registrazione e metriche devono proseguire.
+5. Toccare la casa durante il giro: verificare il ritorno alla Home con
+   barra Android visibile e attivita' ancora in corso. Riaprire la navigazione.
+6. Passare al background e rientrare: nessuna interruzione del giro e
+   barra Android nuovamente nascosta nella schermata di navigazione.
+7. Ripetere con GPX, con e senza registrazione, ed Esplora mappa;
+   verificare manovre, fuori traccia, Visuale, Follow, Termina e temi Soft/Cyber.
+
+La comparsa transitoria della barra Android e la resa sul dispositivo reale
+restano da verificare sul telefono.
+
+File modificati
+- app/src/main/java/com/gpxnavigator/ui/navigation/NavigationContent.kt
+- app/src/main/java/com/gpxnavigator/ui/navigation/NavigationStatusBar.kt
+- app/src/test/java/com/gpxnavigator/ui/navigation/FreeRecordingLayoutTest.kt
+- app/src/test/java/com/gpxnavigator/ui/navigation/NavigationStatusBarTest.kt
+- app/build.gradle.kts
+- app/src/main/assets/CHANGELOG.txt
+
+Controlli automatici eseguiti
+- assembleDebug: PASS.
+- test: PASS, 370 test, nessun errore o test saltato.
+- lintDebug: PASS.
+- Verificati barra da 48 dp, allineamento titolo/GPS e icona Home in
+  portrait a 360 e 400 dp, in entrambi i temi; controlli landscape mantenuti.
+- Verificato stato Android nascosto in entrambi gli orientamenti,
+  ripristino all'uscita e ritorno dal background o da una finestra di dialogo.
+- Firma APK verificata, compatibile con le versioni precedenti.
+- Log completo: .tools/1.29.2-verification.log.

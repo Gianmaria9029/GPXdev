@@ -1,0 +1,75 @@
+GPX NAVIGATOR 1.13.0 - CYBER ROSA FLUO
+
+INSTALLAZIONE
+Installa app-1.13.0.apk sopra la versione attuale, senza disinstallare.
+Firma verificata: stesso certificato della 1.12.0.
+Mappe, archivio GPX, tema scelto, orientamento e zoom salvato restano disponibili.
+Controlla v1.13.0 nella Home e la nuova voce nel changelog.
+
+BARRA DI NAVIGAZIONE
+- Rimosso il comando Dettagli in verticale e l'icona corrispondente in landscape.
+- In landscape vengono liberati i 48 dp occupati dal controllo.
+- L'accesso alle informazioni resta disponibile toccando il dato GPS, anche nel pannello laterale.
+- Gli avvisi di errore e di notifiche disattivate si possono toccare per aprire le informazioni complete.
+- Nessuna voce Dettagli separata negli avvisi.
+- Scelta/ricarica della mappa, GPS, tempo residuo, arrivo e metriche aggiuntive restano nella finestra Mappa e posizione.
+
+PALETTE CYBER AGGIORNATA
+- Sfondo principale: #121218.
+- Schede e pannelli: #1C1C24.
+- Superfici secondarie: #34343C.
+- Testo principale: #FFFFFF; testo secondario: #E0E0E0.
+- Pulsanti principali: #F2055C con testo #000000.
+- Scheda selezionata: fondo #2D0B1B, bordo #F2055C e testo #FFFFFF.
+- Traccia da seguire: #F2055C con contorno #FFFFFF.
+- Traccia percorsa: #687783; posizione GPS: #0057A8 con bordo bianco.
+- Fondo svolte: #050509.
+- Freccia, bordo e barra di avvicinamento: #F2055C.
+- Distanza e istruzione delle svolte: #FFFFFF.
+- Follow attivo: #B6E536 con testo/icona #1C1C1C; accenti dei controlli: #C5F544.
+- GPS attivo: #0F5B38, attesa: #6F4500 e allarmi: #9F1D2D, con testo bianco.
+- La cartografia mantiene il fondo chiaro; mappe raster con colori originali.
+- Le precedenti tonalita' #A00040 e #EDF6D6 sono state sostituite.
+
+STANDARD
+I colori della versione 1.12.0 sono conservati: superfici chiare, azioni blu #154C79,
+traccia rossa #B4232D e svolte gialle #FFE600 su fondo #09111F.
+
+PROVE VISIVE SUL TELEFONO
+1. Seleziona Cyber nella Home: verifica sfondo scuro e pulsante principale rosa fluo con testo nero.
+2. Seleziona un GPX: controlla fondo rosa scuro, bordo fluo, nome, riepilogo, data ed Elimina leggibili.
+3. Controlla anche una traccia con errore, se disponibile: il messaggio deve restare leggibile.
+4. Apri la navigazione e ruota nei due versi landscape: il comando Dettagli deve essere assente.
+5. Tocca GPS: devono aprirsi Mappa e posizione, le metriche aggiuntive e i comandi della mappa.
+6. Verifica GPS spento o permesso negato: dal dato GPS devono restare disponibili le informazioni e le impostazioni.
+7. Controlla la traccia rosa su acqua, aree verdi ed edifici; il contorno bianco deve restare presente.
+8. Avvia una navigazione: freccia e barra rosa, distanza bianca e seconda manovra leggibile.
+9. Verifica Home, orientamento, Termina, zoom, Centra e Follow, anche con caratteri ingranditi.
+10. Passa a Standard: colori e svolte gialle devono restare quelli precedenti.
+11. Chiudi e riapri l'app: il tema scelto deve essere ripristinato.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 181 test, zero fallimenti, errori o test saltati.
+- Contrasti verificati per testi, scheda selezionata, comandi e traccia con contorno.
+- Pulsanti Cyber: contrasto nero/rosa 4,95:1.
+- Distanza bianca sul fondo svolte: 20,35:1.
+- Testo bianco della scheda selezionata: 17,87:1.
+- Freccia rosa sul fondo svolte: 4,80:1.
+- Rapporti calcolati su colori pieni sRGB; leggibilita' sullo schermo da verificare sul telefono.
+- lintDebug: PASS, zero errori, 12 avvisi e tre suggerimenti non bloccanti.
+- Versione APK 1.13.0, versionCode 28 e firma verificati.
+- SHA-256: app-1.13.0.apk.sha256.
+- Log completo: .tools/1.13.0-build-test.log.
+- Nessun dispositivo ADB collegato: prova visiva sul telefono ancora da eseguire.
+- Nessuna nuova dipendenza o permesso Android.
+
+FILE MODIFICATI
+- ui/theme/NavigatorTheme.kt: palette Cyber e colore separato per la distanza delle svolte.
+- ui/navigation/ManeuverBox.kt: colore della distanza.
+- ui/navigation/NavigationContent.kt: barra e avvisi senza comando Dettagli.
+- ui/importgpx/ImportGpxScreen.kt: errori e comandi leggibili sulla nuova scheda scura.
+- ui/map/TrackOverlay.kt: contorno della traccia collegato alla palette.
+- res/values/strings.xml: testi aggiornati; res/drawable/ic_details.xml rimosso perche' inutilizzato.
+- ui/theme/PaletteContrastTest.kt: verifica dei contrasti dei nuovi abbinamenti.
+- assets/CHANGELOG.txt e app/build.gradle.kts: cronologia e versione.

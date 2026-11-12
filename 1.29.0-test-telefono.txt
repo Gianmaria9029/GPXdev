@@ -1,0 +1,23 @@
+GPXdev 1.29.0 - Verifica sul telefono
+
+Installare app-1.29.0.apk sopra la versione attuale senza disinstallare.
+Application ID com.gpxnavigator; versionCode 55.
+
+Novita'
+- Logo GPXdev centrato per circa due secondi all'apertura dell'app.
+- Logo e sfondo coerenti con il tema Soft o Cyber selezionato.
+- Rotazione senza riavviare l'attesa; nessuna nuova attesa al ritorno dal background.
+
+Prova pratica
+1. Chiudere l'app e aprirla dall'icona: controllare il logo e l'apertura
+   automatica della Home dopo circa due secondi.
+2. Selezionare Cyber nelle Impostazioni, chiudere e riaprire l'app:
+   verificare logo Cyber e sfondo scuro. Ripetere con Soft.
+3. Ruotare il telefono mentre appare il logo: l'attesa non deve ricominciare.
+4. Dopo l'apertura della Home, ruotare il telefono e passare in background
+   e poi all'app: il logo non deve riapparire.
+5. Con una sessione attiva, aprire dalla notifica e verificare che venga
+   mostrata la navigazione richiesta dopo l'eventuale schermata iniziale.
+
+La durata percepita e l'aspetto sui dispositivi reali restano da verificare
+sul telefono. Android puo' mostrare prima la propria schermata di avvio.

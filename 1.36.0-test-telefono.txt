@@ -1,0 +1,46 @@
+GPXdev 1.36.0 - Anticipo delle curve adattato alla velocita'
+
+APK: gpxdev_1.36.0_mappecolori.apk
+Application ID: com.gpxnavigator; versionCode: 65.
+Aggiornare sopra la versione precedente, senza disinstallare.
+
+Comportamento atteso
+- Anticipo automatico: 12 secondi sulla velocita' GPS filtrata, da 80 a 350 m.
+- A velocita' costante: 20 km/h -> 80 m; 50 km/h -> circa 167 m;
+  90 km/h -> 300 m; 110 km/h -> 350 m.
+- Le distanze sono approssimative: dipendono dalla cadenza dei fix e dalla
+  posizione della curva riconosciuta nella geometria del GPX.
+- Il filtro usa la mediana degli ultimi tre campioni validi entro 5 secondi;
+  una variazione isolata non cambia subito la soglia a filtro stabilizzato.
+- Senza velocita' valida, tempo monotono o accuratezza entro 20 m: 200 m,
+  se la posizione consente ancora la guida. Con GPS non affidabile restano
+  gli stati di attesa/sospensione gia' presenti.
+- La curva resta visibile quando si rallenta e la barra usa il riferimento
+  fissato alla sua prima comparsa. La curva successiva ha il proprio riferimento.
+- Nessuna impostazione aggiuntiva: la funzione e' automatica.
+
+Prova pratica (da eseguire sul telefono)
+1. Avviare una traccia conosciuta con curve ben distanziate. Verificare
+   l'anticipo ad andature regolari consentite dal percorso; la tabella
+   descrive il calcolo, non richiede di raggiungere tutte le velocita'.
+2. Rallentare dopo la comparsa di una curva: freccia e distanza restano
+   disponibili, la scala della barra non cambia e non riparte da zero.
+3. Accelerare gradualmente prima di una curva ancora lontana: l'indicazione
+   deve adattarsi alla nuova andatura dopo la breve conferma del filtro.
+4. Affrontare due curve ravvicinate: seconda indicazione ancora presente;
+   dopo la prima, freccia e barra si riferiscono alla seconda.
+5. Da fermo, disattivare e riattivare la posizione: durante l'assenza GPS
+   nessuna indicazione vecchia attiva; alla ripresa la guida torna dopo
+   l'aggancio affidabile. Verificare anche ritorno dal background.
+6. Controllare portrait/landscape, Soft/Cyber e mappe chiare/scure:
+   nessuna modifica a layout, palette, Follow o zoom.
+7. Ripetere con registrazione attiva: salvataggio del giro, distanza e
+   dati registrati continuano a funzionare.
+
+Annotare modello del telefono, velocita' approssimativa, accuratezza GPS,
+curva interessata e distanza alla prima comparsa. Per confronti ripetere
+sulla stessa traccia; il GPS e il punto geometrico della curva introducono
+variazioni. La taratura sul campo resta da confermare.
+
+Risultati automatici e file modificati:
+output/release-1.36.0/IMPLEMENTAZIONE.md

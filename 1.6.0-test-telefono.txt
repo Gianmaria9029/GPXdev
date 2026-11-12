@@ -1,0 +1,71 @@
+GPX NAVIGATOR 1.6.0 - STANDARD E CYBER
+
+INSTALLAZIONE
+Installa app-1.6.0.apk sopra la versione attuale, senza disinstallare l'app.
+Firma verificata: stesso certificato della 1.5.0.
+Archivio GPX, mappa importata e sessione salvata restano disponibili.
+Controlla v1.6.0 in basso a destra e la nuova voce nel changelog.
+
+ASPETTO E SALVATAGGIO
+1. Alla prima apertura il tema iniziale e' Standard.
+2. Nella Home, sotto il titolo, usa Aspetto > Cyber.
+3. Controlla che il cambio colori sia immediato e la scelta risulti selezionata.
+4. Ruota il telefono: Cyber deve restare selezionato.
+5. Chiudi e riapri l'app, poi ripeti dopo un arresto completo: deve tornare Cyber.
+6. Seleziona Standard e ripeti la riapertura: deve tornare Standard.
+7. Durante una navigazione torna nella Home, cambia tema e riapri la mappa:
+   sessione, GPX attivo e aggiornamenti GPS devono proseguire.
+8. Ripeti senza Wi-Fi e dati mobili.
+
+STANDARD
+- Home grigio chiarissimo, schede e pannello metriche bianchi.
+- Testi blu antracite, pulsanti blu profondo e scritte bianche.
+- Scheda selezionata azzurra con bordo blu ed etichetta esplicita.
+- Mappa vettoriale avorio, aree salvia, acqua azzurra, strade bianche con bordi piu' evidenti.
+- GPX rosso scuro con contorno bianco; posizione blu profondo con bordo bianco.
+- Indicazione di manovra gialla su blu notte; testo e distanza bianchi.
+
+CYBER
+- Sfondo antracite, superfici grigie, testi chiari e pulsanti principali lampone.
+- Collegamenti lime, controlli attivi lime e scheda selezionata lime tenue con testo scuro.
+- Mappa vettoriale chiara, GPX lampone scuro con contorno bianco, posizione blu.
+- Freccia di manovra ROSA FLUO su antracite; istruzione e distanza bianche.
+- Le barre di sistema devono restare leggibili anche in Cyber.
+
+CONTROLLI VISIVI IN ENTRAMBI I TEMI
+1. Verifica Home, selezione GPX, finestre Elimina e Changelog, Dettagli e messaggi di errore.
+2. Controlla pulsanti disabilitati, scheda selezionata, nomi lunghi e caratteri ingranditi.
+3. Controlla GPS attivo, ricerca GPS, permesso negato e GPS spento.
+4. Verifica fuori traccia e verifica in corso: testo bianco su rosso scuro o ocra.
+5. Verifica Centra e Follow attivo/spento, anche in orizzontale.
+6. Avvia una navigazione: il box manovra appare solo nella sessione attiva, come nella 1.5.0.
+7. Controlla che traccia e posizione emergano su acqua, boschi e aree edificate.
+8. Verifica la leggibilita' all'aperto sul telefono, anche con luce intensa.
+
+MAPPE RASTER
+Le immagini raster mantengono i colori contenuti nel file originale.
+Traccia, posizione e controlli seguono comunque il tema selezionato.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 101 test, zero fallimenti, errori o test saltati.
+- Otto nuovi test per preferenze, contrasti e stili vettoriali/raster.
+- lintDebug: PASS, zero errori e cinque avvisi gia' presenti nel progetto.
+- Versione APK 1.6.0, versionCode 21 e firma verificati.
+- SHA-256 in app-1.6.0.apk.sha256.
+- Log: .tools/1.6.0-build-test.log.
+- Nessun dispositivo ADB collegato: prova visiva sul telefono ancora da eseguire.
+- Nessuna nuova dipendenza o permesso Android.
+
+FILE PRINCIPALI
+- ui/theme/NavigatorTheme.kt: palette Material, mappa, manovre e stati dei due temi.
+- ui/theme/ThemeViewModel.kt: scelta del tema e gestione del salvataggio.
+- data/settings/AppThemePreferences.kt: preferenza locale.
+- domain/model/AppTheme.kt: temi disponibili.
+- ui/components/ThemeSelector.kt: selettore nella Home.
+- ui/NavigatorApp.kt e ui/importgpx/ImportGpxScreen.kt: applicazione del tema e Home.
+- ui/navigation/NavigationContent.kt e ManeuverBox.kt: controlli, stati e indicazioni.
+- ui/map/OfflineMapStyle.kt, MapView.kt, TrackOverlay.kt e LocationOverlay.kt: cartografia e overlay.
+- res/drawable/ic_location_direction.xml, ic_center_location.xml e ic_launcher.xml: blu aggiornati.
+- res/values/strings.xml, assets/CHANGELOG.txt e app/build.gradle.kts: testi e versione.
+- Test nuovi: AppThemePreferencesTest.kt, PaletteContrastTest.kt e OfflineMapStyleTest.kt.

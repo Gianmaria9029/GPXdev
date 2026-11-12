@@ -1,0 +1,51 @@
+GPXdev 1.20.1 - NUOVA ICONA BUSSOLA
+
+INSTALLAZIONE
+Installa app-1.20.1.apk sopra la versione attuale, senza disinstallare.
+VersionCode 36, stesso identificativo Android e stesso certificato della 1.20.0.
+
+MODIFICHE
+- Applicata l'immagine reference grafica/icone-v1.20.0/proposta-2-bussola-GPXdev.png.
+- Icona adattiva Android, anche per launcher circolari e arrotondati.
+- Immagine originale ridimensionata per le densita' mdpi, hdpi, xhdpi, xxhdpi e xxxhdpi.
+- Margine del livello adattivo impostato per mantenere visibili GPXdev e gdev.
+- Nome sotto l'icona: GPXdev.
+
+PROVE SUL TELEFONO
+1. Installa l'aggiornamento e verifica la bussola rosa fluo nel launcher e nell'elenco delle app.
+2. Controlla che le due scritte non siano tagliate dalla forma dell'icona scelta dal launcher.
+3. Apri l'app dall'icona e verifica versione 1.20.1, tracce salvate e preferenza del tema.
+4. Se il launcher mostra ancora l'icona precedente, rimuovi solo il collegamento dalla Home e riaggiungilo dall'elenco app, oppure riavvia il telefono. Non disinstallare l'app.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 196 test, zero fallimenti, errori o test saltati.
+- lintDebug: PASS, zero errori, 15 avvisi non bloccanti e tre suggerimenti.
+- Anteprima locale controllata con maschere quadrata, circolare e arrotondata.
+- Metadati APK: versione 1.20.1, versionCode 36, nome GPXdev e icona adattiva mipmap/ic_launcher.
+- Presenza dei livelli raster alle diverse densita' e del descrittore adattivo verificata nell'APK.
+- Firma APK verificata e identica alla 1.20.0.
+- SHA-256 disponibile in app-1.20.1.apk.sha256.
+- Log: .tools/1.20.1-build-test.log.
+- Nessun dispositivo ADB collegato: verifica nel launcher del telefono ancora da eseguire.
+- Nessuna nuova dipendenza o permesso Android.
+
+FILE MODIFICATI / AGGIUNTI
+- app/src/main/AndroidManifest.xml
+- app/build.gradle.kts
+- app/src/main/assets/CHANGELOG.txt
+- app/src/main/res/values/launcher_colors.xml
+- app/src/main/res/mipmap-anydpi/ic_launcher.xml
+- app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png
+- app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png
+- app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png
+- app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png
+- app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png
+- .tools/generate-launcher-icon-1.20.1.py
+- .tools/launcher-preview-1.20.1.png
+- Rimosso il precedente app/src/main/res/drawable/ic_launcher.xml.
+
+ARTEFATTI
+- app-1.20.1.apk
+- app-1.20.1.apk.sha256
+- 1.20.1-test-telefono.txt

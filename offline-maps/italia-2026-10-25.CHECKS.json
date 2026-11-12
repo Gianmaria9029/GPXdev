@@ -1,0 +1,139 @@
+{
+  "checks": "passed",
+  "samples": [
+    {
+      "name": "Milano",
+      "zoom": 14,
+      "x": 8610,
+      "y": 5863,
+      "layers": {
+        "buildings": 41,
+        "earth": 1,
+        "landuse": 231,
+        "places": 12,
+        "pois": 263,
+        "roads": 578,
+        "water": 7
+      }
+    },
+    {
+      "name": "Firenze",
+      "zoom": 14,
+      "x": 8704,
+      "y": 5972,
+      "layers": {
+        "buildings": 23,
+        "earth": 1,
+        "landuse": 193,
+        "places": 6,
+        "pois": 177,
+        "roads": 342,
+        "water": 9
+      }
+    },
+    {
+      "name": "Roma",
+      "zoom": 14,
+      "x": 8760,
+      "y": 6087,
+      "layers": {
+        "buildings": 18,
+        "earth": 1,
+        "landuse": 255,
+        "places": 1,
+        "pois": 174,
+        "roads": 487,
+        "water": 6
+      }
+    },
+    {
+      "name": "Reggio Calabria",
+      "zoom": 14,
+      "x": 8904,
+      "y": 6313,
+      "layers": {
+        "buildings": 10,
+        "earth": 1,
+        "landuse": 96,
+        "pois": 70,
+        "roads": 231,
+        "water": 4
+      }
+    },
+    {
+      "name": "Palermo",
+      "zoom": 14,
+      "x": 8800,
+      "y": 6313,
+      "layers": {
+        "buildings": 29,
+        "earth": 1,
+        "landuse": 111,
+        "places": 4,
+        "pois": 139,
+        "roads": 609,
+        "water": 7
+      }
+    },
+    {
+      "name": "Cagliari",
+      "zoom": 14,
+      "x": 8607,
+      "y": 6248,
+      "layers": {
+        "buildings": 11,
+        "earth": 3,
+        "landuse": 216,
+        "places": 8,
+        "pois": 115,
+        "roads": 455,
+        "water": 11
+      }
+    },
+    {
+      "name": "Lampedusa",
+      "zoom": 14,
+      "x": 8765,
+      "y": 6461,
+      "layers": {
+        "buildings": 2,
+        "earth": 2,
+        "landuse": 98,
+        "places": 2,
+        "pois": 32,
+        "roads": 130,
+        "water": 2
+      }
+    },
+    {
+      "name": "Pantelleria",
+      "zoom": 14,
+      "x": 8735,
+      "y": 6386,
+      "layers": {
+        "buildings": 7,
+        "earth": 1,
+        "landuse": 49,
+        "places": 2,
+        "pois": 21,
+        "roads": 147,
+        "water": 3
+      }
+    },
+    {
+      "name": "Elba - Portoferraio",
+      "zoom": 14,
+      "x": 8661,
+      "y": 6031,
+      "layers": {
+        "buildings": 4,
+        "earth": 2,
+        "landuse": 79,
+        "places": 5,
+        "pois": 27,
+        "roads": 124,
+        "water": 3
+      }
+    }
+  ]
+}

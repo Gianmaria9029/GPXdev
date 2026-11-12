@@ -1,0 +1,67 @@
+GPX NAVIGATOR 1.9.0 - TEST COMPLETO IN MOTO
+
+Installa app-1.9.0.apk come aggiornamento. Restano mappe, archivio GPX, tema,
+orientamento e zoom scelti. La Home deve indicare 1.9.0.
+Per la prova usa una traccia conosciuta, continua e percorribile nel verso del GPX.
+
+PRIMA DELLA PARTENZA
+- Apri il changelog e verifica la versione; prova tema Standard e Cyber.
+- Seleziona il GPX e avvia la navigazione: sessione attiva e notifica Apri/Termina.
+- Scegli Nord in alto o Senso di marcia dal selettore Nord/Marcia.
+- Imposta lo zoom con pizzico o con meno/piu'; Centra riattiva Follow senza modificarlo.
+- La stima inizialmente deve mostrare Arrivo: calcolo, oppure In pausa se resti fermo.
+
+NAVIGAZIONE E MAPPA
+- La posizione e le distanze devono aggiornarsi durante il percorso.
+- In Senso di marcia la mappa ruota gradualmente; la posizione resta un poco sotto il centro.
+- In Nord in alto la mappa mantiene il nord verso l'alto.
+- Lo zoom scelto deve rimanere costante tra rettilinei, curve e cambi di velocita'.
+- Verifica leggibilita' della traccia, della posizione, dei nomi e del box rally.
+- Controlla freccia dritta, leggera, svolta marcata e tornante quando presenti nel GPX.
+- La svolta compare entro 200 metri; la distanza cala lungo il percorso.
+- Dopo aver superato la curva compare l'indicazione successiva.
+- In incroci, tornanti e tratti paralleli il progresso non deve saltare a un tratto successivo vicino.
+- Su un riconoscimento ambiguo e' previsto Riconoscimento traccia, con frecce e arrivo sospesi.
+
+TEMPO RESIDUO E ARRIVO
+- Dopo almeno 30 secondi utili e 100 metri di avanzamento deve comparire una riga come
+  24 min - Arrivo 16:35 nel pannello delle metriche.
+- Un'andatura regolare deve produrre un orario abbastanza stabile e un tempo residuo in diminuzione.
+- Cambiando ritmo, la stima deve adeguarsi gradualmente. Non deve seguire ogni picco del tachimetro GPS.
+- In Dettagli puoi vedere Andatura per la stima, utile per capire il tempo previsto.
+- La media usa gli ultimi 3 minuti con piu' peso ai dati recenti: non anticipa le condizioni del percorso futuro.
+
+DURANTE UNA SOSTA
+- Dopo circa 10 secondi da fermo/quasi fermo deve comparire Arrivo: in pausa.
+- La mappa deve mantenere l'ultima direzione di movimento affidabile.
+- Ripartendo dopo una sosta breve l'arrivo puo' riprendere subito con l'andatura recente.
+- Dopo una sosta prolungata puo' ricomparire Calcolo finche' ci sono di nuovo dati sufficienti.
+- Verifica pizzico con Follow: dopo il gesto deve restare attivo senza cambiare zoom.
+- Trascina la mappa: Follow si disattiva. Usa Centra o Follow per riprendere la navigazione.
+- Ruota il telefono e torna alla Home/alla mappa: controlli e zoom devono restare coerenti.
+
+GPS, FUORI TRACCIA E SCHERMO SPENTO
+- Verifica un allontanamento dal GPX: dopo conferma appare Fuori traccia e l'arrivo viene sospeso.
+- Al rientro attendi il riconoscimento: la stima deve riprendere senza conteggiare il salto GPS come viaggio.
+- Spegni e riaccendi il GPS: non devono restare orari o frecce basati sulla posizione vecchia.
+- Blocca lo schermo o passa a un'altra app per alcuni minuti durante la sessione.
+- Riapri dalla notifica: posizione, progresso e arrivo devono riferirsi alla situazione corrente.
+- Se torni realmente indietro lungo il GPX, sono previsti Verso opposto e arrivo sospeso.
+- Riprendendo il verso originale, riconoscimento e indicazioni devono tornare disponibili.
+
+FINE E CHIUSURA
+- Vicino alla fine del GPX deve apparire Fine traccia.
+- Termina e' il piccolo pulsante rosso con simbolo di arresto nella barra di stato e nella Home.
+- Termina deve chiudere sessione e notifica; avviando una nuova sessione la stima riparte dal calcolo.
+- Mappe e GPX restano disponibili completamente offline.
+
+DA ANNOTARE DOPO LA PROVA
+- Versione, telefono e GPX usato; tema e orientamento scelti.
+- Dove la freccia o il riconoscimento non hanno seguito il percorso atteso.
+- Se lo zoom ha cambiato scala senza una tua azione.
+- Dopo quanto tempo e' comparsa la prima stima; come e' cambiata con ritmo e soste.
+- Eventuali sovrapposizioni, testi tagliati o comandi difficili da usare.
+- Differenza tra arrivo previsto e arrivo reale, indicando le soste fatte nel frattempo.
+
+La logica completa e' descritta in 1.9.0-logica-arrivo.md.
+GPX con vuoti significativi tra segmenti possono mostrare Arrivo: GPX discontinuo.

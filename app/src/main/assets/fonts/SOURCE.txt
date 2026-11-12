@@ -1,0 +1,14 @@
+Noto Sans Regular - SDF glyphs for offline map labels
+
+Source: https://github.com/protomaps/basemaps-assets
+Pinned revision: 028c18f713baecad011301ff7a69acc39bcc2ae7
+Original directory: fonts/Noto Sans Regular
+License: SIL Open Font License 1.1, included in OFL.txt.
+Copyright 2022 The Noto Project Authors (https://github.com/notofonts)
+
+Included ranges: 0-255, 256-511, 512-767, 768-1023,
+7680-7935, 7936-8191, 8192-8447.
+These cover Latin and Greek letters, accents and general punctuation used
+by the map labels. Glyph files are copied without modification.
+Runtime style URL: asset://fonts/{fontstack}/{range}.pbf
+Font stack: Noto Sans Regular

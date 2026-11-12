@@ -1,0 +1,58 @@
+GPXdev 1.37.0 - Archivio piu' pratico
+
+APK: gpxdev_1.37.0_mappecolori.apk
+Application ID: com.gpxnavigator; versionCode: 66.
+Installare come aggiornamento, senza disinstallare, per conservare i dati.
+
+Funzioni
+- Ricerca per nome visualizzato o nome del file originale, senza distinzione
+  fra maiuscole/minuscole e accenti. Piu' parole restringono i risultati.
+- Ordinamento per aggiunte recenti, nome A-Z, distanza crescente/decrescente.
+  L'ordine scelto resta salvato. Le distanze assenti vanno in fondo.
+- Stella sulla scheda e nel dettaglio per aggiungere/rimuovere un preferito.
+  Il filtro Solo preferiti si combina con ricerca e ordinamento.
+- Rinomina dal menu del dettaglio. Il nome del file originale resta visibile
+  nei dati del file; il contenuto GPX non viene riscritto. Il nome scelto e'
+  usato nell'app e proposto come nome del file in esportazione.
+- Rinomina non disponibile per la traccia di una sessione attiva o interrotta.
+- Ricerca, filtro e posizione dell'elenco restano tornando dal dettaglio.
+
+Verifica aggiornamento
+1. Prima dell'aggiornamento annotare numero/nome delle tracce e, se presente,
+   una registrazione da riprendere o salvare. Dopo l'aggiornamento verificare
+   che siano ancora disponibili. La migrazione dati e' automatica.
+2. Aprire Le mie tracce: controllare che il conteggio corrisponda all'archivio.
+
+Prova ricerca e ordinamento
+3. Cercare una parte del titolo, poi del nome del file. Provare maiuscole,
+   accenti e spazi ripetuti; i risultati devono aggiornarsi subito.
+4. Cercare un testo assente: verificare il messaggio Nessuna traccia trovata
+   e il comando Cancella ricerca e filtri. La X cancella solo la ricerca.
+5. Provare i quattro ordinamenti. Chiudere e riaprire l'app: l'ordine scelto
+   deve rimanere. Aggiunte di recente usa la data di importazione/salvataggio.
+
+Prova preferiti
+6. Toccare la stella: deve cambiare stato senza aprire il dettaglio.
+7. Attivare Solo preferiti e cercare all'interno dei risultati. Rimuovere
+   l'ultimo preferito mostrato: deve apparire il messaggio di nessun risultato.
+8. Chiudere e riaprire l'app: le stelle salvate devono essere conservate.
+
+Prova rinomina ed esportazione
+9. Aprire il dettaglio, menu, Rinomina traccia. Annulla non modifica il nome.
+10. Provare un nome vuoto o contenente barre: Salva nome deve essere disabilitato.
+11. Salvare un nome valido. Verificarlo nel dettaglio, nell'elenco e avviando
+    successivamente la navigazione. Controllare che distanza e metadati restino.
+12. Esportare: il nome proposto deve usare il nuovo nome. Il nome interno del
+    GPX esportato rimane quello originale: la rinomina riguarda l'archivio.
+13. Durante una navigazione verificare che la rinomina della relativa traccia
+    sia disabilitata, mentre la stella rimane utilizzabile.
+
+Prova interfaccia
+14. Scorrere un elenco lungo, aprire una traccia e tornare indietro: verificare
+    la stessa posizione nell'elenco. Ripetere con ricerca e Solo preferiti.
+15. Provare Soft/Cyber, verticale/orizzontale, tastiera aperta e caratteri grandi.
+    Nelle finestre basse i controlli e l'elenco devono restare raggiungibili
+    scorrendo la pagina.
+
+Non e' incluso il riconoscimento dei duplicati.
+Risultati automatici e file modificati: output/release-1.37.0/IMPLEMENTAZIONE.md

@@ -1,0 +1,32 @@
+GPXdev 1.28.0 - Verifica sul telefono
+
+Installare app-1.28.0.apk sopra la versione attuale senza disinstallare.
+Application ID com.gpxnavigator; versionCode 54.
+
+Nuova schermata della registrazione libera
+- Layout condiviso con la navigazione, senza indicazioni di svolta o fuori traccia.
+- In orizzontale: velocita' grande con Vmax, Tempo giro in hh:mm:ss,
+  chilometri Percorsi e Quota in metri nei riquadri laterali.
+- In verticale: distanza e tempo, velocita', quota e Vmax nel riepilogo sotto la mappa.
+- Tempo giro: durata dal primo avvio della registrazione, inclusa un'eventuale
+  interruzione prima della ripresa. Continua senza GPS e durante il background.
+- Per la stessa registrazione il conteggio usa il tempo monotono, evitando salti
+  se cambia l'orologio del telefono. Dopo il riavvio dell'app riparte dall'orario
+  originale salvato. Una nuova registrazione ha un nuovo conteggio.
+- Dati GPS non disponibili indicati con un trattino.
+
+Prova pratica
+1. Registra un giro -> avviare una registrazione libera e ruotare il telefono.
+2. Verificare mappa e riquadri in orizzontale, in Soft e Cyber.
+3. Controllare aggiornamento di velocita', Vmax, quota, distanza e Tempo giro.
+4. In assenza di GPS: tempo ancora in aumento, distanza conservata,
+   velocita' e quota non disponibili.
+5. Tornare alla Dashboard e riaprire la mappa: il tempo deve continuare.
+6. Spegnere lo schermo per qualche minuto e riaprire: verificare il tempo trascorso.
+7. Termina -> salvare o scartare il giro; avviare un'altra registrazione e
+   verificare il nuovo conteggio.
+8. Seguire un GPX con registrazione attiva: devono restare gli indicatori di svolta,
+   Arrivo e distanza Rimanente della navigazione guidata.
+
+Restano da verificare sul telefono la cartografia reale e i valori GPS reali.
+Le anteprime dei test grafici usano la schermata senza mappa e dati di esempio.

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPX Navigator sample" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Breve percorso a Firenze</name>
+    <trkseg>
+      <trkpt lat="43.7696" lon="11.2558"><ele>50</ele><time>2026-09-23T09:00:00Z</time></trkpt>
+      <trkpt lat="43.7702" lon="11.2565"><ele>51</ele><time>2026-09-23T09:01:00Z</time></trkpt>
+      <trkpt lat="43.7710" lon="11.2572"><ele>52</ele><time>2026-09-23T09:02:00Z</time></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

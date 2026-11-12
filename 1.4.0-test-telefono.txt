@@ -1,0 +1,64 @@
+GPX NAVIGATOR 1.4.0 - TEST SUL TELEFONO
+
+INSTALLAZIONE
+Installa app-1.4.0.apk come aggiornamento, senza disinstallare la versione precedente.
+La mappa Italia PMTiles e l'archivio GPX gia' importati devono restare disponibili.
+La versione in basso a destra deve mostrare 1.4.0; toccandola trovi il changelog aggiornato.
+
+1. ESPLORAZIONE
+- Premi Esplora mappa: vedi la mappa Italia, il GPX selezionato e la posizione.
+- La barra indica Esplorazione; non compare una notifica di navigazione.
+- Vai alla Home del telefono o spegni lo schermo: in questa modalita' il GPS viene fermato.
+- Riapri la mappa: il GPS riprende ad aggiornarsi.
+
+2. AVVIO E NOTIFICA
+- Nella Home scegli un GPX con Usa traccia, poi premi Avvia navigazione.
+- Se richiesto, concedi la posizione precisa durante l'uso e le notifiche.
+- La mappa si apre e la barra indica Navigazione attiva.
+- Nelle notifiche compare GPX con il nome della traccia, lo stato GPS o la distanza rimanente.
+- Espandi la notifica: devono esserci Apri e Termina.
+- Torna alla Home dell'app e tocca Apri nella notifica: deve riaprire la mappa.
+
+3. SCHERMO SPENTO / ALTRA APP (TEST PRINCIPALE)
+- Avvia una navigazione all'aperto, attendi una posizione attendibile.
+- Blocca il telefono e cammina per 10-15 minuti, oppure passa a un'altra app.
+- Riapri tramite la notifica: posizione e metriche devono riflettere la posizione corrente.
+- Il servizio e la notifica devono essere rimasti attivi; non deve essere necessario riavviare la sessione.
+- Per il test fuori traccia usa un GPX vicino alla tua zona. Allontanati oltre la soglia:
+  dopo conferma GPS la notifica deve mostrare Fuori traccia anche con la mappa chiusa.
+- Non sono previsti suoni o vibrazioni.
+
+4. TRACCIA ATTIVA PROTETTA
+- Durante la sessione torna alla Home: il GPX attivo non deve essere eliminabile.
+- Usa traccia sulle altre righe deve essere disabilitato.
+- Importa un altro GPX: deve aggiungersi all'elenco senza sostituire quello in navigazione.
+- Puoi eliminare un GPX diverso da quello attivo.
+
+5. TERMINA
+- Con la mappa chiusa premi Termina nella notifica: notifica e sessione devono cessare.
+- Riapri l'app: non deve essere proposta la ripresa della sessione appena terminata.
+- Ripeti l'avvio e termina dalla mappa o dalla Home dell'app.
+- Se termini restando sulla mappa, il GPS resta attivo in modalita' Esplorazione:
+  tornando alla Home o bloccando lo schermo viene fermato.
+- Dopo Termina puoi nuovamente cambiare ed eliminare la traccia prima protetta.
+
+6. INTERRUZIONE E RIPRESA
+- Avvia una sessione; dalle impostazioni Android arresta forzatamente GPX Navigator,
+  oppure riavvia il telefono senza premere Termina.
+- Riapri l'app: la Home deve proporre la sessione interrotta con Riprendi e Chiudi sessione.
+- Il GPS di navigazione non deve riavviarsi da solo.
+- Riprendi riapre il GPX salvato e avvia una nuova sessione con notifica.
+- Chiudi sessione elimina solo la proposta di ripresa, conservando GPX e mappe.
+- La ripresa ricalcola le metriche dalla posizione corrente; non e' una registrazione del percorso.
+
+7. PERMESSI E GPS
+- Senza permesso di posizione, Avvia navigazione deve mostrare un errore senza crash.
+- Su Android 13+ puoi negare le notifiche: la sessione deve comunque avviarsi e l'app
+  deve spiegare come abilitarle. Termina resta disponibile nella mappa e nella Home.
+- Disattiva il GPS durante una sessione: lo stato deve segnalarlo; riattivalo e attendi la ripresa.
+- Senza segnale recente, la posizione e le metriche GPS diventano non disponibili,
+  senza mantenere un avviso fuori traccia basato su posizioni vecchie.
+
+Tutte le prove possono usare la mappa Italia completa gia' importata, senza rete dati.
+Le prove sul servizio automatiche usano Robolectric Android 10 e un provider GPS simulato:
+il comportamento reale a schermo spento va verificato sul tuo telefono.

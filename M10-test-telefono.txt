@@ -1,0 +1,55 @@
+M10 - Verifica sul telefono - v0.11.0
+
+Preparazione
+Installa app-m10-0.11.0.apk come aggiornamento e verifica v0.11.0 nella home.
+Trasferisci sul telefono i quattro file sample-data/m10-*.gpx.
+Le tracce di prova sono sintetiche, situate a Firenze: servono per verificare
+importazione e rendering, non rappresentano percorsi stradali.
+
+1. Rotazione e spazio della mappa
+Apri la navigazione, disattiva Follow, sposta e ingrandisci la mappa.
+Attendi che si fermi, ruota il telefono in orizzontale e poi in verticale.
+Atteso: mappa ancora visibile, area e zoom conservati, nessun crash.
+Il pannello superiore scorre: puoi raggiungere tutte le informazioni e i comandi.
+Verifica anche la home in orizzontale: il pulsante di navigazione deve essere accessibile.
+
+2. Background
+Attiva Follow, porta l'app in background per circa 20 secondi e riaprila.
+Atteso: la mappa funziona e le coordinate riprendono ad aggiornarsi appena torna
+il segnale. La ricezione GPS viene fermata mentre la schermata non e' visibile.
+
+3. GPS spento e riacceso
+Durante la navigazione spegni la posizione dalle impostazioni rapide.
+Atteso: messaggio di GPS disattivato, nessuna posizione o metrica vecchia mostrata.
+Riaccendi la posizione: deve riprendere la ricerca automaticamente.
+Se il segnale manca, deve comparire lo stato di attesa/non disponibilita'.
+
+4. Permessi
+Nelle impostazioni Android nega il permesso Posizione a GPX Navigator, poi riapri
+l'app. Android puo' terminare l'app quando revochi il permesso.
+Atteso: mappa utilizzabile, messaggio di permesso negato e accesso alle impostazioni.
+Ripristina il permesso dalle impostazioni e torna nell'app: il GPS deve ripartire.
+
+5. Traccia con un punto e traccia lunga
+Disattiva Follow prima di tornare alla home per queste prove, altrimenti la camera
+seguira' il telefono e potresti non vedere le tracce di Firenze.
+Importa m10-single-point.gpx e apri la navigazione.
+Atteso: punto rosso visibile, distanza totale 0, nessun crash.
+Importa m10-long-track.gpx e riapri la navigazione.
+Atteso: 50000 punti nel riepilogo, linea rossa visibile, totale circa 4 km,
+zoom e spostamento utilizzabili. Percorsa/rimanente restano non disponibili
+se il telefono e' lontano dalla traccia.
+
+6. GPX non valido
+Dopo aver importato una traccia valida, prova m10-invalid.gpx e m10-empty.gpx.
+Atteso: messaggio di errore, nessun crash, precedente traccia ancora selezionata.
+
+7. File mappa non valido
+Con la mappa Italia gia' importata, premi Scegli mappa PMTiles e scegli un GPX.
+Atteso: errore controllato; la mappa precedente resta disponibile.
+Ricarica la mappa per cancellare il messaggio di errore.
+
+La verifica di una mappa privata mancante su dispositivo richiede un ambiente
+di prova dedicato; non cancellare i dati dell'app per simulare questo caso.
+La gestione del file mancante e' presente nel repository, ma non e' stata
+verificata dal vivo in questa sessione (nessun dispositivo ADB collegato).

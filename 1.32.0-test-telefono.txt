@@ -1,0 +1,75 @@
+GPXdev 1.32.0 - Cockpit autonomo e riepilogo
+
+Installare app-1.32.0.apk sopra la versione attuale senza disinstallare.
+Application ID com.gpxnavigator; versionCode 60. Base: 1.31.0.
+
+Funzionamento
+- Home -> Cockpit -> nome del giro -> Avvia Cockpit.
+- La preparazione e' dedicata e non avvia il GPS o la registrazione.
+- Avvia Cockpit avvia una propria registrazione GPX, senza mappe o tracce.
+- Cockpit mantiene i dieci valori in una griglia senza scorrimento:
+  due colonne in verticale, cinque in orizzontale, Soft e Cyber.
+- In alto Cockpit, GPS e REC; nome del giro; in basso Home e Termina.
+- Home e Indietro lasciano attivo il giro. Home mostra Cockpit in corso
+  e Riprendi Cockpit. Anche la notifica riapre la funzione corretta.
+- Non ci sono collegamenti diretti fra mappa e Cockpit. Per avviare
+  un'altra attivita' si termina prima quella corrente.
+- Termina ferma la raccolta e apre il riepilogo con i dati del giro:
+  Vmax, media in movimento, distanza, durata, quota iniziale e finale,
+  quote minima e massima, differenza di quota, data/ora di inizio e fine,
+  numero di punti GPX. I dati mancanti restano assenti, senza stime inventate.
+- Il riepilogo resta fermo anche senza GPS ed e' recuperato dopo la
+  chiusura dell'app, fino alla scelta Salva giro o Scarta giro.
+- Senza punti GPS non viene creato un GPX vuoto: sono mostrati tempi e
+  conteggio punti, con il solo scarto disponibile.
+- I giri salvati sono in Le mie tracce, identificati come Giro Cockpit.
+
+Aggiornamento e compatibilita'
+- Database aggiornato automaticamente da schema 4 a 5, conservando dati.
+- Le vecchie registrazioni prive dell'identita' Cockpit continuano a
+  essere riconosciute come registrazioni libere o navigazioni secondo
+  la traccia originale. Non viene attribuita una provenienza non salvata.
+- Nessuna nuova dipendenza, autorizzazione o connessione di rete.
+- Angolo di piega sempre escluso. Mappa e movimento fluido 1.31.0 conservati.
+
+Verifiche pratiche
+1. Aprire la preparazione Cockpit e tornare indietro: nessun giro avviato.
+2. Avviare Cockpit senza mappa importata; controllare REC e notifica.
+3. Nei due temi ruotare il telefono, anche con caratteri ingranditi:
+   tutti i dati visibili e nessuno scorrimento.
+4. Tornare alla Home e riprendere Cockpit: stesso giro e stessi valori.
+   Verificare che le altre attivita' non possano sostituirlo.
+5. Spegnere lo schermo e riaprire dalla notifica; controllare continuita'
+   del giro e preferenza Mantieni lo schermo acceso.
+6. Dopo alcuni punti GPS premere Termina. Confrontare il riepilogo con
+   i dati del giro: non deve cambiare aspettando o spostando il telefono.
+7. Chiudere e riaprire l'app prima della scelta: stesso riepilogo.
+8. Salva giro: controllare origine Giro Cockpit in archivio/dettaglio,
+   metadati ed esportazione GPX. Ripetere scegliendo Scarta giro.
+9. Terminare subito senza GPS: Salva giro disabilitato e scarto possibile.
+10. Interrompere una prova in corso e riaprire: Cockpit interrotto ->
+    Riprendi Cockpit. Verificare il recupero dei dati precedenti.
+11. Avviare una navigazione o registrazione libera: Cockpit non deve
+    riutilizzarla. Terminarla prima di iniziare un nuovo Cockpit.
+12. Controllare che mappa, Follow, curve e animazioni 1.31.0 funzionino.
+
+Le misure GPS reali, il supporto della moto e la gestione energetica Android
+restano da verificare sul telefono.
+
+Controlli automatici eseguiti
+- assembleDebug: PASS.
+- test: PASS, 401 test, zero errori, fallimenti o test saltati.
+- lintDebug: PASS, zero errori e il solo avviso preesistente sull'icona
+  monocromatica del launcher.
+- Verificati avvio esplicito, attivita' isolate, recupero del tipo di giro,
+  notifica Cockpit, riepilogo fermo, dati conservati e provenienza in archivio.
+- Migrazioni da schema 2, 3 e 4 verificate con bozze aperte e terminate:
+  tracce, selezione, punti e contatore conservati.
+- Strumentazione verificata Soft/Cyber a 320x640, 360x720, 640x320 e
+  800x360 dp, scala caratteri 1 e 1,6; nessun taglio dei dati o scorrimento.
+- Riepilogo verificato nei due temi, verticale/orizzontale e caratteri
+  ingranditi, con dati disponibili e registrazione senza punti GPS.
+- Esaminate anche le immagini generate dai test grafici, con dati di prova.
+- Firma APK verificata: stesso certificato della 1.31.0.
+- Log completo: .tools/1.32.0-verification.log.
+- Elenco esatto dei file: output/release-1.32.0/filechanges.json.

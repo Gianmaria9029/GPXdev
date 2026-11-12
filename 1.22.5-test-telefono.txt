@@ -1,0 +1,64 @@
+GPXdev 1.22.5 - CINQUE CORREZIONI DI AFFIDABILITA'
+
+INSTALLAZIONE
+Installa app-1.22.5.apk come aggiornamento della 1.22.4, senza disinstallare.
+VersionCode 43. Firma verificata identica alla 1.22.4.
+Controlla v1.22.5 nel footer e il nuovo changelog.
+
+1. TERMINA E NOTIFICA
+- Avvia una navigazione e termina dalla schermata dell'app.
+- Avvia una navigazione senza registrazione e termina dalla notifica.
+- Avvia una registrazione, passa a un'altra app e premi Termina dalla notifica.
+- GPXdev deve aprirsi e mostrare la domanda di salvataggio del giro.
+- Prova sia Si' sia No, controllando che la sessione si fermi.
+- Il vecchio extra finish_navigation inviato alla MainActivity non deve piu' richiedere uno stop.
+
+2. ARRIVO
+- Raggiungi il punto finale di un GPX con GPS preciso: l'arrivo richiede distanza reale entro 10 m e accuratezza GPS entro 10 m.
+- Una posizione a 25 m di lato dal finale, oppure oltre il finale, non deve produrre Arrivato.
+- Con GPS meno preciso vicino al finale deve comparire Attendi GPS preciso.
+- In assenza della conferma automatica rimane disponibile Termina.
+- La scadenza del segnale continua a sospendere la guida; non viene inventata una conferma di arrivo.
+
+3. MAPPE
+- Verifica la mappa Italia gia' importata: deve riaprirsi senza doverla importare nuovamente.
+- Importa una mappa PMTiles valida.
+- Importa un PMTiles con directory danneggiata: deve apparire un errore e rimanere selezionata la precedente mappa valida.
+- La validazione controlla directory radice, riferimenti e una catena di directory foglia di controllo; non legge tutti i tile della regione.
+
+4. ESPORTA GPX
+- Nelle schede dell'archivio tocca l'icona di esportazione accanto al nome della traccia.
+- Prova una traccia importata e un giro registrato, sia in Soft sia in Cyber, in verticale e landscape.
+- Scegli una destinazione, verifica GPX esportato e reimporta la copia per controllarne il contenuto.
+- Chiudi e riapri l'app: l'esportazione deve essere ancora disponibile sulle tracce archiviate.
+- Annulla il selettore di destinazione e riprova: nessuna modifica al GPX originale.
+- Ruota mentre il selettore e' aperto: il risultato deve riferirsi alla traccia richiesta inizialmente.
+- La ricreazione del ViewModel con una richiesta pendente e' coperta dai test; la morte reale del processo durante il selettore va verificata sul dispositivo.
+- Se una copia viene interrotta, riprova dall'archivio; la destinazione parziale puo' dover essere sovrascritta o eliminata.
+- Dopo un nuovo salvataggio resta anche la scorciatoia Esporta GPX nel messaggio.
+- Controlla leggibilita' di nome, distanza, Usa traccia ed Elimina con caratteri ingranditi.
+
+5. LIMITI GPX
+- Dimensione massima di importazione/lettura: 20 MiB (20.971.520 byte).
+- Massimo 100.000 punti e 1.000 segmenti totali.
+- Massimo 512 caratteri per campo testuale supportato; profondita' XML massima 64.
+- I file oltre i limiti devono produrre un errore controllato e non comparire nel catalogo.
+- Il campione da 50.000 punti rimane supportato e passa i test.
+- I limiti si applicano anche alla lettura per la navigazione. Le tracce troppo grandi gia' archiviate rimangono esportabili.
+- Il salvataggio dei punti gia' raccolti da una registrazione non e' bloccato dai limiti di importazione; un giro oltre i limiti puo' essere esportato e semplificato prima di navigarlo.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 241 test, zero fallimenti, errori o test saltati; 24 nuovi test di regressione.
+- lintDebug: PASS, zero errori e un avviso residuo sull'icona monocromatica opzionale.
+- Compatibilita' del nuovo validatore: PASS su Firenze e su entrambe le mappe Italia presenti nella workspace.
+- APK: versione 1.22.5, versionCode 43, application ID com.gpxnavigator.
+- Firma verificata identica alla 1.22.4; checksum in app-1.22.5.apk.sha256.
+- Nessuna nuova dipendenza, permesso runtime o modifica allo schema del database.
+- ADB: nessun dispositivo collegato. Prove su telefono e su strada non eseguite.
+- Log finale: .tools/1.22.5-build-test.log.
+- Log mappe: .tools/1.22.5-map-compatibility.log.
+- Recap dettagliato: output/release-1.22.5/RECAP-1.22.5.md.
+
+PROBLEMI RESIDUI
+Restano da affrontare i punti 6-10 dell'ordine concordato: fix precedenti all'avvio della registrazione libera, stati GPS contraddittori, spazio della vecchia mappa, segmenti vuoti finali e antimeridiano.

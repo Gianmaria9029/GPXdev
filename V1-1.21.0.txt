@@ -1,0 +1,46 @@
+GPXdev - PRIMA VERSIONE CONSOLIDATA 1.21.0
+
+VERSIONE
+Version name: 1.21.0
+Version code: 37
+Application ID: com.gpxnavigator
+Android minimo: 10 (API 29)
+Tipo pacchetto: APK debug per installazione diretta
+
+PACCHETTO
+app-1.21.0.apk
+Checksum SHA-256: app-1.21.0.apk.sha256
+Firma verificata e compatibile con la 1.20.1.
+Installare come aggiornamento, senza disinstallare, per mantenere i dati.
+
+CONTENUTO DELLA PRIMA VERSIONE
+- Archivio di piu' tracce GPX con importazione, selezione, conferma di eliminazione e protezione della traccia attiva.
+- Mappe PMTiles importate nel telefono e rendering offline con MapLibre.
+- GPS, Follow, visuale Nord/Senso di marcia e zoom persistente.
+- Navigazione con servizio e notifica, esplorazione e ripresa della sessione interrotta.
+- Distanze totale, percorsa e rimanente, velocita', Vmax, quota e stima di arrivo.
+- Avviso fuori traccia, indicazioni delle curve dal GPX, seconda manovra e progresso sulla mappa.
+- Temi Soft e Cyber con funzioni condivise, Dashboard adattiva e strumentazione landscape a riquadri.
+- Nome e icona GPXdev, changelog interno e link sviluppatore nel browser esterno.
+- Documentazione aggiornata e pulizia di risorse, manifest, stati Compose e avvisi tecnici.
+
+VERIFICHE DI PREPARAZIONE
+assembleDebug: PASS
+test: PASS - 196 test, zero fallimenti, errori o test saltati
+lintDebug: PASS - zero errori, un avviso facoltativo sull'icona monocromatica
+Versione, permessi e firma APK controllati.
+Log: .tools/1.21.0-build-test.log
+
+DOCUMENTAZIONE
+README.md: funzioni, utilizzo offline e build.
+ARCHITECTURE.md: struttura e responsabilita' dei componenti.
+ROADMAP.md: stato della V1 e attivita' future.
+app/src/main/assets/CHANGELOG.txt: cronologia delle revisioni, visibile dall'app.
+1.21.0-test-telefono.txt: modifiche di chiusura, file coinvolti e prove di regressione.
+
+LIMITI DELLA VERSIONE
+Le indicazioni seguono la geometria del GPX: non e' presente un motore di routing stradale o un ricalcolo del percorso.
+Le mappe non sono incluse nell'APK e devono essere importate separatamente.
+La variante monocromatica dell'icona rimane una modifica grafica separata.
+Una distribuzione su store richiedera' una preparazione dedicata.
+I test sul telefono della 1.20.1 sono stati confermati dall'utente; nessun dispositivo ADB era collegato durante la preparazione della 1.21.0.

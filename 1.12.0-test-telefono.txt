@@ -1,0 +1,48 @@
+GPX NAVIGATOR 1.12.0 - NAVIGAZIONE LANDSCAPE
+
+Installa app-1.12.0.apk come aggiornamento della 1.11.0.
+
+1. GERARCHIA DELLA SCHERMATA
+- Avvia la navigazione con il telefono orizzontale.
+- A destra devono comparire GPS, velocita' grande con unita' km/h e distanza rimanente.
+- La velocita' e' arrotondata al km/h; quando manca il dato compare un trattino.
+- La svolta deve comparire nel riquadro quadrato in basso a sinistra, con freccia e distanza ben leggibili.
+- Le sette frecce mantengono il significato della versione precedente.
+- Verifica anche Prosegui, attesa GPS, riconoscimento, verso opposto, fuori traccia e fine traccia.
+- La seconda svolta ravvicinata resta piccola sotto il riquadro principale.
+
+2. CONTRASTO
+- Tema Cyber: freccia, distanza e barra rosa acceso su fondo quasi nero.
+- Tema Standard: freccia, distanza e barra giallo brillante su fondo blu molto scuro.
+- Confronta la leggibilita' sul telefono con entrambi i temi, anche alla luce del giorno.
+
+3. AVVICINAMENTO ALLA SVOLTA
+- Quando appare una svolta a circa 200 m la barra parte vuota.
+- A 100 m deve essere circa a meta'; arrivando alla curva si riempie.
+- La distanza numerica continua a essere mostrata.
+- La barra resta piena fino alla sostituzione della manovra, come la freccia gia' esistente.
+- Durante Prosegui o con posizione incerta/fuori traccia la barra non deve comparire.
+- Dopo una svolta la barra deve riferirsi alla nuova manovra.
+
+4. MAPPA E COMANDI
+- Zoom meno/piu', Centra e Follow sono raggruppati in alto a destra della mappa.
+- Termina resta nella barra superiore.
+- In Follow, il GPS deve rimanere nella zona libera a destra del riquadro svolta e sotto i comandi.
+- Prova sia Nord sia Marcia: mantieni visibili posizione e tratto davanti.
+- Prova pizzico e +/-: lo zoom scelto deve restare invariato ai successivi aggiornamenti GPS.
+- Sposta la mappa manualmente e premi Centra: deve riprendere il Follow senza cambiare zoom.
+- I crediti cartografici restano leggibili in basso a destra, separati dal riquadro.
+
+5. DETTAGLI E REGRESSIONI
+- Apri Dettagli dalla barra o dal dato GPS: devono essere disponibili tempo residuo, ora di arrivo,
+  velocita' di riferimento, distanza totale, percorsa, quota e informazioni su GPS/fuori traccia.
+- Prova un telefono stretto e caratteri di sistema ingranditi: controlla che velocita', distanza,
+  svolta e comandi siano leggibili; la colonna dati puo' scorrere se lo spazio e' insufficiente.
+- In verticale restano il riquadro in alto e le metriche sotto la mappa.
+- Verifica ancora frecce GPX, tratto superato attenuato, seconda svolta, background e ripresa.
+- Simula GPS disabilitato e mappa mancante: messaggi e accesso ai dettagli devono restare disponibili.
+
+LOGICA DELLA BARRA
+Riempimento = 1 - distanza alla svolta / 200 m, limitato fra 0% e 100%.
+Usa la distanza lungo il GPX gia' calcolata per la manovra, senza nuovi sensori o servizi.
+Non modifica riconoscimento delle svolte, calcolo ETA, zoom o funzionamento offline.

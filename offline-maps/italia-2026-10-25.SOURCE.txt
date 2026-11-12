@@ -1,0 +1,46 @@
+italia-2026-10-25.pmtiles: estratto offline Italia, PMTiles v3 / Protomaps Basemap 4.15.2.
+
+Fonte: https://build.protomaps.com/20261025.pmtiles
+Indice ufficiale consultato: https://build-metadata.protomaps.dev/builds.json
+Ultimo archivio disponibile nell'indice al momento della preparazione: 20261025.pmtiles.
+Data effettiva dati OpenStreetMap: 10/25/2026 04:00:00.
+Pubblicazione archivio planetario: 2026-10-25T09:07:03.735Z.
+Data preparazione e verifica locale: 2026-10-25, Europe/Rome.
+
+Contorno: sample-data/italy.geojson, gia derivato da https://download.geofabrik.de/europe/italy.poly
+SHA-256 contorno: 56FA8521AB309E13BD884FD2E629445FA8A0AD8C6888E7B0C1557A096AB584D2
+Comando eseguito dalla radice del progetto:
+.tools/go-pmtiles-1.31.2/pmtiles.exe extract https://build.protomaps.com/20261025.pmtiles offline-maps/italia-2026-10-25.pmtiles.partial --region=sample-data/italy.geojson --download-threads=12 --overfetch=0.005
+Connessione di estrazione: GODEBUG=http2client=0.
+Il file provvisorio e' stato rinominato solo dopo il completamento del comando e pmtiles verify.
+
+Formato: PMTiles v3, tile vettoriali MVT, compressione Gzip, zoom 0-15.
+Dimensione: 2695102611 byte (circa 2,70 GB / 2,51 GiB).
+SHA-256 archivio Italia: 08E4AE018428E1762F028BA1FADB8150788EF9F90C19923DB81B00F80A889CC7
+Copertura header: longitudine 6.602696-19.12499, latitudine 35.07638-47.10005.
+Il contorno include terraferma, Sicilia, Sardegna e isole minori; le tile ai bassi zoom possono mostrare anche territori circostanti.
+
+Verifiche:
+- pmtiles verify: PASS (struttura e ordinamento archivio).
+- Header, intervalli delle sezioni, formato, zoom, data dati e layer earth/roads/water richiesti dall'app: PASS.
+- Tile z14 con geometrie earth e roads: PASS a Milano, Firenze, Roma, Reggio Calabria, Palermo, Cagliari, Lampedusa, Pantelleria, Portoferraio (Elba).
+- La verifica a campione non decodifica tutte le tile e non sostituisce una prova visiva nell'app sul telefono.
+- Gradle assembleDebug test --offline: PASS; 46 test, zero errori/fallimenti nei risultati esistenti, task UP-TO-DATE.
+
+File di riscontro:
+italia-2026-10-25.BUILD.json: voce originale dell'indice ufficiale. L'hash BLAKE3 in questo file riguarda il pianeta sorgente, non l'estratto Italia.
+italia-2026-10-25.METADATA.json: metadati estratti dall'archivio locale.
+italia-2026-10-25.HEADER.json: header estratto dall'archivio locale.
+italia-2026-10-25.CHECKS.json: risultati delle nove tile campione.
+italia-2026-10-25.pmtiles.sha256: checksum dell'estratto Italia.
+
+Dati mappa: © contributori OpenStreetMap, ODbL 1.0; basemap derivata anche da Natural Earth.
+https://www.openstreetmap.org/copyright
+https://opendatacommons.org/licenses/odbl/1-0/
+https://docs.protomaps.com/basemaps/downloads
+
+Uso: copiare il file .pmtiles sul telefono e scegliere 'Scegli mappa PMTiles'.
+La navigazione usa il file locale e funziona senza Internet.
+La versione precedente del 22 settembre 2026 sul PC e' conservata.
+Importazione e prova visiva sul telefono: da eseguire.
+Per spazio richiesto e aggiornamenti successivi vedere README.md in questa cartella.

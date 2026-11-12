@@ -1,0 +1,63 @@
+GPX Navigator - V1 1.0.0 (APK debug)
+Data di preparazione: 15 ottobre 2026
+
+FILE
+app-v1-1.0.0.apk
+app-v1-1.0.0.apk.sha256: impronta SHA-256 per verificare il file.
+
+VERSIONE
+Application ID: com.gpxnavigator
+Version name: 1.0.0
+Version code: 14
+Android minimo: 10 (API 29).
+Firma debug verificata e identica alla versione M10 0.11.0.
+
+INSTALLAZIONE
+Installa l'APK come aggiornamento, senza disinstallare l'app.
+Mappa Italia e GPX gia' importati restano nella memoria privata dell'app.
+La mappa Italia completa non e' inclusa nell'APK e non serve reimportarla.
+
+Da PowerShell nella cartella del progetto, con un telefono autorizzato via USB:
+  & '.tools\android-sdk\platform-tools\adb.exe' devices
+  & '.tools\android-sdk\platform-tools\adb.exe' install -r '.\app-v1-1.0.0.apk'
+  & '.tools\android-sdk\platform-tools\adb.exe' shell am start -n com.gpxnavigator/.MainActivity
+
+CONTROLLI ESEGUITI
+- Ricompilazione completa: clean assembleDebug, PASS.
+- Test automatici: 30, nessun fallimento, nessun test saltato.
+- lintDebug: PASS, 0 errori e 8 avvisi non bloccanti.
+- Firma APK: PASS; compatibile con l'aggiornamento da M10.
+- Versione e package verificati direttamente nell'APK.
+- Nessun permesso INTERNET presente nell'APK; stile della mappa con risorse locali.
+
+VERIFICA FINALE SUL TELEFONO ANCORA DA ESEGUIRE
+ADB e' stato avviato ma non rileva dispositivi collegati in questa sessione.
+L'installazione e la prova del nuovo APK non sono state eseguite via ADB.
+I test manuali di M10 erano stati confermati dall'utente.
+
+1. Aggiorna l'app e verifica v1.0.0 nella home.
+2. Apri la navigazione: la mappa Italia gia' importata deve essere disponibile.
+3. Importa un GPX reale vicino a te e controlla la traccia e la distanza totale.
+4. Disabilita le connessioni di rete mantenendo la posizione attiva.
+5. All'aperto verifica GPS, Centra posizione, Follow e aggiornamento delle metriche.
+6. Conferma assenza di crash nel passaggio home/navigazione e dopo il background.
+
+USO DELLA V1
+Il percorso viene fornito dal GPX. Il progresso e' stimato sulla traccia;
+percorsa e rimanente non sono disponibili quando il GPS e' lontano o impreciso.
+Velocita' e quota vengono mostrate solo quando fornite dal dispositivo.
+La navigazione GPS opera con la schermata visibile. Non ci sono navigazione
+in background, routing, ricalcolo, istruzioni vocali o aggiornamenti automatici mappe.
+
+BUILD CLI CON GLI STRUMENTI LOCALI DEL PROGETTO
+Eseguire dalla cartella principale in PowerShell:
+  $env:JAVA_HOME = (Resolve-Path '.tools\jdk-17.0.20.1+1').Path
+  $env:GRADLE_USER_HOME = (Resolve-Path '.tools\gradle-user-home').Path
+  $env:ANDROID_USER_HOME = (Resolve-Path '.tools\android-user-home').Path
+  $env:PATH = "$env:JAVA_HOME\bin;$env:PATH"
+  .\gradlew.bat clean assembleDebug test lintDebug --offline '-Pkotlin.compiler.execution.strategy=in-process' --console=plain
+
+L'opzione --offline utilizza le dipendenze gia' presenti nella cache locale.
+APK prodotto da Gradle: app\build\outputs\apk\debug\app-debug.apk.
+Report test: app\build\reports\tests\testDebugUnitTest\index.html.
+Report lint: app\build\reports\lint-results-debug.html.

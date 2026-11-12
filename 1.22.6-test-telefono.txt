@@ -1,0 +1,81 @@
+GPXdev 1.22.6 - TEST COMPLETI: CINQUE CORREZIONI 1.22.5 + PULIZIA MAPPE
+
+INSTALLAZIONE
+Installa app-1.22.6.apk come aggiornamento, senza disinstallare.
+La versione include tutte le cinque correzioni della 1.22.5: puoi provarle direttamente qui.
+VersionCode 44, firma compatibile con la 1.22.5 e con la catena degli aggiornamenti precedenti.
+Controlla v1.22.6 nel footer e che tracce, mappa e preferenze siano conservate.
+
+NUOVO TEST - SPAZIO DELLE MAPPE (PUNTO 8 DELL'ANALISI)
+1. Prima di aprire la mappa, annota lo spazio occupato da GPXdev nelle impostazioni del telefono.
+2. Apri Esplora con la mappa gia' selezionata e attendi che sia visibile.
+3. Ricontrolla lo spazio: eventuali vecchie copie private non piu' usate vengono rimosse automaticamente.
+4. Se prima era rimasta una vecchia Italia, il recupero atteso e' circa la sua dimensione, intorno a 2,7 GB. Se non c'erano copie obsolete, lo spazio puo' rimanere simile.
+5. Se conservi il file della mappa valida, reimporta la stessa mappa. Al termine la mappa deve funzionare e lo spazio privato non deve restare raddoppiato.
+6. Durante la copia e' normale occupare temporaneamente spazio per vecchia e nuova mappa. La vecchia copia viene eliminata soltanto dopo validazione/attivazione della nuova e rilascio di tutti gli utenti interni.
+7. Prova a spostare e ingrandire la nuova mappa, poi chiudi e riapri Esplora: nessun errore o mappa scomparsa.
+8. Il file .pmtiles scaricato in Download o in un'altra cartella esterna all'app deve restare presente.
+9. Importa la mappa danneggiata 08 del kit: errore controllato, mappa valida precedente conservata e nessuna copia fallita lasciata stabilmente nell'app.
+10. La mappa valida di Firenze 07 e' facoltativa. Importandola sostituisci la selezione: per tornare all'Italia devi avere il relativo file da importare nuovamente. Per la prova di spazio e' preferibile reimportare la stessa mappa che usi gia'.
+
+TEST 1 - TERMINA E NOTIFICA
+- Registra un breve giro, passa a un'altra app e premi Termina nella notifica.
+- GPXdev deve aprirsi, fermare il giro e chiedere se salvarlo.
+- Ripeti scegliendo Si' e No: il giro deve comparire nell'archivio soltanto scegliendo Si'.
+- Controlla Termina anche dalla schermata dell'app e durante navigazione senza registrazione.
+- Il blocco del vecchio intento esterno finish_navigation e' coperto dai test automatici.
+
+TEST 2 - ARRIVO
+- Usa un tuo breve GPX nella zona in cui ti trovi e prova il finale a piedi.
+- Una posizione a circa 25 metri di lato o oltre il punto finale non deve dichiarare Arrivato.
+- Raggiungi il finale: conferma entro 10 m reali con accuratezza GPS entro 10 m e fix recente.
+- Con GPS meno preciso vicino al finale puo' comparire Attendi GPS preciso. Termina resta disponibile.
+- La prova a piedi valuta il comportamento pratico; per misurare esattamente le soglie servono coordinate controllate o GPS simulato.
+
+TEST 3 - MAPPA DANNEGGIATA
+- Con la tua mappa gia' selezionata, importa 08-rifiutare-mappa-directory-danneggiata.pmtiles dal kit.
+- Deve apparire un errore. La mappa precedente deve restare utilizzabile anche riaprendo Esplora.
+- La validazione riguarda directory e riferimenti, non il contenuto di ogni singolo tile dell'intera regione.
+
+TEST 4 - ESPORTAZIONE
+- Tocca l'icona Esporta GPX accanto al nome di una traccia breve in archivio.
+- Scegli una destinazione, controlla il messaggio GPX esportato e reimporta la copia.
+- Nome traccia, numero di punti e distanza devono corrispondere. La reimportazione crea una seconda voce.
+- Ripeti dopo aver chiuso e riaperto l'app, annullando il selettore e ruotando mentre e' aperto.
+- Prova una traccia importata, un breve giro registrato e la scorciatoia Esporta dopo il salvataggio.
+
+TEST 5 - LIMITI GPX, FILE DEL KIT
+- 01-valido-breve.gpx: accettato.
+- 02-valido-50000-punti.gpx: accettato, con 50.000 punti. Attendi il completamento.
+- 03-rifiutare-nome-513-caratteri.gpx: rifiutato per campo troppo lungo.
+- 04-rifiutare-100001-punti.gpx: rifiutato per troppi punti.
+- 05-rifiutare-1001-segmenti.gpx: rifiutato per troppi segmenti.
+- 06-rifiutare-oltre-20-MiB.gpx: rifiutato per dimensione eccessiva.
+- I file rifiutati non devono apparire in archivio. Dopo ogni errore prova ancora 01: l'app deve restare utilizzabile.
+- Budget invariati dalla 1.22.5: 20 MiB, 100.000 punti, 1.000 segmenti, 512 caratteri per campo supportato, profondita' XML 64.
+
+GRAFICA
+Ripeti i comandi principali in Soft e Cyber, verticale e landscape, e con caratteri ingranditi.
+Controlla nuova icona Esporta, nome traccia, Usa traccia, Elimina, Home, Visuale e Termina.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 250 test, zero fallimenti, errori o test saltati; 9 nuovi test rispetto alla 1.22.5.
+- lintDebug: PASS, zero errori e il solo avviso preesistente sull'icona monocromatica.
+- Copie obsolete, utenti multipli, passaggio ViewModel/renderer, annullamento, errori di eliminazione e importazioni concorrenti coperti dai test.
+- Firma APK verificata identica alla 1.22.5; checksum in app-1.22.6.apk.sha256.
+- Nessuna nuova dipendenza, permesso o modifica allo schema del database.
+- Nessun dispositivo ADB collegato: test nativi sul telefono ancora da effettuare.
+- Log: .tools/1.22.6-build-test.log. Dettagli: output/release-1.22.6/RECAP-1.22.6.md.
+
+RISULTATI
+Modello telefono / versione Android:
+Spazio app prima / dopo apertura mappa / dopo reimportazione:
+Pulizia mappe: OK / KO / nessuna copia obsoleta presente
+1. Termina/notifica: OK / KO
+2. Arrivo: OK / KO / non provato
+3. Mappa danneggiata: OK / KO
+4. Esportazione: OK / KO
+5. Limiti GPX: OK / KO
+Soft/Cyber e orientamenti: OK / KO
+Messaggi o comportamenti inattesi:

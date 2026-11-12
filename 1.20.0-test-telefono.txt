@@ -1,0 +1,68 @@
+GPXdev 1.20.0 - DASHBOARD LANDSCAPE E LINK SVILUPPATORE
+
+INSTALLAZIONE
+Installa app-1.20.0.apk sopra la versione attuale, senza disinstallare.
+APK versionCode 35, con lo stesso certificato della 1.19.0.
+Catalogo, mappe e preferenze restano compatibili con l'aggiornamento.
+
+MODIFICHE
+- Dashboard landscape a due pannelli, con comandi a sinistra e Le mie tracce a destra.
+- Ripartizione indicativa 36% / 64%, adattata per lasciare colonne leggibili.
+- Scorrimento indipendente dei comandi e dell'archivio.
+- Header compatto con GPXdev sopra Dashboard, sottotitolo completo e selettore Soft/Cyber.
+- Traccia selezionata e distanza in evidenza; Avvia/Apri navigazione, Termina, Importa GPX ed Esplora mappa nel pannello sinistro.
+- Schede landscape con nomi grandi e pulsanti sulla destra. Nome file, punti e data sono apribili da Info traccia.
+- Eventuali problemi di una traccia restano sempre visibili, anche con Info traccia chiusa.
+- Finestra stretta, altezza insufficiente o caratteri molto grandi: disposizione a una colonna senza ridurre il testo.
+- Elimina giallo #FCFF8B in Soft e lime #B6E536 in Cyber, in entrambi gli orientamenti.
+- Conferma di eliminazione e protezione della traccia attiva mantenute.
+- Footer con App developed by gianmaria.dev, collegato a https://gianmaria.dev nel browser esterno Android.
+- Versione nel footer ancora collegata al changelog. Il footer va a capo se serve e scorre con il contenuto nelle finestre molto basse.
+- Stesse funzioni nei due temi, con i rispettivi colori.
+
+PROVE SUL TELEFONO
+1. Aggiorna senza disinstallare e controlla v1.20.0, archivio GPX e tema salvato.
+2. Ruota in landscape: verifica i due pannelli, il sottotitolo completo e il selettore del tema.
+3. Scorri comandi e archivio separatamente: tutte le azioni devono essere raggiungibili anche su schermi bassi.
+4. Prova una traccia con nome lungo: il nome deve andare a capo e i pulsanti restare leggibili.
+5. Apri e chiudi Info traccia: controlla nome file, numero punti e data di importazione.
+6. Passa da Soft a Cyber: struttura e funzioni devono coincidere; Elimina giallo in Soft e lime in Cyber.
+7. Usa traccia, poi Avvia navigazione. Torna alla Dashboard: verifica la traccia attiva, Apri navigazione e Termina.
+8. Durante la navigazione, verifica che non sia possibile cambiare traccia o eliminare quella attiva. Una traccia diversa resta eliminabile con conferma.
+9. Prova Elimina su una traccia di prova: prima annulla e poi, se desiderato, conferma la rimozione.
+10. Importa un GPX e apri Esplora mappa; verifica anche eventuale ripresa di una sessione interrotta.
+11. Tocca App developed by gianmaria.dev: deve aprirsi il sito nel browser esterno. Torna indietro alla Dashboard.
+12. Tocca v1.20.0: deve aprirsi il changelog interno, senza aprire il browser.
+13. Prova caratteri ingranditi e finestra stretta: il layout deve tornare a una colonna quando necessario; controlla anche il footer.
+14. In verticale controlla la Dashboard e i pulsanti aggiornati. In navigazione verifica Visuale e Follow e l'assenza dei soli + e - in landscape, in entrambi i temi.
+15. In modalita' aereo verifica navigazione e archivio offline. Il sito richiede connettivita' nel browser; l'app non acquisisce permessi Internet.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 196 test, zero fallimenti, errori o test saltati.
+- Nuovi test: dimensioni minime dei pannelli, fallback per finestre strette/basse e font grandi, struttura portrait, Intent HTTPS con selettore browser.
+- Contrasto delle azioni gialle/lime coperto dai test palette esistenti.
+- lintDebug: PASS, zero errori, 13 avvisi e tre suggerimenti gia' presenti nella 1.19.0.
+- Versione 1.20.0, versionCode 35 e nome GPXdev verificati nei metadati APK.
+- Firma verificata e identica alla 1.19.0.
+- Checksum SHA-256 disponibile in app-1.20.0.apk.sha256.
+- Log finale: .tools/1.20.0-build-test.log.
+- Nessun dispositivo ADB collegato: verifica visiva e apertura effettiva del browser sul telefono ancora da eseguire.
+- Nessuna nuova dipendenza o permesso Android.
+
+FILE MODIFICATI / AGGIUNTI
+- app/src/main/java/com/gpxnavigator/ui/importgpx/ImportGpxScreen.kt
+- app/src/main/java/com/gpxnavigator/ui/importgpx/DashboardContent.kt
+- app/src/main/java/com/gpxnavigator/ui/importgpx/DashboardFooter.kt
+- app/src/main/java/com/gpxnavigator/ui/importgpx/DashboardLayoutPolicy.kt
+- app/src/main/java/com/gpxnavigator/ui/components/ThemeSelector.kt
+- app/src/main/res/values/strings.xml
+- app/src/main/assets/CHANGELOG.txt
+- app/build.gradle.kts
+- app/src/test/java/com/gpxnavigator/ui/importgpx/DashboardLayoutPolicyTest.kt
+- app/src/test/java/com/gpxnavigator/ui/importgpx/DashboardFooterTest.kt
+
+ARTEFATTI
+- app-1.20.0.apk
+- app-1.20.0.apk.sha256
+- 1.20.0-test-telefono.txt

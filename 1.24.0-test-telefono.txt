@@ -1,0 +1,76 @@
+GPXdev 1.24.0 - PAGINA DI PREPARAZIONE DELLA REGISTRAZIONE LIBERA
+
+INSTALLAZIONE
+Installa app-1.24.0.apk sopra la versione attuale, mantenendo i dati dell'app.
+VersionCode 46. Nel footer deve comparire v1.24.0.
+
+TEST 1 - PAGINA INTERMEDIA E INDIETRO
+- Dalla Dashboard premi Registrazione libera.
+- Deve aprirsi Prepara il tuo giro con campo Nome della traccia e i quattro riquadri: Percorso e distanza, Velocita', Altitudine, Orari del giro.
+- La mappa non deve aprirsi e la registrazione non deve partire entrando in questa pagina.
+- Premi Dashboard oppure Indietro Android: ritorno alla Dashboard, senza un nuovo giro attivo o in attesa di salvataggio.
+- La pagina di preparazione deve essere utilizzabile anche prima di concedere la posizione; la richiesta dei permessi avviene premendo Inizia registrazione.
+
+TEST 2 - NOME DELLA TRACCIA
+- Riapri la preparazione. Il nome suggerito contiene la data, ad esempio Giro del 28 ottobre 2026.
+- Cambialo in Giro del lago e premi Inizia registrazione.
+- Ora devono aprirsi la mappa e la registrazione con REC; attendi il GPS preciso e registra un breve tragitto.
+- Termina e scegli Si': in Le mie tracce deve comparire Giro del lago.
+- Esporta il file: nome proposto Giro del lago.gpx; il nome interno della traccia deve essere Giro del lago.
+- Prova anche un nome con accenti e &, per esempio Giro del lago & caffe' (puoi usare la e accentata).
+- Ripeti due giri con lo stesso nome: entrambi devono restare in archivio, senza sovrascrivere il precedente.
+
+TEST 3 - CAMPO VUOTO E NOMI NON VALIDI
+- Cancella il nome: deve apparire la spiegazione del nome automatico e Inizia registrazione deve restare disponibile.
+- Il giro salvato deve usare il nome automatico Giro_aaaa-mm-gg_progressivo.gpx.
+- Scrivi Giro/lago oppure un nome oltre 80 caratteri: spiegazione visibile e avvio disabilitato.
+- Correggi il nome: il pulsante deve tornare utilizzabile.
+- Se scrivi Giro del lago.gpx, l'estensione non deve comparire due volte nel nome del file salvato.
+
+TEST 4 - ROTAZIONE, TASTIERA E CARATTERI GRANDI
+- Modifica il nome senza avviare e ruota il telefono: pagina e nome devono essere conservati.
+- Ripeti in Soft e Cyber, verticale e landscape.
+- Apri la tastiera: campo e comandi devono restare raggiungibili, eventualmente scorrendo.
+- Aumenta i caratteri nelle impostazioni Android: testi leggibili, nessuna sovrapposizione, avvio e ritorno raggiungibili.
+- Nelle finestre larghe nome e riepilogo sono affiancati; nelle finestre piccole il contenuto scorre in una colonna.
+
+TEST 5 - PERMESSI
+- Se il permesso di posizione non e' concesso, scegli il nome e premi Inizia registrazione.
+- Negando il permesso preciso, la pagina deve restare aperta con un messaggio; nome conservato e nessuna registrazione avviata.
+- Riprova e concedi il permesso preciso: deve partire il giro con il nome scelto.
+- Se il dialogo dei permessi resta aperto durante una rotazione, il nome deve comunque arrivare al nuovo giro.
+
+TEST 6 - RIPRESA DOPO INTERRUZIONE
+- Avvia un giro con nome personalizzato, registra alcuni punti e interrompi il processo dell'app dalle impostazioni Android.
+- Riapri l'app e usa Riprendi dalla Dashboard: deve ripartire lo stesso giro con lo stesso nome e un nuovo segmento.
+- Termina. Riapri l'app prima di scegliere il salvataggio: anche il giro in attesa deve conservare il nome.
+- Salva ed esporta: nome, punti precedenti e statistiche GPX devono essere conservati.
+
+TEST 7 - AVVIA NAVIGAZIONE DALLA DASHBOARD
+- Seleziona un GPX e usa Avvia navigazione con Registra GPX attivo: deve partire direttamente, senza la pagina di preparazione.
+- Il giro registrato durante la navigazione mantiene il nome automatico previsto dal flusso precedente.
+- Senza spunta deve partire soltanto la navigazione.
+- Verifica anche Esplora mappa, Termina dalla notifica e scelta No/scarta.
+
+TEST 8 - AGGIORNAMENTO DALLA 1.23.0
+- Se possibile aggiorna con una registrazione precedente gia' in attesa di salvataggio.
+- Archivio, mappa, preferenze, punti, velocita' e orario di fine precedenti devono essere mantenuti.
+- La vecchia bozza conserva il nome automatico: il nuovo campo del nome non viene inventato.
+- I GPX precedenti restano navigabili. Tutti i nuovi dati della 1.23.0 restano presenti anche nei giri con nome personalizzato.
+
+ANTEPRIME E DETTAGLI
+Anteprime del componente reale renderizzate con Robolectric: output/release-1.24.0/previews/.
+Riepilogo modifiche, file e verifiche: output/release-1.24.0/RECAP-1.24.0.md.
+Le anteprime non sostituiscono le prove sul display e sulla tastiera del telefono.
+
+RISULTATI SUL TELEFONO - DA COMPILARE
+Modello / versione Android:
+1. Pagina intermedia e Indietro: OK / KO
+2. Nome nel GPX e archivio: OK / KO
+3. Nome vuoto / validazione: OK / KO
+4. Temi / rotazione / tastiera / caratteri grandi: OK / KO
+5. Permessi e nome conservato: OK / KO
+6. Ripresa e salvataggio rimandato: OK / KO
+7. Avvio navigazione diretto: OK / KO
+8. Aggiornamento e dati precedenti: OK / KO
+Comportamenti inattesi:

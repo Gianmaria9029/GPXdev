@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPX Navigator tests" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk><name>Traccia sintetica per test ETA</name><trkseg>
+    <trkpt lat="43.77" lon="11.25"/>
+    <trkpt lat="43.87" lon="11.25"/>
+  </trkseg></trk>
+</gpx>

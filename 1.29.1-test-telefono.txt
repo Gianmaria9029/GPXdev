@@ -1,0 +1,40 @@
+GPXdev 1.29.1 - Piu' spazio in landscape
+
+Installare app-1.29.1.apk sopra la versione attuale senza disinstallare.
+Application ID com.gpxnavigator; versionCode 56.
+
+Novita'
+- In orizzontale, titolo e GPS occupano una sola riga anche quando si registra.
+- Pulsanti Home, Visuale e Termina delle stesse dimensioni precedenti.
+- Barra di stato Android nascosta nella schermata di navigazione in landscape.
+- Uno scorrimento dal bordo superiore richiama temporaneamente la barra Android.
+- Barra ripristinata tornando alla Home o ruotando in verticale.
+- Barra dei comandi Android laterale e protezioni per notch/cutout mantenute.
+
+Prova pratica
+1. Avviare Registra un giro e ruotare in orizzontale: titolo, GPS, REC,
+   Visuale e Termina devono stare sulla stessa riga. La mappa e gli strumenti
+   devono utilizzare lo spazio verticale recuperato.
+2. Scorrere dal bordo superiore: la barra Android deve comparire
+   temporaneamente e poi nascondersi nuovamente.
+3. Ruotare in verticale e tornare in orizzontale: la barra Android deve
+   essere visibile solo in verticale e il giro deve proseguire.
+4. Usare Home mentre il giro e' attivo: verificare la barra Android visibile.
+   Riaprire la navigazione: in orizzontale deve nascondersi di nuovo.
+5. Aprire Visuale o i dettagli GPS, poi chiudere: la barra superiore
+   compatta e la modalita' a schermo intero devono essere mantenute.
+6. Passare al background e rientrare nell'app: nessuna interruzione del giro
+   e barra Android nuovamente nascosta in navigazione landscape.
+7. Ripetere con una traccia GPX, con e senza registrazione, in Soft e Cyber.
+
+La comparsa transitoria della barra Android e la resa con il notch del
+dispositivo restano da verificare sul telefono.
+
+Controlli automatici eseguiti
+- assembleDebug: PASS.
+- test: PASS, 370 test, nessun errore o test saltato.
+- lintDebug: PASS.
+- Verificati allineamento titolo/GPS, barra da 48 dp, schermi landscape
+  stretti, ripristino in verticale/uscita, ritorno dal background e focus.
+- Firma APK verificata e compatibile con app-1.29.0.apk.
+- Log completo: .tools/1.29.1-verification.log.

@@ -1,0 +1,56 @@
+GPX Navigator 1.3.0 - Le mie tracce
+
+INSTALLAZIONE E MIGRAZIONE
+Installa app-1.3.0.apk sopra la versione attuale, senza disinstallare l'app.
+Verifica v1.3.0 in basso a destra. La mappa Italia resta importata.
+Alla prima apertura la traccia conservata dalla versione precedente viene
+registrata nell'elenco e resta selezionata. Le altre tracce si aggiungono
+con Importa GPX: da questa versione un nuovo import conserva quelli precedenti.
+
+1. ELENCO E IMPORTAZIONE
+Controlla che nella home compaia Le mie tracce con il GPX gia' presente.
+Importa altri due GPX validi, per esempio short-track.gpx e m10-single-point.gpx
+dalla cartella sample-data. Devono restare presenti anche le tracce precedenti.
+Ogni voce mostra nome, distanza, punti e data di importazione.
+La traccia appena importata viene selezionata ed evidenziata.
+
+2. SELEZIONE E NAVIGAZIONE
+Premi Usa traccia su una voce diversa da quella selezionata.
+Apri navigazione: deve essere caricata la traccia scelta, con le sue metriche.
+Torna nella home e scegli un'altra voce: l'elenco deve restare invariato.
+Con i GPX di prova a Firenze disattiva Follow per vedere la traccia intera
+se il telefono si trova altrove. Un eventuale avviso fuori traccia e' atteso
+quando la posizione e' lontana dal GPX selezionato.
+
+3. RIAPERTURA
+Chiudi e riapri l'app. Elenco e selezione devono essere conservati.
+Verifica il funzionamento anche senza Wi-Fi e dati mobili.
+
+4. ELIMINAZIONE
+Premi Elimina su una traccia: prima prova Annulla, poi conferma l'eliminazione.
+Deve essere rimossa solo quella voce e la relativa copia privata nell'app.
+Se elimini una traccia non selezionata, quella attiva deve restare selezionata.
+Se elimini la traccia selezionata, le altre restano e puoi sceglierne un'altra.
+La mappa Italia deve restare disponibile anche se elimini tutte le tracce.
+Il file originale scelto dal file picker non viene cancellato dalla sua cartella.
+
+5. FILE NON VALIDI E NOMI UGUALI
+Prova a importare m10-invalid.gpx e m10-empty.gpx: deve apparire un errore
+e l'elenco e la selezione precedenti devono restare invariati.
+Due importazioni dello stesso GPX sono due voci indipendenti: eliminarne una
+non deve eliminare l'altra.
+
+6. CHANGELOG
+Tocca v1.3.0 nella home: deve comparire la nuova voce Archivio di piu' tracce GPX.
+
+VERIFICHE DA TERMINALE
+assembleDebug, test e lintDebug: PASS.
+61 test automatici passati, senza fallimenti o test saltati.
+Lint: 0 errori e 5 avvisi non bloccanti.
+I 15 test del catalogo eseguono operazioni su SQLite con Robolectric:
+importazioni multiple, riapertura del database, selezione, migrazione, cancellazione,
+file mancanti, importazioni concorrenti e ripristino in caso di errori o interruzioni.
+Esportato lo schema iniziale Room in app/schemas per le future migrazioni.
+Firma verificata, compatibile con 1.2.1. Nessun nuovo permesso Android.
+Room e' usato per il catalogo locale; Robolectric e' una dipendenza solo dei test.
+Nessun dispositivo ADB collegato durante questa sessione.

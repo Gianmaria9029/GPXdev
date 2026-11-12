@@ -1,0 +1,38 @@
+GPXdev 1.26.0 - Controllo sul telefono
+
+Installare app-1.26.0.apk sopra la versione precedente senza disinstallare.
+Application ID com.gpxnavigator; versionCode 51. La firma e' compatibile con la 1.25.1.
+
+Novita'
+- Home con Segui una traccia, Registra un giro, Esplora mappa.
+- Riquadro dedicato all'attivita' attiva o interrotta con Torna alla mappa/Riprendi.
+- Tema Soft/Cyber nelle Impostazioni, raggiungibili dalla Home.
+- Archivio separato con Importa GPX e schede apribili.
+- Dettaglio con distanza, anteprima offline o schematica, quote minima/massima,
+  salita e discesa cumulate, coordinate e quote di partenza/arrivo, orari GPX,
+  durata dei segmenti, nome e dimensione del file, data di importazione e conteggi.
+- Spunta Registra anche il mio percorso e pulsante Avvia navigazione.
+- Esporta GPX ed Elimina nel menu a tre punti del dettaglio.
+
+Da verificare sul telefono
+1. Aprire l'app: verificare le tre scelte in verticale e in orizzontale.
+2. Segui una traccia -> importare/aprire un GPX -> leggere le sezioni del dettaglio.
+3. Verificare la cartografia nell'anteprima con una mappa importata.
+4. Avviare senza spunta: controllare navigazione e conferma di arresto.
+5. Avviare con spunta: controllare REC, terminare e salvare/scartare il giro.
+6. Tornare alla Home durante un'attivita': usare Torna alla mappa.
+7. Verificare ripresa di una sessione interrotta e protezione della traccia attiva.
+8. Provare Esporta GPX e annullare/confermare Elimina su una traccia di prova.
+9. Impostazioni -> cambiare Soft/Cyber e controllare la persistenza al riavvio.
+10. Registra un giro -> nome -> avvio -> salvataggio, come nelle versioni precedenti.
+
+Note sui dati
+I dislivelli derivano dalle quote del GPX senza correzione del rumore.
+Con quote mancanti si usano solo le coppie di punti consecutivi misurate.
+Le interruzioni fra segmenti non aggiungono distanza o dislivello.
+La durata originale non e' una stima di arrivo: esclude gli intervalli fra segmenti
+ed e' mostrata solo con orari completi e coerenti in ogni segmento.
+
+Mappe PMTiles
+La gestione delle mappe resta raggiungibile da Esplora mappa -> riquadro GPS
+-> Scegli mappa PMTiles. Ricarica riapre la copia gia' importata.

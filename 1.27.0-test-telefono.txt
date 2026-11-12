@@ -1,0 +1,39 @@
+GPXdev 1.27.0 - Verifica sul telefono
+
+Installare app-1.27.0.apk sopra la versione attuale, senza disinstallare.
+Application ID com.gpxnavigator; versionCode 53.
+
+Copy aggiornati
+- Titolo Dashboard.
+- Sottotitolo Scegli una funzione.
+- In Registra un giro: titolo Registra il tuo giro.
+
+Impostazioni -> Mappe offline
+- Mostra nome e dimensione della mappa attiva.
+- Importa o sostituisci mappa apre il selettore del telefono per il file PMTiles.
+- Durante la copia viene mostrato un indicatore di avanzamento.
+- Un file non valido produce un messaggio di errore e conserva la mappa precedente.
+- La nuova mappa viene caricata tornando in Esplora mappa o nella navigazione.
+
+Impostazioni -> Schermo durante il giro
+- Mantieni lo schermo acceso: inizialmente disattivato.
+- Attivo durante navigazione o registrazione con app visibile, anche dalla Dashboard.
+- A fine giro o passando in background si torna allo spegnimento automatico del telefono.
+- Il pulsante fisico di blocco del telefono resta utilizzabile.
+
+Impostazioni -> Orientamento dello schermo
+- Automatico: segue le impostazioni di rotazione del telefono.
+- Sempre verticale / Sempre orizzontale: applicati all'app e salvati fra gli avvii.
+
+Prova pratica
+1. Controllare i tre nuovi testi.
+2. Aprire Impostazioni: verificare nome e dimensione della mappa esistente.
+3. Sostituirla con una mappa PMTiles valida; tornare in Esplora e verificare la nuova cartografia.
+4. Provare un file non valido: verificare il messaggio e la disponibilita' della mappa precedente.
+5. Attivare Mantieni lo schermo acceso e avviare un giro: attendere oltre il timeout normale.
+6. Terminare il giro e verificare che lo schermo si spenga normalmente. Ripetere passando ad un'altra app.
+7. Provare i tre orientamenti, riavviare l'app e verificare la preferenza salvata.
+8. Tornare ad Automatico, provare Soft/Cyber e caratteri ingranditi.
+
+Le altre opzioni discusse (visuale della mappa nelle Impostazioni, registrazione
+predefinita e avvisi sonori/vibrazione) restano in standby.

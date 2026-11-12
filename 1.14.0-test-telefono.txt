@@ -1,0 +1,59 @@
+GPX NAVIGATOR 1.14.0 - STRUMENTAZIONE CYBER
+
+INSTALLAZIONE
+Installa app-1.14.0.apk sopra la versione attuale, senza disinstallare.
+Firma verificata: stesso certificato della 1.13.0.
+Mappe, GPX, tema, orientamento e zoom salvati restano disponibili.
+Controlla v1.14.0 nella Home e la nuova voce nel changelog.
+
+MODIFICHE NEL TEMA CYBER
+- Termina lime #B6E536, con testo e simbolo scuri #1C1C1C, in Home e navigazione.
+- Sidebar landscape con GPS e accuratezza, velocita' ridotta a un massimo di 40 sp e unita' discreta.
+- Sotto la velocita': distanza rimanente, tempo residuo/orario di arrivo, percorsa, totale e quota.
+- Cifre monospaziate, rimanente evidenziata in lime, separatori sottili e valori allineati.
+- Percorsa e totale affiancate quando numeri e dimensione dei caratteri lo consentono, altrimenti in colonna.
+- Pannello scorrevole per mantenere raggiungibili tutti i dati su schermi bassi o con caratteri ingranditi.
+- Pulsante Visuale con bordo rosa fluo, freccia di apertura e menu Nord/Senso di marcia.
+- Spunta lime sulla visuale attiva; la scelta usa la preferenza Nord/Marcia gia' esistente.
+- Mappa e riquadro svolte mantengono la presentazione della 1.13.0.
+- La Home riceve il cambio colore del comando Termina.
+
+TEMA STANDARD
+Mantiene Termina rosso, velocita' grande e presentazione precedente.
+Il selettore mantiene le etichette Nord/Marcia della versione precedente.
+
+PROVE SUL TELEFONO
+1. Seleziona Cyber e avvia una navigazione. Torna nella Home: Termina deve essere lime e funzionare come prima.
+2. Riapri la navigazione in landscape: controlla Termina lime anche nella barra superiore.
+3. Nella sidebar verifica GPS/accuratezza, velocita' ridotta, rimanente, tempo e arrivo, percorsa, totale e quota.
+4. Scorri il pannello per raggiungere i dati inferiori: nessun valore deve richiedere l'apertura della finestra informazioni.
+5. Controlla dati mancanti: trattino per velocita'/quota non disponibili e stati corretti per l'arrivo in calcolo o in pausa.
+6. Premi Visuale: il menu deve contenere Nord e Senso di marcia, con spunta sulla scelta attiva.
+7. Cambia visuale e controlla orientamento della mappa, Follow e mantenimento dello zoom scelto.
+8. Chiudi e riapri il menu e l'app: la visuale selezionata deve essere ripristinata.
+9. Prova entrambe le rotazioni landscape e la navigazione verticale: Visuale deve restare raggiungibile.
+10. Ingrandisci i caratteri Android e verifica numeri, unita', righe dei dati e scorrimento della sidebar.
+11. Verifica mappa, svolta principale, seconda svolta, barra di avvicinamento e comandi zoom/Centra/Follow.
+12. Tocca GPS: informazioni aggiuntive, impostazioni GPS e comandi della mappa restano disponibili.
+13. Passa a Standard e controlla che aspetto e comandi restino quelli precedenti.
+14. Con arrivo pronto, verifica che tempo residuo, ora e cambio giorno continuino a essere corretti.
+
+VERIFICHE ESEGUITE
+- assembleDebug: PASS.
+- test: PASS, 181 test, zero fallimenti, errori o test saltati.
+- Verificato anche il contrasto del testo/simbolo di Termina nei due temi: almeno 7:1.
+- lintDebug: PASS, zero errori, 12 avvisi e tre suggerimenti non bloccanti.
+- Versione APK 1.14.0, versionCode 29 e firma verificati.
+- SHA-256: app-1.14.0.apk.sha256.
+- Log completo: .tools/1.14.0-build-test.log.
+- Nessun dispositivo ADB collegato: verifica visiva sul telefono ancora da eseguire.
+- Nessuna nuova dipendenza o permesso Android.
+
+FILE MODIFICATI
+- ui/theme/NavigatorTheme.kt: colori di Termina e disponibilita' del tema corrente per i componenti.
+- ui/components/StopNavigationButton.kt: colori di Termina dalla palette.
+- ui/navigation/NavigationContent.kt: sidebar Cyber, velocita' compatta, dati monospaziati e menu Visuale.
+- res/drawable/ic_dropdown.xml: indicatore di apertura del menu.
+- res/values/strings.xml: etichette e descrizione accessibile di Visuale.
+- ui/theme/PaletteContrastTest.kt: contrasto del comando Termina.
+- assets/CHANGELOG.txt e app/build.gradle.kts: cronologia e versione.

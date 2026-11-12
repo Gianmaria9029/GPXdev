@@ -1,0 +1,13 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.tools/
+offline-maps/*.pmtiles
+*.apk
+*.apk.sha256
+/output/
+.idea/
+*.iml
+*.jks
+*.keystore
