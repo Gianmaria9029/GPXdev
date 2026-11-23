@@ -41,6 +41,7 @@ data class MapPalette(
     val trails: String = roadBorder,
     val locationOutline: String = "#FFFFFF",
     val transportDashLength: Float = 2f,
+    val trackWidth: Float = 6f,
 )
 
 val SoftMapPalette = MapPalette(

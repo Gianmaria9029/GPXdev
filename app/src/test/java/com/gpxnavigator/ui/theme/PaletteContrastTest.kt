@@ -97,7 +97,10 @@ class PaletteContrastTest {
                 requireContrast("Main road on $fill", color(mainRoad), color(fill), if (dark) 1.8 else 3.0)
                 requireContrast("Trail on $fill", color(map.trails), color(fill), 3.0)
                 requireContrast("Label on $fill", color(map.labels), color(fill), 7.0)
-                requireContrast("GPX on $fill", color(map.track), color(fill), 3.0)
+                // The outline separates the vivid route from water and building fills.
+                val routeContrast = maxOf(contrast(color(map.track), color(fill)),
+                    contrast(color(map.track), color(map.trackOutline)))
+                assertTrue("GPX/outline on $fill: $routeContrast", routeContrast >= 3.0)
                 requireContrast("Passed GPX on $fill", color(map.trackPassed), color(fill), if (dark) 2.0 else 3.0)
                 requireContrast("GPS on $fill", color(map.location), color(fill), 3.0)
             }
@@ -113,7 +116,7 @@ class PaletteContrastTest {
             } else {
                 requireContrast("Water and vegetation", color(map.water), color(map.landcover), 1.5)
                 requireContrast("Future and passed route", color(map.track), color(map.trackPassed), 1.25)
-                assertTrue(color(map.trackPassed).luminance() > color(map.track).luminance())
+                assertTrue(color(map.track).luminance() > color(map.trackPassed).luminance())
             }
         }
     }

@@ -2,25 +2,29 @@
 
 **NO INTERNET - NO ACCOUNT - 100% PRIVACY FOCUS**
 
-**Segui un percorso. Registra il tuo giro.** GPXdev è un'app gratuita per Android per navigare offline seguendo tracce GPX **in moto, in bici e a piedi**. Importa la traccia e la mappa prima di partire, poi segui il percorso con il GPS del telefono. Puoi iniziare senza creare un account.
+**Segui la traccia. Senza Internet!** GPXdev è un'app gratuita per Android per navigare offline seguendo tracce GPX **in moto, in bici e a piedi**. Carica la mappa e il percorso prima di partire. Durante il giro ti basta il segnale GPS per seguire la traccia e registrare il percorso, anche senza copertura Internet o una SIM. Puoi iniziare senza creare un account.
 
-**[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.38.0.apk)**
+**[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.39.0.apk)**
 
-Versione **1.38.0** · APK · Android 10 o successivo
+Versione **1.39.0** · APK · Android 10 o successivo
 
-![GPXdev in orizzontale: la mappa e i dati del giro nel tema Cyber](https://gianmaria.dev/assets/img/gpxdev/gpxdev-orizzontale.webp)
+![GPXdev in orizzontale: la mappa e i dati del giro nel tema Cyber](https://gianmaria.dev/assets/img/gpxdev/schermate/navigazione-cyber-orizzontale.webp)
 
 Dati cartografici © [contributori OpenStreetMap](https://www.openstreetmap.org/copyright).
 
-## Tre modi per usare GPXdev
+## Come funziona?
 
-- **Esplora la mappa.** Guarda dove sei, ingrandisci la zona che ti interessa e scegli se tenere il nord in alto o ruotare la mappa nel senso di marcia.
-- **Segui una traccia GPX.** Importa il percorso e avvia la navigazione. Durante il giro vedi velocità, distanza rimanente e indicazioni sulle curve. Se ti allontani dalla traccia, l'app ti avvisa.
-- **Registra il tuo giro.** Parti anche senza un itinerario, salva la registrazione ed esportala come GPX. La modalità Cockpit mette in primo piano velocità, distanza, durata e quota.
+- **Segui una traccia GPX.** Importa il file, controlla l'itinerario e avvia la navigazione. Durante il giro vedi la prossima svolta, la distanza rimanente e l'orario di arrivo stimato. Se esci dalla traccia, GPXdev ti avvisa.
+- **Esplora la mappa offline.** Guarda dove sei, ingrandisci la zona che ti interessa e scegli se tenere il nord in alto o orientare la mappa nella direzione in cui vai.
+- **Parti anche senza un itinerario.** Avvia una registrazione libera e scegli la strada lungo il percorso. Alla fine puoi salvare il giro ed esportarlo come file GPX. Puoi registrare anche mentre segui una traccia già pronta.
 
 Puoi ritrovare le tracce con la ricerca, organizzarle con i preferiti e scegliere tra i temi Soft e Cyber.
 
-## Installa l'app e prepara il giro
+### Novità della 1.39.0
+
+La traccia GPX è più visibile grazie a un tratto più spesso su entrambe le mappe e al rosso acceso sulla mappa chiara.
+
+## Prepara tutto. Poi parti.
 
 1. **Installa l'APK.** Apri il file scaricato sul telefono e segui le indicazioni di Android. Se richiesto, abilita **Consenti da questa fonte** per il browser o il gestore file con cui hai aperto l'APK, poi torna all'installazione.
 2. **Aggiungi la mappa.** La mappa si scarica a parte. [Scarica la mappa PMTiles dell'Italia da Google Drive](https://drive.google.com/file/d/1cIIloPkRK6lavCgmUsWR27BdaB9i6mbb/view?usp=drive_link), poi apri **Esplora mappa → Scegli mappa PMTiles** e seleziona il file. L'app ne crea una copia nella propria memoria.
@@ -48,13 +52,15 @@ Trovi l'APK di sviluppo in `app/build/outputs/apk/debug/app-debug.apk`.
 
 | Dashboard | Navigazione |
 | :---: | :---: |
-| <img src="https://gianmaria.dev/assets/img/gpxdev/gpxdev-dashboard-cyber.webp" alt="Dashboard di GPXdev in verticale, tema Cyber" width="280"> | <img src="https://gianmaria.dev/assets/img/gpxdev/gpxdev-navigazione.webp" alt="Navigazione GPX in verticale, tema Cyber" width="280"> |
+| <img src="https://gianmaria.dev/assets/img/gpxdev/schermate/dashboard-cyber.webp" alt="Dashboard di GPXdev in verticale, tema Cyber" width="280"> | <img src="https://gianmaria.dev/assets/img/gpxdev/schermate/navigazione-cyber.webp" alt="Navigazione GPX in verticale, tema Cyber" width="280"> |
 
-La schermata della dashboard mostra la versione 1.35.1.
+Le schermate di dashboard e navigazione mostrano la versione 1.35.1.
 
 ## Funzione Cockpit
 
 **Registra il giro, ma guarda solo i dati!** Apri **Cockpit** dalla Home, dai un nome al giro e tocca **Avvia Cockpit**. GPXdev registra il percorso con il GPS mentre tu vedi velocità, distanza, tempo e quota in riquadri grandi, senza la mappa sullo schermo.
+
+La velocità massima, la media in movimento e la quota minima e massima ti aiutano a tenere d'occhio l'andamento del giro.
 
 Quando arrivi, tocca **Termina** per vedere il riepilogo. Se vuoi tenere il giro, salvalo nell’archivio e potrai esportarlo come file GPX.
 
@@ -62,4 +68,4 @@ Quando arrivi, tocca **Termina** per vedere il riepilogo. Se vuoi tenere il giro
 | :---: | :---: |
 | <img src="docs/images/cockpit-cyber-portrait.png" alt="Mockup del Cockpit in verticale, tema Cyber" width="280"> | <img src="docs/images/cockpit-soft-portrait.png" alt="Mockup del Cockpit in verticale, tema Soft" width="280"> |
 
-Mockup con dati di esempio.
+Mockup della versione 1.37.0 con dati di esempio.

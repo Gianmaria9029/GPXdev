@@ -9,7 +9,7 @@ private val LightMapPalette = SoftMapPalette.copy(
     water = "#78BCDC", buildings = "#BDB4A9", transit = "#526B80",
     roads = "#FFFCF4", roadBorder = "#4B5561", boundaries = "#665A78",
     labels = "#20272D", labelHalo = "#FFFDF6",
-    track = "#A00049", trackPassed = "#58616B", trackOutline = "#FFFFFF",
+    track = "#E60000", trackPassed = "#58616B", trackOutline = "#FFFFFF",
     majorRoads = "#F4C15B", trails = "#705742",
     transportDashLength = 6f,
 )

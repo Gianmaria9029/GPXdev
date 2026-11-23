@@ -6,6 +6,11 @@ Le date di rilascio non sono indicate perché non sono documentate per tutte
 le versioni. Per M0 e M1 il numero di versione iniziale non è ricostruibile
 con certezza dai messaggi e dagli APK disponibili.
 
+1.39.0 - Traccia piu' visibile sulla mappa
+- Spessore della traccia GPX aumentato da 5 a 6 sia sulla mappa chiara sia sulla mappa scura.
+- Rosso acceso #E60000 sulla mappa chiara; conservato il rosa della mappa scura.
+- Bordo della traccia adeguato al nuovo spessore, anche passando fra le due mappe.
+
 1.38.0 - Logo e intestazione della Home
 - Logo GPXdev in alto a sinistra, sulla stessa riga di Impostazioni, in verticale e in orizzontale.
 - Sfondo trasparente per i loghi Soft e Cyber nella Home e all'avvio.

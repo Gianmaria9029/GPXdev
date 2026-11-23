@@ -43,6 +43,7 @@ import org.maplibre.geojson.Point
 private const val LINE_SOURCE = "gpx-lines"
 private const val LINE_LAYER = "gpx-line"
 private const val LINE_CASING_LAYER = "gpx-line-casing"
+private const val TRACK_OUTLINE_WIDTH = 2f
 private const val POINT_SOURCE = "gpx-single-points"
 private const val POINT_LAYER = "gpx-single-point"
 private const val PROGRESS_SOURCE = "gpx-progress-chunks"
@@ -181,19 +182,20 @@ internal fun replaceTrackOverlay(style: Style, track: PreparedTrackOverlay?, col
     if (!track.lines.features().isNullOrEmpty()) {
         style.addSource(GeoJsonSource(LINE_SOURCE, track.lines))
         addBelowLocation(LineLayer(LINE_CASING_LAYER, LINE_SOURCE).withProperties(
-            lineColor(colors.trackOutline), lineWidth(9f), lineCap("round"), lineJoin("round"),
+            lineColor(colors.trackOutline), lineWidth(colors.trackWidth + 2 * TRACK_OUTLINE_WIDTH),
+            lineCap("round"), lineJoin("round"),
         ))
         addBelowLocation(LineLayer(LINE_LAYER, LINE_SOURCE).withProperties(
-            lineColor(colors.trackPassed), lineWidth(5f), lineCap("round"), lineJoin("round"),
+            lineColor(colors.trackPassed), lineWidth(colors.trackWidth), lineCap("round"), lineJoin("round"),
         ))
         style.addSource(GeoJsonSource(PROGRESS_SOURCE, track.progress.features))
         style.addSource(GeoJsonSource(PARTIAL_SOURCE, FeatureCollection.fromFeatures(emptyList())))
         // Remaining sections sit above the muted base, also at intersections/overlaps.
         addBelowLocation(LineLayer(FUTURE_LAYER, PROGRESS_SOURCE)
             .withFilter(gte(get(TRACK_CHUNK_START), literal(-1.0))).withProperties(
-                lineColor(colors.track), lineWidth(5f), lineCap("round"), lineJoin("round")))
+                lineColor(colors.track), lineWidth(colors.trackWidth), lineCap("round"), lineJoin("round")))
         addBelowLocation(LineLayer(PARTIAL_LAYER, PARTIAL_SOURCE).withProperties(
-            lineColor(colors.track), lineWidth(5f), lineCap("round"), lineJoin("round")))
+            lineColor(colors.track), lineWidth(colors.trackWidth), lineCap("round"), lineJoin("round")))
         val arrows = SymbolLayer(ARROWS_LAYER, LINE_SOURCE).withProperties(
             symbolPlacement("line"), symbolSpacing(120f), iconImage(TRACK_ARROW_IMAGE), iconSize(0.85f),
             iconRotationAlignment("map"), iconPitchAlignment("map"), iconKeepUpright(false),
@@ -217,10 +219,11 @@ internal fun replaceTrackOverlay(style: Style, track: PreparedTrackOverlay?, col
 }
 
 internal fun updateTrackOverlayColors(style: Style, colors: MapPalette) {
-    style.getLayer(LINE_CASING_LAYER)?.setProperties(lineColor(colors.trackOutline))
-    style.getLayer(LINE_LAYER)?.setProperties(lineColor(colors.trackPassed))
-    style.getLayer(FUTURE_LAYER)?.setProperties(lineColor(colors.track))
-    style.getLayer(PARTIAL_LAYER)?.setProperties(lineColor(colors.track))
+    style.getLayer(LINE_CASING_LAYER)?.setProperties(
+        lineColor(colors.trackOutline), lineWidth(colors.trackWidth + 2 * TRACK_OUTLINE_WIDTH))
+    style.getLayer(LINE_LAYER)?.setProperties(lineColor(colors.trackPassed), lineWidth(colors.trackWidth))
+    style.getLayer(FUTURE_LAYER)?.setProperties(lineColor(colors.track), lineWidth(colors.trackWidth))
+    style.getLayer(PARTIAL_LAYER)?.setProperties(lineColor(colors.track), lineWidth(colors.trackWidth))
     style.getLayer(POINT_LAYER)?.setProperties(circleColor(colors.track), circleStrokeColor(colors.trackOutline))
 }
 
