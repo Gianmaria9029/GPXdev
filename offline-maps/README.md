@@ -7,7 +7,7 @@ Le date nel nome identificano l'archivio Protomaps di origine. Non indicano la d
 ## Installazione sul telefono
 
 1. Copiare il file `.pmtiles` nella cartella Download del telefono, tramite USB.
-2. Aprire Navigazione e premere **Scegli mappa PMTiles**.
+2. Aprire **Esplora mappa** e premere **Scegli mappa PMTiles**.
 3. Selezionare il nuovo file e attendere la fine dell'importazione.
 4. Verificare la mappa in modalità aereo con GPS attivo.
 
@@ -15,28 +15,32 @@ L'app crea una copia privata della mappa. Per una prima importazione prevedere c
 
 ## Preparazione di un aggiornamento
 
-Eseguire dalla cartella principale del progetto in PowerShell, con rete disponibile. La navigazione nell'app continua a usare soltanto file locali.
+Scaricare `pmtiles` dalle [release ufficiali di Protomaps](https://github.com/protomaps/go-pmtiles/releases), scegliendo il pacchetto per il proprio sistema e processore. Estrarre l'eseguibile (`pmtiles.exe` su Windows), aggiungere la sua cartella al `PATH` e aprire un nuovo terminale. Il comando `pmtiles --help` mostra i sottocomandi disponibili. Per usare la stessa versione impiegata nell'estrazione originale, scaricare [go-pmtiles 1.31.2](https://github.com/protomaps/go-pmtiles/releases/tag/v1.31.2).
 
-1. Consultare l'[elenco ufficiale degli archivi](https://maps.protomaps.com/builds/) e scegliere una data disponibile.
-2. Leggere i metadati e verificare `planetiler:osm:osmosisreplicationtime`, versione e layer prima di scaricare. L'app attuale accetta i layer Protomaps `earth`, `roads`, `water` e compressione Gzip.
-3. Estrarre l'Italia in un nuovo file `.partial`, senza sovrascrivere versioni precedenti. L'esempio riproduce la versione del 25 ottobre 2026; sostituire entrambe le date per un aggiornamento successivo.
+Eseguire da PowerShell, nella radice del repository, con connessione a Internet.
+
+1. Consultare l'[elenco degli archivi Protomaps](https://maps.protomaps.com/builds/) e scegliere una data disponibile.
+2. Controllare la data dei dati (`planetiler:osm:osmosisreplicationtime`), la versione e i layer della fonte. L'archivio vettoriale usato qui contiene i layer Protomaps `earth`, `roads` e `water` e usa la compressione Gzip.
+3. Estrarre l'Italia in un file temporaneo e verificare l'archivio prima di rinominarlo. L'esempio usa la mappa del 25 ottobre 2026. Per usare una data diversa, aggiornare l'URL e il nome di destinazione.
 
 ```powershell
-$pmtiles = '.\.tools\go-pmtiles-1.31.2\pmtiles.exe'
 $source = 'https://build.protomaps.com/20261025.pmtiles'
-$target = '.\offline-maps\italia-2026-10-25.pmtiles'
-if ((Test-Path -LiteralPath $target) -or (Test-Path -LiteralPath "$target.partial")) {
-    throw 'Esiste gia un file con questa data: scegliere un nuovo nome o controllare quello presente.'
+$target = 'offline-maps/italia-2026-10-25.pmtiles'
+$partial = [System.IO.Path]::ChangeExtension($target, '.partial.pmtiles')
+if ((Test-Path -LiteralPath $target) -or (Test-Path -LiteralPath $partial)) {
+    throw 'Esiste gia un file con questa data. Controllarlo o scegliere un altro nome.'
 }
-& $pmtiles show $source
+
+pmtiles show $source
 if ($LASTEXITCODE -ne 0) { throw 'Lettura della fonte fallita.' }
-& $pmtiles extract $source "$target.partial" --region=sample-data/italy.geojson --download-threads=12 --overfetch=0.005
-if ($LASTEXITCODE -ne 0) { throw 'Estrazione fallita: non importare il file parziale.' }
-& $pmtiles verify "$target.partial"
+pmtiles extract $source $partial --region=sample-data/italy.geojson --download-threads=12 --overfetch=0.005
+if ($LASTEXITCODE -ne 0) { throw 'Estrazione fallita. Controllare il file temporaneo.' }
+pmtiles verify $partial
 if ($LASTEXITCODE -ne 0) { throw 'Verifica archivio fallita.' }
-& $pmtiles show "$target.partial"
+pmtiles show $partial
 if ($LASTEXITCODE -ne 0) { throw 'Lettura dei metadati fallita.' }
-Move-Item -LiteralPath "$target.partial" -Destination $target
+
+Move-Item -LiteralPath $partial -Destination $target -ErrorAction Stop
 Get-FileHash -LiteralPath $target -Algorithm SHA256
 ```
 

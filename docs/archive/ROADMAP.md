@@ -1,4 +1,6 @@
-# Roadmap V1 — GPXdev
+# Roadmap storica di GPXdev
+
+Le tappe qui raccolte si riferiscono alla prima versione. Per il progetto attuale, consulta l'[architettura](../../ARCHITECTURE.md) e il [changelog](../../app/src/main/assets/CHANGELOG.txt).
 
 ## Stato consolidato — 1.21.0
 
@@ -17,7 +19,7 @@ La prima versione è consolidata in **GPXdev 1.21.0** (versionCode 37). Le miles
 | M8 — Follow | Implementata: freccia unica, visuale e zoom persistenti |
 | M9 — Metriche | Implementata: distanze, velocità, Vmax, quota e arrivo |
 | M10 — Robustezza | Implementata: gestione errori, rotazione, background e test automatici |
-| M11 — APK V1 | Completata: APK 1.21.0, build e 196 test PASS; firma verificata. Controlli telefono in `1.21.0-test-telefono.txt` |
+| M11 — APK V1 | Completata: APK 1.21.0, build e 196 test superati, firma verificata. |
 
 I test sul telefono della 1.20.1 sono stati confermati dall'utente. Il pacchetto 1.21.0 raccoglie documentazione e pulizia; le verifiche sul nuovo APK restano nella relativa guida, senza attribuire alla nuova build prove fisiche eseguite sulle precedenti.
 

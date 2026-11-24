@@ -37,16 +37,27 @@ Puoi ritrovare le tracce con la ricerca, organizzarle con i preferiti e sceglier
 <details>
 <summary>Compila l'app dal sorgente</summary>
 
-Configura JDK 17 e Android SDK con la piattaforma API 36 e i Build Tools 36.0.0. Imposta `JAVA_HOME` e indica il percorso dell'SDK tramite Android Studio o con `sdk.dir` nel file locale `local.properties`. Alla prima compilazione, Gradle scarica le dipendenze.
+Configura JDK 17 e Android SDK con la piattaforma API 36 e i Build Tools 36.0.0. Imposta `JAVA_HOME` e indica il percorso dell'SDK con `ANDROID_HOME` oppure con `sdk.dir` nel file `local.properties` nella radice del progetto. Alla prima compilazione serve una connessione per scaricare Gradle e le dipendenze.
+
+Esegui i comandi dalla radice del repository.
+
+**Windows (PowerShell)**
 
 ```powershell
 .\gradlew.bat assembleDebug
 .\gradlew.bat testDebugUnitTest lintDebug
 ```
 
+**Linux e macOS**
+
+```sh
+./gradlew assembleDebug
+./gradlew testDebugUnitTest lintDebug
+```
+
 Trovi l'APK di sviluppo in `app/build/outputs/apk/debug/app-debug.apk`.
 
-[Architettura](ARCHITECTURE.md) · [Preparazione delle mappe](offline-maps/README.md) · [Changelog](app/src/main/assets/CHANGELOG.txt) · [Licenza MIT](LICENSE)
+[Architettura](ARCHITECTURE.md) · [Preparazione delle mappe](offline-maps/README.md) · [Changelog](app/src/main/assets/CHANGELOG.txt) · [Roadmap storica](docs/archive/ROADMAP.md) · [Licenza MIT](LICENSE)
 
 </details>
 
