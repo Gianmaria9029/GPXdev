@@ -122,7 +122,11 @@ class CockpitLayoutTest {
                 val rowSizes = metrics.groupBy { it.boundsInRoot.top }.toSortedMap().values.map { it.size }
                 if (width > height) {
                     assertEquals(listOf(5, 5), rowSizes)
+                    page.text("Δ quota")
+                    assertTrue(metrics.any { node -> node.config.getOrNull(SemanticsProperties.ContentDescription)
+                        ?.any { it.startsWith("Δ quota dalla partenza:") } == true })
                 } else {
+                    page.text("Δ quota dalla partenza")
                     assertEquals(listOf(1, 2, 2, 2, 2, 1), rowSizes)
                     fun tile(label: Int) = metrics.single {
                         it.config.getOrNull(SemanticsProperties.TestTag) == "cockpit-metric-$label"

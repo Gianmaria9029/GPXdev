@@ -76,6 +76,7 @@ import com.gpxnavigator.ui.theme.LocalNavigatorPalette
 import com.gpxnavigator.ui.theme.navigatorButtonBorder
 import com.gpxnavigator.ui.theme.navigatorButtonColors
 import com.gpxnavigator.ui.components.StopNavigationButton
+import com.gpxnavigator.ui.components.StopNavigationConfirmation
 import com.gpxnavigator.ui.components.RecordingIndicator
 
 @Composable
@@ -132,23 +133,10 @@ internal fun NavigationContent(
             onLocationSettings, onDismiss = { showingDetails = false })
     }
     if (confirmingStop && state.session.isRunning && state.session.recordingId == null) {
-        AlertDialog(
-            onDismissRequest = { confirmingStop = false },
-            title = { Text(stringResource(R.string.stop_navigation_confirmation)) },
-            confirmButton = {
-                TextButton(onClick = {
-                    confirmingStop = false
-                    if (onStopNavigation()) onBack()
-                }, modifier = Modifier.heightIn(min = 48.dp)) {
-                    Text(stringResource(R.string.stop_navigation_yes))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { confirmingStop = false }, modifier = Modifier.heightIn(min = 48.dp)) {
-                    Text(stringResource(R.string.stop_navigation_no))
-                }
-            },
-        )
+        StopNavigationConfirmation(onDismiss = { confirmingStop = false }, onConfirm = {
+            confirmingStop = false
+            if (onStopNavigation()) onBack()
+        })
     }
 }
 
@@ -309,7 +297,8 @@ private fun MapViewSelector(orientation: MapOrientation, onOrientation: (MapOrie
     Box {
         OutlinedButton(onClick = { expanded = true },
             modifier = Modifier.heightIn(min = 48.dp).semantics { contentDescription = description },
-            shape = RoundedCornerShape(12.dp), border = BorderStroke(1.dp, LocalNavigatorPalette.current.selectionBorder),
+            shape = RoundedCornerShape(12.dp), border = BorderStroke(1.dp,
+                if (LocalAppTheme.current == AppTheme.CYBER && !expanded) palette.scheme.outlineVariant else palette.selectionBorder),
             colors = ButtonDefaults.outlinedButtonColors(containerColor = palette.viewBackground,
                 contentColor = palette.onView)) {
             Text(stringResource(R.string.map_view_button), maxLines = 1)
@@ -349,8 +338,8 @@ private fun MapViewMenuItem(label: String, active: Boolean, useMapAccent: Boolea
     val highlightedMapAppearance = active && useMapAccent
     val background = when {
         !active -> Color.Transparent
-        !useMapAccent -> scheme.primaryContainer
         softTheme -> scheme.secondaryContainer
+        !useMapAccent -> scheme.primaryContainer
         else -> scheme.secondary
     }
     val accentText = if (softTheme) scheme.onSecondaryContainer else scheme.onSecondary

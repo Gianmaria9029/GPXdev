@@ -446,7 +446,9 @@ class HomeNavigationScreenTest : NavigationTestSupport() {
         controller = newController(com.gpxnavigator.data.navigation.RecordingRepository(database))
         runBlocking { controller.attachService();controller.startSession(null,true,mode = com.gpxnavigator.domain.model.ActivityMode.COCKPIT) }
         val id = controller.recording.value.id
-        page { page, _, opens ->
+        for (theme in AppTheme.entries) page(theme) { page, _, opens ->
+            page.save("home-giro-attivo-${theme.name.lowercase()}")
+            assertFalse(page.text("Segui una traccia").config.contains(SemanticsProperties.Disabled))
             page.click("Riprendi Cockpit"); settle()
             assertEquals(1,page.cockpits())
             assertEquals(0,opens())

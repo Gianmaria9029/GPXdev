@@ -82,6 +82,7 @@ data class NavigatorPalette(
     val onHomeStopAction: Color = onStopAction,
     val recordAction: Color = action,
     val onRecordAction: Color = Color.Black,
+    val secondaryManeuverArrow: Color = maneuverArrow,
 )
 
 private val SoftScheme = lightColorScheme(
@@ -146,6 +147,7 @@ val CyberPalette = NavigatorPalette(
     action = Color(0xFFF2055C), onAction = Color.Black,
     selectionBorder = Color(0xFFF2055C),
     maneuverBackground = Color(0xFF050509), maneuverArrow = Color(0xFFF2055C),
+    secondaryManeuverArrow = Color(0xFFAA748A),
     followActive = Color(0xFFB6E536), onFollowActive = Color(0xFF1C1C1C),
     stopAction = Color(0xFFB6E536), onStopAction = Color(0xFF1C1C1C),
 )

@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -23,6 +25,28 @@ import com.gpxnavigator.domain.model.AppTheme
 import com.gpxnavigator.ui.theme.LocalAppTheme
 import com.gpxnavigator.ui.theme.LocalNavigatorPalette
 import com.gpxnavigator.ui.theme.navigatorButtonBorder
+
+@Composable
+internal fun StopNavigationConfirmation(onDismiss: () -> Unit, onConfirm: () -> Unit) {
+    val scheme = MaterialTheme.colorScheme
+    val cyber = LocalAppTheme.current == AppTheme.CYBER
+    AlertDialog(onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.stop_navigation_confirmation)) },
+        confirmButton = {
+            val colors = if (cyber) ButtonDefaults.textButtonColors(
+                containerColor = scheme.errorContainer, contentColor = scheme.onErrorContainer)
+            else ButtonDefaults.textButtonColors()
+            TextButton(onClick = onConfirm, colors = colors, modifier = Modifier.heightIn(min = 48.dp)) {
+                Text(stringResource(R.string.stop_navigation_yes))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss, modifier = Modifier.heightIn(min = 48.dp),
+                colors = ButtonDefaults.textButtonColors(contentColor = if (cyber) scheme.onSurfaceVariant else scheme.primary)) {
+                Text(stringResource(R.string.stop_navigation_no))
+            }
+        })
+}
 
 @Composable
 fun StopNavigationButton(onClick: () -> Unit, modifier: Modifier = Modifier,

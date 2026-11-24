@@ -6,6 +6,13 @@ Le date di rilascio non sono indicate perché non sono documentate per tutte
 le versioni. Per M0 e M1 il numero di versione iniziale non è ricostruibile
 con certezza dai messaggi e dagli APK disponibili.
 
+1.40.1 - Selezioni e indicazioni più leggibili
+- In Cyber il comando per riprendere il giro risalta sulle altre attività della Home.
+- In Soft le selezioni di filtri, ordinamento e impostazioni hanno uno sfondo pastello e una spunta.
+- In Cyber il bordo di Visuale a menu chiuso e la freccia della seconda svolta sono attenuati.
+- In Cyber la conferma finale di Termina è rossa nei dialoghi della Home e della navigazione.
+- Nel Cockpit orizzontale su schermi bassi le etichette sono abbreviate. Il lettore di schermo mantiene i nomi completi.
+
 1.40.0 - Home, archivio e Cockpit
 - Home più compatta e descrizione del Cockpit che chiarisce come viene registrato il giro.
 - Nell'archivio Soft la ricerca è in primo piano. Con tracce salvate, Importa GPX passa nell'intestazione.

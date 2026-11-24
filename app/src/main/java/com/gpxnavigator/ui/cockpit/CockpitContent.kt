@@ -158,6 +158,7 @@ internal fun CockpitMetricsGrid(metrics: List<CockpitMetric>, modifier: Modifier
     highlightFirst: Boolean = true) {
     BoxWithConstraints(modifier.padding(bottom = 4.dp)) {
         val portrait = LocalConfiguration.current.orientation != Configuration.ORIENTATION_LANDSCAPE
+        val compactLabels = highlightFirst && !portrait && maxHeight <= 280.dp
         val rows = when {
             !portrait -> metrics.chunked(landscapeColumns)
             highlightFirst -> listOf(metrics.take(1)) + metrics.drop(1).chunked(2)
@@ -169,7 +170,7 @@ internal fun CockpitMetricsGrid(metrics: List<CockpitMetric>, modifier: Modifier
                 val rowWeight = if (highlightFirst && portrait && index == 0) 1.25f else 1f
                 Row(Modifier.weight(rowWeight).fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(gap)) {
                     row.forEach { metric ->
-                        CockpitTile(metric, highlightFirst && metric === metrics.first(), Modifier.weight(1f).fillMaxSize())
+                        CockpitTile(metric, highlightFirst && metric === metrics.first(), compactLabels, Modifier.weight(1f).fillMaxSize())
                     }
                 }
             }
@@ -177,8 +178,21 @@ internal fun CockpitMetricsGrid(metrics: List<CockpitMetric>, modifier: Modifier
     }
 }
 
+private fun compactCockpitLabel(label: Int): Int = when (label) {
+    R.string.cockpit_current_speed -> R.string.cockpit_speed_short
+    R.string.cockpit_maximum_speed -> R.string.cockpit_max_speed_short
+    R.string.cockpit_moving_average -> R.string.cockpit_moving_average_short
+    R.string.cockpit_distance -> R.string.cockpit_distance_short
+    R.string.cockpit_altitude -> R.string.cockpit_altitude_short
+    R.string.cockpit_minimum_altitude -> R.string.cockpit_min_altitude_short
+    R.string.cockpit_maximum_altitude -> R.string.cockpit_max_altitude_short
+    R.string.cockpit_altitude_difference -> R.string.cockpit_altitude_difference_short
+    R.string.cockpit_started_at -> R.string.cockpit_started_at_short
+    else -> label
+}
+
 @Composable
-private fun CockpitTile(metric: CockpitMetric, prominent: Boolean, modifier: Modifier) {
+private fun CockpitTile(metric: CockpitMetric, prominent: Boolean, compactLabels: Boolean, modifier: Modifier) {
     val palette = LocalNavigatorPalette.current
     val cyber = LocalAppTheme.current == AppTheme.CYBER
     val label = stringResource(metric.label)
@@ -192,12 +206,14 @@ private fun CockpitTile(metric: CockpitMetric, prominent: Boolean, modifier: Mod
         border = if (prominent) null else BorderStroke(1.dp, palette.scheme.surfaceDim)) {
         BoxWithConstraints(Modifier.fillMaxSize().padding(horizontal = 7.dp, vertical = 3.dp)) {
             val maximumFont = if (prominent) 62f else if (metric.unit == R.string.cockpit_duration_unit) 30f else 40f
-            val labelHeight = (maxHeight * .38f).coerceAtMost(34.dp)
+            val labelHeight = if (compactLabels) (maxHeight * .32f).coerceAtMost(26.dp)
+                else (maxHeight * .38f).coerceAtMost(34.dp)
             val unitHeight = (maxHeight * .24f).coerceAtMost(18.dp)
             val secondaryInk = palette.scheme.onSurfaceVariant
             Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
-                BasicText(label, Modifier.fillMaxWidth().height(labelHeight),
-                    style = TextStyle(color = secondaryInk, fontWeight = FontWeight.Medium), maxLines = 2,
+                BasicText(if (compactLabels) stringResource(compactCockpitLabel(metric.label)) else label,
+                    Modifier.fillMaxWidth().height(labelHeight),
+                    style = TextStyle(color = secondaryInk, fontWeight = FontWeight.Medium), maxLines = if (compactLabels) 1 else 2,
                     autoSize = TextAutoSize.StepBased(minFontSize = 8.sp, maxFontSize = 12.sp, stepSize = .5.sp))
                 Row(Modifier.weight(1f).fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)) {

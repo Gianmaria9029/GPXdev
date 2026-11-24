@@ -4,9 +4,9 @@
 
 **Segui la traccia. Senza Internet!** GPXdev è un'app gratuita per Android per navigare offline seguendo tracce GPX **in moto, in bici e a piedi**. Carica la mappa e il percorso prima di partire. Durante il giro ti basta il segnale GPS per seguire la traccia e registrare il percorso, anche senza copertura Internet o una SIM. Puoi iniziare senza creare un account.
 
-**[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.40.0.apk)**
+**[Scarica GPXdev per Android ↓](https://gianmaria.dev/download/gpxdev/gpxdev_1.40.1.apk)**
 
-Versione **1.40.0** · APK · Android 10 o successivo
+Versione **1.40.1** · APK · Android 10 o successivo
 
 ![GPXdev in orizzontale: la mappa e i dati del giro nel tema Cyber](https://gianmaria.dev/assets/img/gpxdev/schermate/navigazione-cyber-orizzontale.webp)
 
@@ -20,11 +20,11 @@ Dati cartografici © [contributori OpenStreetMap](https://www.openstreetmap.org/
 
 Puoi ritrovare le tracce con la ricerca, organizzarle con i preferiti e scegliere tra i temi Soft e Cyber.
 
-### Novità della 1.40.0
+### Novità della 1.40.1
 
-- La Home è più compatta. Nell'archivio Soft la ricerca è in primo piano e, se hai già delle tracce salvate, trovi **Importa GPX** nell'intestazione.
-- Nel Cockpit verticale vedi prima la velocità, poi distanza e tempo del giro. In orizzontale i dieci dati sono disposti su cinque colonne.
-- Nel tema Cyber il fucsia identifica il comando per avviare la registrazione e il lime indica che il giro è in registrazione.
+- In **Cyber**, mentre un giro è in corso, il pulsante per riprenderlo risalta nella Home. Durante la navigazione la seconda svolta ha una freccia più tenue e il bordo di **Visuale** si attenua a menu chiuso. La conferma di **Termina** è rossa.
+- In **Soft**, uno sfondo pastello e una spunta indicano i filtri e le opzioni selezionati nell’archivio e nelle impostazioni.
+- Nel **Cockpit** in orizzontale, sui display bassi le etichette abbreviate lasciano più spazio ai valori. Il lettore di schermo continua a leggere i nomi completi.
 
 ## Prepara tutto. Poi parti.
 

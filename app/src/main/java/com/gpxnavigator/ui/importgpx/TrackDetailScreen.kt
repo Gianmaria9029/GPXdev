@@ -1,6 +1,8 @@
 package com.gpxnavigator.ui.importgpx
 
 import android.text.format.Formatter
+import com.gpxnavigator.domain.model.AppTheme
+import com.gpxnavigator.ui.theme.LocalAppTheme
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -70,7 +72,8 @@ internal fun TrackDetailScreen(saved: SavedTrack?, detail: TrackDetailUiState, s
                             role = Role.Checkbox
                             toggleableState = if (state.recordGpx) ToggleableState.On else ToggleableState.Off
                         },
-                        color = MaterialTheme.colorScheme.surfaceVariant) {
+                        color = if (LocalAppTheme.current == AppTheme.SOFT && state.recordGpx && canStart)
+                            MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surfaceVariant) {
                         Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp), verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             Checkbox(checked = state.recordGpx, onCheckedChange = null, enabled = canStart,

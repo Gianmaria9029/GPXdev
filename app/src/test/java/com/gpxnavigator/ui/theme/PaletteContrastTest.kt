@@ -51,12 +51,15 @@ class PaletteContrastTest {
     }
 
     @Test fun fluorescentGraphicsAndActionLabelsRemainReadable() {
+        assertNotEquals(CyberPalette.maneuverArrow, CyberPalette.secondaryManeuverArrow)
+        assertEquals(SoftPalette.maneuverArrow, SoftPalette.secondaryManeuverArrow)
         assertEquals(Color.Black, CyberPalette.onAction)
         assertEquals(Color.Black, CyberPalette.scheme.onTertiaryContainer)
         for (palette in listOf(SoftPalette, CyberPalette)) {
             // Pastel and fluorescent action backgrounds both need their own contrasting labels.
             requireContrast("Action label", palette.onAction, palette.action, 4.5)
             requireContrast("Maneuver arrow", palette.maneuverArrow, palette.maneuverBackground, 4.5)
+            requireContrast("Secondary maneuver arrow", palette.secondaryManeuverArrow, palette.maneuverBackground, 4.5)
             requireContrast("Tertiary label", palette.scheme.onTertiaryContainer, palette.scheme.tertiaryContainer, 4.5)
         }
     }

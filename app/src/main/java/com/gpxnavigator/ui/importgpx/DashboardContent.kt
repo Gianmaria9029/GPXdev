@@ -53,19 +53,19 @@ internal fun DashboardContent(state: ImportGpxUiState, awaitingPermission: Boole
             fontWeight = FontWeight.Bold, modifier = Modifier.semantics { heading() })
     }
     val choices: @Composable (Boolean) -> Unit = { compact ->
-        val neutralCockpit = LocalAppTheme.current == AppTheme.CYBER && !(cockpitActivity && state.session.isRunning)
+        val cyber = LocalAppTheme.current == AppTheme.CYBER
+        val muteIcons = cyber && (state.session.isRunning || state.session.status == SessionStatus.INTERRUPTED)
         Column(verticalArrangement = Arrangement.spacedBy(if (compact) 8.dp else 12.dp)) {
             ActivityCard(R.drawable.ic_recording_route, R.string.home_follow, R.string.home_follow_hint,
-                palette.action, palette.onAction, actions.onTracks, enabled = !state.working, compact = compact)
+                palette.action, palette.onAction, actions.onTracks, enabled = !state.working, compact = compact, muted = muteIcons)
             ActivityCard(R.drawable.ic_recording_time, R.string.home_record, R.string.home_record_hint,
-                palette.recordAction, palette.onRecordAction, actions.onFreeRecording, enabled = canStart, compact = compact)
+                palette.recordAction, palette.onRecordAction, actions.onFreeRecording, enabled = canStart, compact = compact, muted = muteIcons)
             ActivityCard(R.drawable.ic_cockpit, R.string.cockpit_title, R.string.cockpit_home_hint,
-                if (neutralCockpit) palette.scheme.surfaceVariant else palette.followActive,
-                if (neutralCockpit) palette.scheme.onSurfaceVariant else palette.onFollowActive, actions.onCockpit,
-                enabled = ready && !state.recording.pending && (canStart || cockpitActivity), compact = compact)
+                palette.followActive, palette.onFollowActive, actions.onCockpit,
+                enabled = ready && !state.recording.pending && (canStart || cockpitActivity), compact = compact, muted = cyber)
             ActivityCard(R.drawable.ic_explore_map, R.string.explore_map, R.string.home_explore_hint,
                 MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.colorScheme.onTertiaryContainer,
-                actions.onExplore, enabled = !state.working && !cockpitActivity, compact = compact)
+                actions.onExplore, enabled = !state.working && !cockpitActivity, compact = compact, muted = muteIcons)
         }
     }
     BoxWithConstraints(Modifier.fillMaxSize()) {
@@ -115,14 +115,22 @@ private fun DashboardHeader(onSettings: () -> Unit) {
 
 @Composable
 private fun ActivityCard(icon: Int, title: Int, description: Int, accent: Color, onAccent: Color,
-    onClick: () -> Unit, enabled: Boolean, compact: Boolean) {
+    onClick: () -> Unit, enabled: Boolean, compact: Boolean, muted: Boolean) {
     OutlinedCard(onClick = onClick, enabled = enabled, colors = navigatorCardColors(), shape = RoundedCornerShape(20.dp),
         modifier = Modifier.fillMaxWidth().heightIn(min = if (compact) 72.dp else 104.dp)) {
         Row(Modifier.padding(if (compact) 10.dp else 18.dp), verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(if (compact) 12.dp else 16.dp)) {
             Surface(shape = CircleShape,
-                color = if (enabled) accent else MaterialTheme.colorScheme.surfaceContainerHigh,
-                contentColor = if (enabled) onAccent else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)) {
+                color = when {
+                    !enabled -> MaterialTheme.colorScheme.surfaceContainerHigh
+                    muted -> MaterialTheme.colorScheme.surfaceVariant
+                    else -> accent
+                },
+                contentColor = when {
+                    !enabled -> MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
+                    muted -> MaterialTheme.colorScheme.onSurfaceVariant
+                    else -> onAccent
+                }) {
                 Icon(painterResource(icon), null, Modifier.padding(if (compact) 10.dp else 12.dp).size(if (compact) 24.dp else 26.dp))
             }
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(5.dp)) {

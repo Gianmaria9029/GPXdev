@@ -2,6 +2,7 @@ package com.gpxnavigator.ui.importgpx
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
@@ -15,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -97,15 +100,24 @@ internal fun CatalogScreen(state: ImportGpxUiState, listState: LazyListState,
                             }
                             DropdownMenu(expanded = sorting, onDismissRequest = { sorting = false }) {
                                 TrackSortOrder.entries.forEach { order ->
+                                    val current = order == state.sortOrder
+                                    val highlight = soft && current
                                     DropdownMenuItem(text = { Text(stringResource(sortLabel(order)),
-                                        fontWeight = if (order == state.sortOrder) FontWeight.Bold else FontWeight.Normal) },
+                                        fontWeight = if (current) FontWeight.Bold else FontWeight.Normal) },
+                                        modifier = (if (highlight) Modifier.background(MaterialTheme.colorScheme.secondaryContainer) else Modifier)
+                                            .semantics { selected = current },
+                                        trailingIcon = if (highlight) { { Icon(painterResource(R.drawable.ic_check), null) } } else null,
                                         onClick = { sorting = false; onSort(order) })
                                 }
                             }
                         }
                         FilterChip(selected = state.favoritesOnly, onClick = { onFavoritesOnly(!state.favoritesOnly) },
                             modifier = Modifier.heightIn(min = 48.dp), label = { Text(stringResource(R.string.library_only_favorites)) },
-                            leadingIcon = { Icon(painterResource(if (state.favoritesOnly) R.drawable.ic_star else R.drawable.ic_star_outline),
+                            leadingIcon = { Icon(painterResource(when {
+                                !state.favoritesOnly -> R.drawable.ic_star_outline
+                                soft -> R.drawable.ic_check
+                                else -> R.drawable.ic_star
+                            }),
                                 null, Modifier.size(20.dp)) })
                     }
                     if (state.catalogLoaded) Text(pluralStringResource(R.plurals.library_results,

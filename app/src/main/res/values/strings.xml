@@ -277,6 +277,15 @@
     <string name="cockpit_maximum_altitude">Quota massima</string>
     <string name="cockpit_altitude_difference">Δ quota dalla partenza</string>
     <string name="cockpit_started_at">Ora di partenza</string>
+    <string name="cockpit_speed_short">Velocità</string>
+    <string name="cockpit_max_speed_short">Vel. max</string>
+    <string name="cockpit_moving_average_short">Media in mov.</string>
+    <string name="cockpit_distance_short">Distanza</string>
+    <string name="cockpit_altitude_short">Quota</string>
+    <string name="cockpit_min_altitude_short">Quota min</string>
+    <string name="cockpit_max_altitude_short">Quota max</string>
+    <string name="cockpit_altitude_difference_short">Δ quota</string>
+    <string name="cockpit_started_at_short">Ora inizio</string>
     <string name="cockpit_duration_unit">h:min:sec</string>
     <string name="cockpit_started_at_unit">hh:mm</string>
     <string name="cockpit_altitude_difference_number">%1$+.0f</string>

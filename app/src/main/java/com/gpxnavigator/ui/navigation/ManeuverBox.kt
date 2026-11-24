@@ -123,7 +123,7 @@ private fun SecondaryManeuverRow(second: SecondaryManeuver, modifier: Modifier) 
         stringResource(maneuverLabel(second.maneuver)), meters)
     Row(modifier.clearAndSetSemantics { contentDescription = description },
         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-        ManeuverArrow(second.maneuver, Modifier.size(20.dp))
+        ManeuverArrow(second.maneuver, Modifier.size(20.dp), LocalNavigatorPalette.current.secondaryManeuverArrow)
         Text(stringResource(R.string.guidance_second_after, meters), modifier = Modifier.weight(1f),
             style = MaterialTheme.typography.labelMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
     }
@@ -158,8 +158,7 @@ private fun ManeuverDistance(guidance: TrackGuidance, prominentSize: Dp? = null)
 }
 
 @Composable
-private fun ManeuverArrow(maneuver: Maneuver, modifier: Modifier) {
-    val arrowColor = LocalNavigatorPalette.current.maneuverArrow
+private fun ManeuverArrow(maneuver: Maneuver, modifier: Modifier, arrowColor: Color = LocalNavigatorPalette.current.maneuverArrow) {
     Canvas(modifier) {
         val mirrored = maneuver == Maneuver.SLIGHT_LEFT || maneuver == Maneuver.LEFT || maneuver == Maneuver.HAIRPIN_LEFT
         fun point(x: Float, y: Float) = Offset((if (mirrored) 1 - x else x) * size.width, y * size.height)

@@ -32,8 +32,8 @@ fun ThemeSelector(theme: AppTheme, onThemeChange: (AppTheme) -> Unit, saveFailed
                 SegmentedButton(selected = theme == option, onClick = { onThemeChange(option) },
                     shape = SegmentedButtonDefaults.itemShape(index, AppTheme.entries.size),
                     colors = SegmentedButtonDefaults.colors(
-                        activeContainerColor = if (cyber) palette.followActive else colors.primaryContainer,
-                        activeContentColor = if (cyber) palette.onFollowActive else colors.onPrimaryContainer,
+                        activeContainerColor = if (cyber) palette.followActive else colors.secondaryContainer,
+                        activeContentColor = if (cyber) palette.onFollowActive else colors.onSecondaryContainer,
                         activeBorderColor = if (cyber) palette.followActive else palette.selectionBorder,
                         inactiveContainerColor = colors.surface,
                         inactiveContentColor = colors.onSurface,

@@ -21,6 +21,7 @@ import com.gpxnavigator.domain.model.ActivityMode
 import com.gpxnavigator.ui.cockpit.CockpitSetupScreen
 import com.gpxnavigator.navigation.SessionStatus
 import com.gpxnavigator.ui.components.ChangelogDialog
+import com.gpxnavigator.ui.components.StopNavigationConfirmation
 import com.gpxnavigator.ui.components.GpxExportViewModel
 import com.gpxnavigator.ui.settings.SettingsScreen
 import java.time.LocalDate
@@ -191,10 +192,10 @@ fun ImportGpxScreen(onOpenNavigation: () -> Unit, theme: AppTheme,
         HomePage.SETTINGS -> SettingsScreen(theme, onThemeChange, themeSaveFailed, ::back, footer)
     }
     if (showingChangelog) ChangelogDialog(onDismiss = { showingChangelog = false })
-    if (confirmingStop) AlertDialog(onDismissRequest = { confirmingStop = false },
-        title = { Text(stringResource(R.string.stop_navigation_confirmation)) },
-        confirmButton = { TextButton(onClick = { confirmingStop = false; viewModel.stopNavigation() }) { Text(stringResource(R.string.stop_navigation_yes)) } },
-        dismissButton = { TextButton(onClick = { confirmingStop = false }) { Text(stringResource(R.string.stop_navigation_no)) } })
+    if (confirmingStop) StopNavigationConfirmation(onDismiss = { confirmingStop = false }, onConfirm = {
+        confirmingStop = false
+        viewModel.stopNavigation()
+    })
     val deleting = state.tracks.firstOrNull { it.id == deletionId }
     val renaming = state.tracks.firstOrNull { it.id == renamingId }
     if (renaming != null) RenameTrackDialog(renaming, state.working, canRenameTrack(state, renaming.id), state.error,

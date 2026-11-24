@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
@@ -95,11 +97,16 @@ internal fun SettingsContent(theme: AppTheme, onThemeChange: (AppTheme) -> Unit,
                                 ScreenOrientation.PORTRAIT -> R.string.settings_orientation_portrait
                                 ScreenOrientation.LANDSCAPE -> R.string.settings_orientation_landscape
                             }
-                            Row(Modifier.fillMaxWidth().selectable(selected = display.settings?.orientation == option,
+                            val selected = display.settings?.orientation == option
+                            val highlighted = selected && theme == AppTheme.SOFT
+                            val fill = if (highlighted) Modifier.background(MaterialTheme.colorScheme.secondaryContainer,
+                                RoundedCornerShape(12.dp)) else Modifier
+                            Row(Modifier.fillMaxWidth().then(fill).selectable(selected = selected,
                                 enabled = display.settings != null, role = Role.RadioButton,
-                                onClick = { onOrientation(option) }).heightIn(min = 56.dp),
+                                onClick = { onOrientation(option) }).heightIn(min = 56.dp).padding(horizontal = 8.dp),
                                 verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                                RadioButton(selected = display.settings?.orientation == option, onClick = null,
+                                if (highlighted) Icon(painterResource(R.drawable.ic_check), null, Modifier.size(20.dp))
+                                else RadioButton(selected = selected, onClick = null,
                                     enabled = display.settings != null)
                                 Text(stringResource(label), style = MaterialTheme.typography.bodyLarge)
                             }
