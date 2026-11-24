@@ -8,7 +8,7 @@
 
 Versione **1.40.1** · APK · Android 10 o successivo
 
-![GPXdev in orizzontale: la mappa e i dati del giro nel tema Cyber](https://gianmaria.dev/assets/img/gpxdev/schermate/navigazione-cyber-orizzontale.webp)
+![GPXdev in orizzontale con mappa e dati del giro in tema Cyber](docs/images/cyber-navigazione-landscape.png)
 
 Dati cartografici © [contributori OpenStreetMap](https://www.openstreetmap.org/copyright).
 
@@ -52,11 +52,10 @@ Trovi l'APK di sviluppo in `app/build/outputs/apk/debug/app-debug.apk`.
 
 ## Schermate in verticale
 
-| Dashboard | Navigazione |
-| :---: | :---: |
-| <img src="https://gianmaria.dev/assets/img/gpxdev/schermate/dashboard-cyber.webp" alt="Dashboard di GPXdev in verticale, tema Cyber" width="280"> | <img src="https://gianmaria.dev/assets/img/gpxdev/schermate/navigazione-cyber.webp" alt="Navigazione GPX in verticale, tema Cyber" width="280"> |
-
-Le schermate di dashboard e navigazione mostrano la versione 1.35.1.
+| Schermata | Cyber | Soft |
+| :--- | :---: | :---: |
+| Home | <img src="docs/images/cyber-home-portrait.png" alt="Home di GPXdev in verticale, tema Cyber" width="280"> | <img src="docs/images/soft-home-portrait.png" alt="Home di GPXdev in verticale, tema Soft" width="280"> |
+| Navigazione | <img src="docs/images/cyber-navigazione-portrait.png" alt="Navigazione GPX in verticale, tema Cyber" width="280"> | <img src="docs/images/soft-navigazione-portrait.png" alt="Navigazione GPX in verticale, tema Soft" width="280"> |
 
 ## Funzione Cockpit
 
@@ -68,6 +67,20 @@ Quando arrivi, tocca **Termina** per vedere il riepilogo. Se vuoi tenere il giro
 
 | Cockpit Cyber | Cockpit Soft |
 | :---: | :---: |
-| <img src="docs/images/cockpit-cyber-portrait.png" alt="Mockup del Cockpit in verticale, tema Cyber" width="280"> | <img src="docs/images/cockpit-soft-portrait.png" alt="Mockup del Cockpit in verticale, tema Soft" width="280"> |
+| <img src="docs/images/cockpit-cyber-portrait.png" alt="Cockpit in verticale, tema Cyber" width="280"> | <img src="docs/images/cockpit-soft-portrait.png" alt="Cockpit in verticale, tema Soft" width="280"> |
 
-Mockup della versione 1.37.0 con dati di esempio.
+<details>
+<summary>Altre schermate di GPXdev</summary>
+
+| Mappa offline | Archivio GPX | Riepilogo del giro |
+| :---: | :---: | :---: |
+| <img src="docs/images/cyber-mappa-portrait.png" alt="Esplorazione della mappa offline, tema Cyber" width="200"> | <img src="docs/images/soft-archivio-gpx-portrait.png" alt="Archivio delle tracce GPX, tema Soft" width="200"> | <img src="docs/images/soft-riepilogo-cockpit-portrait.png" alt="Riepilogo del giro registrato con Cockpit, tema Soft" width="200"> |
+
+| In orizzontale | Schermata |
+| :--- | :---: |
+| Home Cyber | <img src="docs/images/cyber-home-landscape.png" alt="Home in orizzontale, tema Cyber" width="560"> |
+| Mappa Cyber | <img src="docs/images/cyber-mappa-landscape.png" alt="Esplorazione della mappa in orizzontale, tema Cyber" width="560"> |
+| Navigazione Soft | <img src="docs/images/soft-navigazione-landscape.png" alt="Navigazione GPX in orizzontale, tema Soft" width="560"> |
+| Cockpit Cyber | <img src="docs/images/cyber-cockpit-landscape.png" alt="Cockpit in orizzontale, tema Cyber" width="560"> |
+
+</details>
