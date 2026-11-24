@@ -49,21 +49,19 @@ internal fun DashboardContent(state: ImportGpxUiState, awaitingPermission: Boole
     val cockpitActivity = state.session.mode == ActivityMode.COCKPIT &&
         (state.session.isRunning || state.session.status == SessionStatus.INTERRUPTED)
     val introduction: @Composable () -> Unit = {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text(stringResource(R.string.home_welcome), style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold, modifier = Modifier.semantics { heading() })
-            Text(stringResource(R.string.home_intro), style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant)
-        }
+        Text(stringResource(R.string.home_welcome), style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold, modifier = Modifier.semantics { heading() })
     }
     val choices: @Composable (Boolean) -> Unit = { compact ->
+        val neutralCockpit = LocalAppTheme.current == AppTheme.CYBER && !(cockpitActivity && state.session.isRunning)
         Column(verticalArrangement = Arrangement.spacedBy(if (compact) 8.dp else 12.dp)) {
             ActivityCard(R.drawable.ic_recording_route, R.string.home_follow, R.string.home_follow_hint,
                 palette.action, palette.onAction, actions.onTracks, enabled = !state.working, compact = compact)
             ActivityCard(R.drawable.ic_recording_time, R.string.home_record, R.string.home_record_hint,
                 palette.recordAction, palette.onRecordAction, actions.onFreeRecording, enabled = canStart, compact = compact)
             ActivityCard(R.drawable.ic_cockpit, R.string.cockpit_title, R.string.cockpit_home_hint,
-                palette.followActive, palette.onFollowActive, actions.onCockpit,
+                if (neutralCockpit) palette.scheme.surfaceVariant else palette.followActive,
+                if (neutralCockpit) palette.scheme.onSurfaceVariant else palette.onFollowActive, actions.onCockpit,
                 enabled = ready && !state.recording.pending && (canStart || cockpitActivity), compact = compact)
             ActivityCard(R.drawable.ic_explore_map, R.string.explore_map, R.string.home_explore_hint,
                 MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.colorScheme.onTertiaryContainer,
@@ -107,7 +105,8 @@ private fun DashboardHeader(onSettings: () -> Unit) {
                 stringResource(R.string.dashboard_logo_description), contentScale = ContentScale.Fit,
                 alignment = Alignment.CenterStart, modifier = Modifier.width(148.dp).height(48.dp))
         }
-        TextButton(onClick = onSettings, modifier = Modifier.heightIn(min = 48.dp)) {
+        TextButton(onClick = onSettings, modifier = Modifier.heightIn(min = 48.dp),
+            colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurfaceVariant)) {
             Icon(painterResource(R.drawable.ic_settings), null, Modifier.size(22.dp))
             Text(stringResource(R.string.settings_title), Modifier.padding(start = 8.dp))
         }
@@ -130,7 +129,7 @@ private fun ActivityCard(icon: Int, title: Int, description: Int, accent: Color,
                 Text(stringResource(title), style = if (compact) MaterialTheme.typography.titleMedium else MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold)
                 Text(stringResource(description), style = MaterialTheme.typography.bodyMedium,
-                    maxLines = if (compact) 1 else Int.MAX_VALUE, overflow = TextOverflow.Ellipsis)
+                    maxLines = if (compact) 2 else Int.MAX_VALUE, overflow = TextOverflow.Ellipsis)
             }
             Icon(painterResource(R.drawable.ic_chevron_right), null, Modifier.size(22.dp))
         }
@@ -141,6 +140,8 @@ private fun ActivityCard(icon: Int, title: Int, description: Int, accent: Color,
 private fun ActiveSessionCard(state: ImportGpxUiState, ready: Boolean, actions: HomeActions) {
     val interrupted = state.session.status == SessionStatus.INTERRUPTED
     val cockpit = state.session.mode == ActivityMode.COCKPIT
+    val cyber = LocalAppTheme.current == AppTheme.CYBER
+    val secondaryActionColors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurfaceVariant)
     Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
         Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -148,6 +149,7 @@ private fun ActiveSessionCard(state: ImportGpxUiState, ready: Boolean, actions: 
                 if (interrupted) R.string.cockpit_interrupted else R.string.cockpit_running
             } else if (interrupted) R.string.home_interrupted else if (state.session.trackId == null)
                 R.string.home_recording_active else R.string.home_navigation_active),
+                color = if (cyber && state.recording.active && !interrupted) LocalNavigatorPalette.current.followActive else Color.Unspecified,
                 style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             Text(state.session.title ?: stringResource(R.string.home_record), style = MaterialTheme.typography.bodyLarge)
             Button(onClick = if (interrupted) actions.onResume else if (cockpit) actions.onCockpit else actions.onExplore,
@@ -155,10 +157,10 @@ private fun ActiveSessionCard(state: ImportGpxUiState, ready: Boolean, actions: 
                 modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp)) {
                 Text(stringResource(if (cockpit) R.string.cockpit_return else if (interrupted) R.string.resume_navigation else R.string.home_return_map))
             }
-            if (interrupted) TextButton(onClick = actions.onDismissSession, enabled = ready) {
+            if (interrupted) TextButton(onClick = actions.onDismissSession, enabled = ready, colors = secondaryActionColors) {
                 Text(stringResource(if (cockpit) R.string.activity_stop else R.string.discard_session))
             }
-            else TextButton(onClick = actions.onStop, enabled = !state.working) {
+            else TextButton(onClick = actions.onStop, enabled = !state.working, colors = secondaryActionColors) {
                 Text(stringResource(R.string.activity_stop))
             }
         }

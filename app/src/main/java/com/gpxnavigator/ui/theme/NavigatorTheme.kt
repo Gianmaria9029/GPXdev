@@ -148,7 +148,6 @@ val CyberPalette = NavigatorPalette(
     maneuverBackground = Color(0xFF050509), maneuverArrow = Color(0xFFF2055C),
     followActive = Color(0xFFB6E536), onFollowActive = Color(0xFF1C1C1C),
     stopAction = Color(0xFFB6E536), onStopAction = Color(0xFF1C1C1C),
-    recordAction = Color(0xFFB6E536),
 )
 
 val LocalNavigatorPalette = staticCompositionLocalOf { SoftPalette }

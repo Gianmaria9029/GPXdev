@@ -164,7 +164,7 @@ private fun PortraitStatus(state: NavigationUiState, onStop: () -> Unit, onDetai
                 else -> R.string.explore_mode
             }), modifier = Modifier.weight(1f).padding(vertical = 8.dp),
                 style = MaterialTheme.typography.labelMedium)
-            if (state.session.isRunning) StopNavigationButton(onStop)
+            if (state.session.isRunning) StopNavigationButton(onStop, recording = state.session.trackId == null)
         }
     }
     NavigationAlerts(state, onDetails, notificationsDisabled)
@@ -203,7 +203,8 @@ private fun NavigationToolbar(state: NavigationUiState, landscape: Boolean, onBa
             if (state.recording.active) RecordingIndicator()
             MapViewSelector(state.mapOrientation, onOrientation,
                 state.mapAppearance.takeIf { state.map?.header?.isVector == true }, onAppearance)
-            if (landscape && state.session.isRunning) StopNavigationButton(onStop, compact = true)
+            if (landscape && state.session.isRunning) StopNavigationButton(onStop, compact = true,
+                recording = state.session.trackId == null)
         }
     }
 }

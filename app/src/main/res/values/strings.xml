@@ -192,7 +192,6 @@
     <string name="recording_setup_start">Inizia registrazione</string>
     <string name="recording_setup_permissions">Attendi i permessi…</string>
     <string name="home_welcome">Dashboard</string>
-    <string name="home_intro">Scegli una funzione</string>
     <string name="home_follow">Segui una traccia</string>
     <string name="home_follow_hint">Scegli un GPX e naviga il percorso offline.</string>
     <string name="home_record">Registra un giro</string>
@@ -265,7 +264,7 @@
     <string name="cockpit_title">Cockpit</string>
     <string name="cockpit_speed_number">%1$.0f</string>
     <string name="cockpit_elevation_number">%1$,.0f</string>
-    <string name="cockpit_home_hint">Tutti i dati del giro a colpo d’occhio.</string>
+    <string name="cockpit_home_hint">Registra il giro con velocità, tempi e quote in primo piano.</string>
     <string name="cockpit_setup_title">Prepara Cockpit</string>
     <string name="cockpit_setup_intro">Dai un nome al giro. Avvia Cockpit per registrare automaticamente il GPX e vedere tutti i dati senza mappa.</string>
     <string name="cockpit_start">Avvia Cockpit</string>

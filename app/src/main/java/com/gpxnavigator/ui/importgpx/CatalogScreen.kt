@@ -1,6 +1,7 @@
 package com.gpxnavigator.ui.importgpx
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
@@ -23,6 +24,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.gpxnavigator.R
 import com.gpxnavigator.domain.model.ActivityMode
+import com.gpxnavigator.domain.model.AppTheme
+import com.gpxnavigator.ui.theme.LocalAppTheme
 import com.gpxnavigator.domain.model.SavedTrack
 import com.gpxnavigator.domain.model.TrackSortOrder
 import com.gpxnavigator.ui.theme.navigatorButtonBorder
@@ -38,8 +41,14 @@ internal fun CatalogScreen(state: ImportGpxUiState, listState: LazyListState,
     var sorting by rememberSaveable { mutableStateOf(false) }
     val focus = LocalFocusManager.current
     val ready = state.catalogLoaded && !state.loading && !state.working
+    val soft = LocalAppTheme.current == AppTheme.SOFT
+    val importInHeader = soft && state.tracks.isNotEmpty()
     Column(Modifier.fillMaxSize().imePadding()) {
-        PageHeader(stringResource(R.string.library_title), onBack)
+        PageHeader(stringResource(R.string.library_title), onBack) {
+            if (importInHeader) TextButton(onClick = onImport, enabled = ready) {
+                Text(stringResource(R.string.import_gpx))
+            }
+        }
         LazyColumn(Modifier.weight(1f).fillMaxWidth(), state = listState,
             contentPadding = PaddingValues(20.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
             item(key = "library_tools") {
@@ -65,7 +74,8 @@ internal fun CatalogScreen(state: ImportGpxUiState, listState: LazyListState,
                     }
                     val fontScale = LocalDensity.current.fontScale
                     BoxWithConstraints(Modifier.fillMaxWidth()) {
-                        if (maxWidth >= 600.dp * fontScale) {
+                        if (importInHeader) searchField(Modifier.fillMaxWidth())
+                        else if (!soft && maxWidth >= 600.dp * fontScale) {
                             Row(verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                                 importButton(Modifier.width(180.dp * fontScale))
@@ -121,6 +131,8 @@ internal fun CatalogScreen(state: ImportGpxUiState, listState: LazyListState,
             }
             items(state.visibleTracks, key = { it.id }) { track ->
                 OutlinedCard(onClick = { focus.clearFocus(); onTrack(track.id) }, enabled = !state.working,
+                    border = if (soft) BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceDim)
+                        else CardDefaults.outlinedCardBorder(enabled = !state.working),
                     colors = navigatorCardColors(), modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp)) {
                     Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(8.dp)) {

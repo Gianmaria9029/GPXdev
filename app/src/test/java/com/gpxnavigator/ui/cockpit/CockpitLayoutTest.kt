@@ -18,6 +18,7 @@ import androidx.compose.ui.platform.ViewRootForTest
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.Density
+import com.gpxnavigator.R
 import com.gpxnavigator.domain.model.AppTheme
 import com.gpxnavigator.domain.model.ActivityMode
 import com.gpxnavigator.domain.model.LocationPoint
@@ -110,7 +111,7 @@ class CockpitLayoutTest {
     }
 
     @Test fun allTenValuesFitWithoutAnyScrollInBothThemesOrientationsAndLargeFonts() {
-        for (theme in AppTheme.entries) for ((width,height) in listOf(360 to 720, 320 to 640, 800 to 360, 640 to 320)) {
+        for (theme in AppTheme.entries) for ((width,height) in listOf(360 to 720, 320 to 640, 320 to 480, 800 to 360, 640 to 320)) {
             for (scale in listOf(1f,1.6f)) page(theme,width,height,scale) { page ->
                 val nodes = page.nodes()
                 page.save("latest-${theme.name.lowercase()}-${width}-${height}-$scale")
@@ -118,6 +119,21 @@ class CockpitLayoutTest {
                     it.config.contains(SemanticsProperties.VerticalScrollAxisRange) || it.config.contains(SemanticsProperties.HorizontalScrollAxisRange) })
                 val metrics = nodes.filter { it.config.getOrNull(SemanticsProperties.TestTag)?.startsWith("cockpit-metric-") == true }
                 assertEquals(10, metrics.size)
+                val rowSizes = metrics.groupBy { it.boundsInRoot.top }.toSortedMap().values.map { it.size }
+                if (width > height) {
+                    assertEquals(listOf(5, 5), rowSizes)
+                } else {
+                    assertEquals(listOf(1, 2, 2, 2, 2, 1), rowSizes)
+                    fun tile(label: Int) = metrics.single {
+                        it.config.getOrNull(SemanticsProperties.TestTag) == "cockpit-metric-$label"
+                    }.boundsInRoot
+                    val speed = tile(R.string.cockpit_current_speed)
+                    val distance = tile(R.string.cockpit_distance)
+                    val duration = tile(R.string.metric_recording_time_label)
+                    assertTrue(speed.bottom <= distance.top && speed.width > distance.width)
+                    assertEquals(distance.top, duration.top, 0f)
+                    assertTrue(distance.right <= duration.left)
+                }
                 metrics.forEach { node ->
                     val bounds = node.boundsInRoot
                     assertTrue("Metric outside screen: $bounds", bounds.width > 0 && bounds.height > 0 && bounds.top >= 0 &&

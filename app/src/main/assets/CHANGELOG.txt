@@ -6,6 +6,13 @@ Le date di rilascio non sono indicate perché non sono documentate per tutte
 le versioni. Per M0 e M1 il numero di versione iniziale non è ricostruibile
 con certezza dai messaggi e dagli APK disponibili.
 
+1.40.0 - Home, archivio e Cockpit
+- Home più compatta e descrizione del Cockpit che chiarisce come viene registrato il giro.
+- Nell'archivio Soft la ricerca è in primo piano. Con tracce salvate, Importa GPX passa nell'intestazione.
+- In Cyber il fucsia indica l'avvio della registrazione e il lime la registrazione in corso.
+- Nel Cockpit verticale la velocità occupa la prima riga, seguita da distanza e tempo giro. In orizzontale i dieci dati sono disposti su cinque colonne.
+- Unità di misura accanto ai valori, cornici più leggere in Soft e pulsante Termina antracite in Cyber.
+
 1.39.0 - Traccia piu' visibile sulla mappa
 - Spessore della traccia GPX aumentato da 5 a 6 sia sulla mappa chiara sia sulla mappa scura.
 - Rosso acceso #E60000 sulla mappa chiara; conservato il rosa della mappa scura.

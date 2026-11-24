@@ -20,6 +20,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
@@ -49,6 +50,8 @@ import com.gpxnavigator.domain.model.RecordingNameError
 import com.gpxnavigator.domain.model.normalizedRecordingName
 import com.gpxnavigator.domain.model.recordingNameError
 import com.gpxnavigator.ui.theme.LocalNavigatorPalette
+import com.gpxnavigator.ui.theme.LocalAppTheme
+import com.gpxnavigator.domain.model.AppTheme
 
 @Composable
 internal fun FreeRecordingSetupScreen(name: String, onNameChange: (String) -> Unit,
@@ -60,6 +63,7 @@ internal fun FreeRecordingSetupScreen(name: String, onNameChange: (String) -> Un
     val available = enabled && !awaitingPermission
     val header: @Composable () -> Unit = {
         TextButton(onClick = onBack, contentPadding = PaddingValues(horizontal = 12.dp),
+            colors = ButtonDefaults.textButtonColors(contentColor = palette.scheme.onSurfaceVariant),
             modifier = Modifier.heightIn(min = 48.dp)) {
             Icon(painterResource(R.drawable.ic_home), null, Modifier.size(22.dp))
             Text(stringResource(R.string.recording_setup_back), Modifier.padding(start = 8.dp),
@@ -74,7 +78,8 @@ internal fun FreeRecordingSetupScreen(name: String, onNameChange: (String) -> Un
                 Text(stringResource(R.string.recording_setup_intro), style = MaterialTheme.typography.bodyLarge)
             }
             OutlinedCard(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp),
-                border = BorderStroke(2.dp, MaterialTheme.colorScheme.tertiaryContainer),
+                border = if (LocalAppTheme.current == AppTheme.CYBER) CardDefaults.outlinedCardBorder()
+                    else BorderStroke(2.dp, MaterialTheme.colorScheme.tertiaryContainer),
                 colors = navigatorCardColors()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     OutlinedTextField(value = name, onValueChange = onNameChange,
@@ -146,10 +151,12 @@ internal fun FreeRecordingSetupScreen(name: String, onNameChange: (String) -> Un
 @Composable
 private fun RecordingDataCard(icon: Int, title: Int, detail: Int) {
     val palette = LocalNavigatorPalette.current
+    val cyber = LocalAppTheme.current == AppTheme.CYBER
     OutlinedCard(Modifier.fillMaxWidth(), shape = RoundedCornerShape(14.dp), colors = navigatorCardColors()) {
         Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(14.dp),
             verticalAlignment = Alignment.Top) {
-            Surface(shape = CircleShape, color = palette.recordAction, contentColor = palette.onRecordAction) {
+            Surface(shape = CircleShape, color = if (cyber) palette.scheme.surfaceVariant else palette.recordAction,
+                contentColor = if (cyber) palette.scheme.onSurfaceVariant else palette.onRecordAction) {
                 Icon(painterResource(icon), null, Modifier.padding(10.dp).size(24.dp))
             }
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {

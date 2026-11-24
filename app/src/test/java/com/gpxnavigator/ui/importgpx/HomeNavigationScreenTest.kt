@@ -274,6 +274,24 @@ class HomeNavigationScreenTest : NavigationTestSupport() {
         }
     }
 
+    @Test fun softLibraryMovesImportIntoHeaderAfterFirstTrackEvenWithNoSearchResults() {
+        runBlocking { repository.delete(trackId) }
+        page { page, model, _ ->
+            page.click("Segui una traccia"); settle()
+            val emptyImport = page.text("Importa GPX").boundsInRoot
+            assertTrue(emptyImport.top >= page.text("Le mie tracce").boundsInRoot.bottom)
+            assertEquals(page.text("Cerca una traccia…").boundsInRoot.width, emptyImport.width, 1f)
+
+            runBlocking { repository.import(fixture("short-track.gpx")) }
+            await { model.state.value.tracks.isNotEmpty() }
+            page.type("nessuna corrispondenza"); settle()
+            assertTrue(model.state.value.visibleTracks.isEmpty())
+            val compactImport = page.text("Importa GPX").boundsInRoot
+            assertTrue(compactImport.width < emptyImport.width)
+            assertTrue(compactImport.top < page.text("Le mie tracce").boundsInRoot.bottom)
+        }
+    }
+
     @Test fun libraryRendersInBothThemesAndOrientationsAndWithLargeFonts() {
         runBlocking {
             repository.setFavorite(trackId, true)
@@ -282,6 +300,11 @@ class HomeNavigationScreenTest : NavigationTestSupport() {
         for (theme in AppTheme.entries) for (landscape in listOf(false, true)) {
             page(theme, if (landscape) 840 else 400, if (landscape) 400 else 800) { page, _, _ ->
                 page.click("Segui una traccia"); settle()
+                if (theme == AppTheme.SOFT) {
+                    val title = page.text("Le mie tracce").boundsInRoot
+                    val importButton = page.text("Importa GPX").boundsInRoot
+                    assertTrue(importButton.left >= title.right && importButton.top < title.bottom)
+                }
                 page.text("Cerca una traccia…")
                 page.text("Solo preferiti")
                 page.save("137-${theme.name.lowercase()}-archivio-${if (landscape) "landscape" else "verticale"}")
@@ -447,7 +470,7 @@ class HomeNavigationScreenTest : NavigationTestSupport() {
     @Test fun screenSettingsCanBeChangedAndStoredAndTheRecordingPageUsesTheNewTitle() {
         page { page, _, opens ->
             page.text("Dashboard")
-            page.text("Scegli una funzione")
+            page.text("Registra il giro con velocità, tempi e quote in primo piano.")
             page.click("Registra un giro"); settle()
             page.text("Registra il tuo giro")
             assertEquals(0, opens())

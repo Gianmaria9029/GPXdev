@@ -1,5 +1,6 @@
 package com.gpxnavigator.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.heightIn
@@ -18,20 +19,35 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.TextStyle
 import com.gpxnavigator.R
+import com.gpxnavigator.domain.model.AppTheme
+import com.gpxnavigator.ui.theme.LocalAppTheme
 import com.gpxnavigator.ui.theme.LocalNavigatorPalette
 import com.gpxnavigator.ui.theme.navigatorButtonBorder
 
 @Composable
 fun StopNavigationButton(onClick: () -> Unit, modifier: Modifier = Modifier,
     compact: Boolean = false, inHome: Boolean = false,
-    labelStyle: TextStyle = MaterialTheme.typography.labelLarge) {
+    labelStyle: TextStyle = MaterialTheme.typography.labelLarge, recording: Boolean = false) {
     val palette = LocalNavigatorPalette.current
+    val outlined = recording && LocalAppTheme.current == AppTheme.CYBER
     Button(onClick = onClick, modifier = if (compact) modifier.size(48.dp) else modifier.heightIn(min = 40.dp),
-        shape = RoundedCornerShape(8.dp), border = if (inHome) navigatorButtonBorder() else null,
+        shape = RoundedCornerShape(8.dp), border = when {
+            outlined -> BorderStroke(1.dp, palette.scheme.outline)
+            inHome -> navigatorButtonBorder()
+            else -> null
+        },
         contentPadding = if (compact) PaddingValues(0.dp) else PaddingValues(horizontal = 10.dp, vertical = 6.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (inHome) palette.homeStopAction else palette.stopAction,
-            contentColor = if (inHome) palette.onHomeStopAction else palette.onStopAction)) {
+            containerColor = when {
+                outlined -> palette.scheme.surface
+                inHome -> palette.homeStopAction
+                else -> palette.stopAction
+            },
+            contentColor = when {
+                outlined -> palette.scheme.onSurface
+                inHome -> palette.onHomeStopAction
+                else -> palette.onStopAction
+            })) {
         Icon(painterResource(R.drawable.ic_stop_navigation),
             contentDescription = if (compact) stringResource(R.string.stop_navigation) else null,
             modifier = Modifier.size(if (compact) 18.dp else 14.dp))

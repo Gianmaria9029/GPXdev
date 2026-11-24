@@ -10,9 +10,11 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class PaletteContrastTest {
-    @Test fun recordingAndNavigationHaveDistinctReadableActionsInBothThemes() {
+    @Test fun recordingActionsAreReadableAndCyberDistinguishesStartFromActive() {
+        assertNotEquals(SoftPalette.action, SoftPalette.recordAction)
+        assertEquals(CyberPalette.action, CyberPalette.recordAction)
+        assertNotEquals(CyberPalette.recordAction, CyberPalette.followActive)
         for (palette in listOf(SoftPalette, CyberPalette)) {
-            assertNotEquals(palette.action, palette.recordAction)
             requireContrast("Record GPX label", palette.onRecordAction, palette.recordAction, 4.5)
         }
     }

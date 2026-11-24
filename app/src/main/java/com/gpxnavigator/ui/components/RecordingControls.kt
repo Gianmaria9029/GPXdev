@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.gpxnavigator.R
 import com.gpxnavigator.domain.model.AppTheme
 import com.gpxnavigator.ui.theme.LocalAppTheme
+import com.gpxnavigator.ui.theme.LocalNavigatorPalette
 import kotlinx.coroutines.delay
 
 @Composable
@@ -29,7 +30,7 @@ fun RecordingIndicator(modifier: Modifier = Modifier) {
     var lit by remember { mutableStateOf(true) }
     LaunchedEffect(Unit) { while (true) { delay(700); lit = !lit } }
     val description = stringResource(R.string.recording_enabled)
-    val color = if (LocalAppTheme.current == AppTheme.SOFT) Color(0xFFC62828) else Color(0xFFFF5252)
+    val color = if (LocalAppTheme.current == AppTheme.SOFT) Color(0xFFC62828) else LocalNavigatorPalette.current.followActive
     // Keep accessibility text stable while only the visual indicator blinks.
     Box(modifier.semantics(mergeDescendants = true) { contentDescription = description }.padding(horizontal = 5.dp)) {
         Row(Modifier.alpha(if (lit) 1f else 0f), horizontalArrangement = Arrangement.spacedBy(4.dp),
